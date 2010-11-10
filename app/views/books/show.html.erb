@@ -1,0 +1,44 @@
+<% title "Book" %>
+
+<p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+</p>
+<p>
+  <strong>Available:</strong>
+  <%= @book.available %>
+</p>
+<p>
+  <strong>Synopsis:</strong>
+  <%= @book.synopsis %>
+</p>
+<p>
+  <strong>Published Date:</strong>
+  <%= @book.published_date %>
+</p>
+<p>
+  <strong>Editorial:</strong>
+  <%= @book.editorial %>
+</p>
+<p>
+  <strong>Isbn:</strong>
+  <%= @book.isbn %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%= @book.user_id %>
+</p>
+<p>
+  <strong>Health Status:</strong>
+  <%= @book.health_status %>
+</p>
+<p>
+  <strong>Health Description:</strong>
+  <%= @book.health_description %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_book_path(@book) %> |
+  <%= link_to "Destroy", @book, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", books_path %>
+</p>

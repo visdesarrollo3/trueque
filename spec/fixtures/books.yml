@@ -1,0 +1,21 @@
+one:
+  title: MyString
+  available: false
+  synopsis: MyText
+  published_date: MyString
+  editorial: MyString
+  isbn: MyString
+  user_id: 1
+  health_status: 1
+  health_description: MyText
+
+two:
+  title: MyString
+  available: false
+  synopsis: MyText
+  published_date: MyString
+  editorial: MyString
+  isbn: MyString
+  user_id: 1
+  health_status: 1
+  health_description: MyText
