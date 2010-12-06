@@ -4,11 +4,7 @@ class PagesController < ApplicationController
   end
   
   def show
-    if params[:permalink]
-      @page = Page.find_by_permalink(params[:permalink])
-    else
-      @page = Page.find(params[:id])
-    end
+    @page = Page.find_by_permalink(params[:id])
     raise ActiveRecord::RecordNotFound, "Static page not found" if @page.nil?
     if request.xhr?
       render :layout => false

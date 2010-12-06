@@ -96,3 +96,6 @@ div.contentWrap {
 }
 
 div#overlay .close {background-image:url("/images/close.png"); cursor:pointer; height:35px; position:absolute; right:-15px; top:15px; width:35px;}
+
+div#navigation ul {padding: 0; margin: 0; list-style: none;}
+div#navigation ul li {float: left; padding: 0 10px; margin: 0;}

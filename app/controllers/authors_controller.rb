@@ -1,7 +1,8 @@
 class AuthorsController < ApplicationController
-  def search
-    # regex = params[:term].split(/[,]\s*/)
-    @authors = Author.search_for(params[:term].to_s).map(&:name)
-    render :text => @authors
+  respond_to :html, :xml, :json
+  
+  def list
+    @authors = Author.all
+    respond_with @authors
   end
 end

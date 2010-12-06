@@ -40,4 +40,8 @@ module LayoutHelper
       end
     end
   end
+  
+  def clear
+    raw(%(<div class="clear"> </div>))
+  end
 end

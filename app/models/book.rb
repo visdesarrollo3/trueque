@@ -2,11 +2,14 @@ class Book < ActiveRecord::Base
   include Pacecar
   
   attr_accessible :title, :available, :synopsis, :published_date, :editorial, :isbn, :user_id, :health_status, :health_description,
-                  :tag_list
+                  :tag_list, :author_names
   validates_presence_of :title, :synopsis, :published_date, :editorial, :isbn, :health_status, :health_description
+  
   acts_as_taggable_on :tags
   
   attr_writer :author_names
+  
+  after_save :assign_authors
   
   has_many :authorships, :dependent => :destroy
   has_many :authors, :through => :authorships
@@ -19,7 +22,7 @@ class Book < ActiveRecord::Base
 
   def assign_authors
     if @author_names
-      self.tags = @author_names.split(/[,;]\s*/).map do |name|
+      self.authors = @author_names.split(/[,;]\s*/).map do |name|
         Author.find_or_create_by_name(name)
       end
     end

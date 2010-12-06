@@ -5,6 +5,10 @@ class Page < ActiveRecord::Base
   
   before_save :create_permalink
   
+  def to_param
+    permalink
+  end
+  
   private
   def create_permalink
     self.permalink = permalink

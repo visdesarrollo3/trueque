@@ -15,7 +15,9 @@ gem 'acts-as-taggable-on'
 
 gem 'rails3-jquery-autocomplete'
 
-gem 'pacecar'
+gem 'pacecar' # Great but not as much as searchlogic!
+
+gem "simple-navigation"
 
 gem 'cancan'
 

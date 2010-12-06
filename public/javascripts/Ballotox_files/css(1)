@@ -1,0 +1,6 @@
+@font-face {
+  font-family: 'Inconsolata';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Inconsolata'), url('http://themes.googleusercontent.com/font?kit=7bMKuoy6Nh0ft0SHnIGMuaCWcynf_cDxXwCLxiixG1c') format('truetype');
+}

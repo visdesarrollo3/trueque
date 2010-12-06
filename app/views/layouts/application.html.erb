@@ -13,7 +13,13 @@
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
       <%= content_tag :h1, yield(:title) if show_title? %>
+      <%= clear %>
+      <div id="navigation">
+        <%= render_navigation %>
+      </div>
+      <%= clear %>
       <%= yield %>
+      <%= clear %>
     </div>
     
     

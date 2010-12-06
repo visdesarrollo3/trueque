@@ -3,8 +3,7 @@
 
 <%= simple_format h(@page.content) %>
 
-<!-- <p>
-  <%= link_to "Edit", edit_page_path(@page) %> |
-  <%= link_to "Destroy", @page, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", pages_path %>
-</p> -->
+<p>
+  <%= link_to "Editar", edit_page_path(@page) %> |
+  <%= link_to "Eliminar", @page, :confirm => 'Are you sure?', :method => :delete %>
+</p>
