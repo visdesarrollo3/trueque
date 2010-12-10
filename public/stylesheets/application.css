@@ -144,7 +144,7 @@ a {
   padding: 10px 10px 0px;
 }
 
-#login #login-dashboard{padding: 10px 10px 0px;}
+#login #login-dashboard{padding: 0px 10px; margin-top: -10px;}
 
 /* ######################################## OVERLAY STYLES */
 #overlay {
