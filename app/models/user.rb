@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   end
 
   has_attached_file :avatar, :styles => { :small => "100x100#" },
-    :url  => "/uploads/users/avatars/:id/:style-:basename.:extension",
+    :url  => "/uploads/users/:attachment/:id/:style-:basename.:extension",
     :path => ":rails_root/public/uploads/users/:attachment/:id/:style-:basename.:extension"
 
 
