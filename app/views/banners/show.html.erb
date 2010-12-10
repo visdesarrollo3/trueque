@@ -1,0 +1,16 @@
+<% title "Banner" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @banner.name %>
+</p>
+
+<p>
+  <%= image_tag @banner.photo.url(:thumb) %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_banner_path(@banner) %> |
+  <%= link_to "Destroy", @banner, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", banners_path %>
+</p>

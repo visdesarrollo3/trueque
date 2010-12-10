@@ -2,8 +2,8 @@
 <html>
   <head>
     <title><%= content_for?(:title) ? yield(:title) : "Trueque" %></title>
-    <%= stylesheet_link_tag "jquery.ui", "application", :cache => true %>
-    <%= javascript_include_tag 'jquery.min','jquery.ui.min', 'autocomplete-rails','jquery.tools.min','swfobject.js', 'jquery.ytchromeless.min.js', 'rails', 'application', :cache => true %>
+    <%= stylesheet_link_tag "jquery.ui", "nivo.slider", "application", :cache => true %>
+    <%= javascript_include_tag 'jquery.min','jquery.ui.min', 'autocomplete-rails','jquery.tools.min','jquery.nivo.slider', 'rails', 'application', :cache => true %>
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
   </head>
@@ -39,9 +39,11 @@
 	</div>
 	
 	<div id="slider">
-	 <%= image_tag ("/images/layout/banner1.jpg") %>
-	</div>
-	
+	  <% for banner in @banners %>
+	    <%= link_to image_tag(banner.photo.url), "#" %>
+	  <% end %>
+  </div>
+		
 	<div id="login">
 		
 	</div>
