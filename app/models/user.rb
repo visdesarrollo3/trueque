@@ -14,8 +14,11 @@ class User < ActiveRecord::Base
 
 
   has_many :books
+  
   has_many :offered_trades,  :class_name => "Trade", :foreign_key => "user1_id"
   has_many :received_trades, :class_name => "Trade", :foreign_key => "user2_id"
+  
+  has_many :completed_trades, :class_name => "Trade", :foreign_key => "user1_id", :conditions => {:accepted => true}
 
   #here we add required validations for a new record and pre-existing record
   # validate do |user|
@@ -36,5 +39,5 @@ class User < ActiveRecord::Base
     user.save(false) #create the user without performing validations. This is because most of the fields are not set.
     user.reset_persistence_token! #set persistence_token else sessions will not be created
     user
-  end                  
+  end
 end

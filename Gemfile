@@ -8,8 +8,8 @@ gem 'nifty-generators'
 gem 'paperclip'
 
 gem 'authlogic'
-gem 'meta_where'
-gem 'meta_search' # replaces searchlogic
+# gem 'meta_where'
+# gem 'meta_search' # replaces searchlogic
 gem 'rd_searchlogic', '3.0.0.rc4' # gem install rd_searchlogic -v 3.0.0.rc3 --pre
 gem 'acts-as-taggable-on'
 

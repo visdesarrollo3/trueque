@@ -20,7 +20,8 @@ class Book < ActiveRecord::Base
   has_many :offered_trades, :class_name => "Trade", :foreign_key => "book1_id"
   has_many :receive_trades, :class_name => "Trade", :foreign_key => "book2_id"
   
-
+  scope :offered, :conditions => {:offered => true}
+  scope :received, :conditions => {:offered => false}
     
   def author_names
     @author_names || authors.map(&:name).join(', ')
@@ -38,12 +39,9 @@ class Book < ActiveRecord::Base
     title
   end
   
-  def trade! offered
-    if offered
-      mark_as_offered
-    else
-      mark_as_received
-    end
+  def trade! was_offered
+    abstract_isbn.update_traded_count and self.save
+    was_offered ? mark_as_offered : mark_as_received
   end
     
   private
