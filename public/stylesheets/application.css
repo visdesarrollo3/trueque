@@ -134,6 +134,10 @@ a {
 /* ######################################## INDEX STYLES */
 #login{width: 280px; float: right; background: #C7B472 url(/images/layout/backlogin.jpg) bottom left no-repeat; height: 270px;}
 
+.new_user_session input{
+  
+}
+
 .quoted-title{
   height: 59px;
   background: transparent url(/images/layout/imgtitle.png) top right repeat-x;
