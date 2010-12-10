@@ -1,9 +1,14 @@
-<% title "User" %>
+<% title @user.name %>
 
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
 </p>
+
+<p>
+  <%= image_tag @user.avatar.url(:small) %>
+</p>
+
 <p>
   <strong>Age:</strong>
   <%= @user.age %>

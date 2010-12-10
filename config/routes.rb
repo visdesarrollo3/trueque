@@ -1,6 +1,9 @@
 Trueque::Application.routes.draw do
-  resources :trades
+  match '/login' => "user_sessions#new", :as => :login
+  match '/logout' => "user_sessions#destroy", :as => :logout
 
+  resources :trades
+  resources :user_sessions
   resources :users
 
   get "tags/list"
