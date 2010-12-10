@@ -137,6 +137,12 @@ a {
 #footer .section {width: 320px; }
 #footer .section h3 {color: #1F4A57; font-family: Georgia; font-weight: normal; font-size: 18px;}
 
+.footer_icons a{
+  margin-right:5px;
+}
+.eafit_icons a{
+}
+
 /* ######################################## INDEX STYLES */
 #login{width: 280px; float: right; background: #C7B472 url(/images/layout/backlogin.jpg) bottom left no-repeat; height: 270px;}
 
