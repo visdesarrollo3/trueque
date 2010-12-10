@@ -36,7 +36,25 @@
       </ul>
       <%= clear %>
     </div> <!-- End of nav-menu div -->
-    <%= yield %>
+    
+    <% if  content_for?(:subheader) %>
+      <%= yield(:subheader) %>
+    <% end %>
+    
+    <div class="left">
+      <% if  content_for?(:sidebar) %>
+        <%= yield(:sidebar) %>
+      <% else %>
+        <%= render :partial => "shared/sidebar" %>
+      <% end %>
+      <%= clear %>
+    </div>
+    
+    <div id="main-content">
+      <%= yield %>
+      <%= clear %>
+    </div>
+    
     <%= clear %>
     
     <div id="footer">

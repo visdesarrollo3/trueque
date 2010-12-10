@@ -26,7 +26,8 @@ class Book < ActiveRecord::Base
   
   scope :offered, :conditions => {:offered => true}
   scope :received, :conditions => {:offered => false}
-    
+  scope :newest_first, order("created_at DESC")
+  
   def author_names
     @author_names || authors.map(&:name).join(', ')
   end
