@@ -39,6 +39,14 @@
     <%= yield %>
     <%= clear %>
     
+    <% if  content_for?(:sidebar) %>
+      <%= yield(:sidebar) %>
+    <% else %>
+      <%= render :partial => "shared/sidebar" %>
+    <% end %>
+    
+    <%= clear %>
+    
     <div id="footer">
       <div class="left section" id="interesting-links">
         <h3>Enlaces de interés</h3>

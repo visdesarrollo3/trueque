@@ -132,14 +132,6 @@ a {
 
 .left{float: left;}
 
-/* ######################################## LAYOUT STYLES */
-#footer {height: 150px; background: #F2F2F2; width: 100%; border: 1px solid #CCC; border-left: 0px; border-right: 0px; margin-bottom: 30px;}
-#footer .section {width: 320px; }
-#footer .section h3 {color: #1F4A57; font-family: Georgia; font-weight: normal; font-size: 18px;}
-
-/* ######################################## INDEX STYLES */
-#login{width: 280px; float: right; background: #C7B472 url(/images/layout/backlogin.jpg) bottom left no-repeat; height: 270px;}
-
 .btn{
   background: none repeat scroll 0 0 #DDDDDD;
   cursor: pointer;
@@ -148,12 +140,14 @@ a {
   text-align: center;
   width: 80px;
 }
-.new_user_session input{
-  background: none repeat scroll 0 0 #FFF;
+
+input{
+  background: none repeat scroll 0 0 #FFF !important;
   border: 1px solid #8F8F8F;
   color: #8F8F8F;
 }
-.new_user_session label{
+
+label{
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   font-size:13px;
   color:#FFF;
@@ -172,11 +166,22 @@ a {
   padding: 10px 10px 0px;
 }
 
+/* ######################################## LAYOUT STYLES */
+#sidebar {float: left; width: 225px;}
+
+
+#footer {height: 150px; background: #F2F2F2; width: 100%; border: 1px solid #CCC; border-left: 0px; border-right: 0px; margin-bottom: 30px;}
+#footer .section {width: 320px; }
+#footer .section h3 {color: #1F4A57; font-family: Georgia; font-weight: normal; font-size: 18px;}
+
+/* ######################################## INDEX STYLES */
+#sub-header {margin-bottom: 3px;}
+#login{width: 280px; float: right; background: #C7B472 url(/images/layout/backlogin.jpg) bottom left no-repeat; height: 270px;}
+#current-poll {background: #E9E9E9; min-height: 200px;}
+#current-poll * ~ div { padding-left: 10px; }
+
 #login #login-dashboard{padding: 0px 10px; margin-top: -10px;}
 
-
-
-#sub-header {margin-bottom: 50px;}
 
 /* ######################################## OVERLAY STYLES */
 #overlay {

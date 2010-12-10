@@ -92,7 +92,7 @@ a.nivo-prevNav {
 	position:absolute;
 	/*left:280px;*/
 	margin: 0 auto;
-	bottom:-22px;
+	bottom:5px;
 }
 .nivo-controlNav a {
   display:block;
