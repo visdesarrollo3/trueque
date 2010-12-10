@@ -1,0 +1,32 @@
+<%= form_for @user, :html => {:multipart => true} do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
+  </p>
+  <p>
+    <%= f.label :age %><br />
+    <%= f.text_field :age %>
+  </p>
+  <p>
+    <%= f.label :sex %><br />
+    <%= f.text_field :sex %>
+  </p>
+  <p>
+    <%= f.label :ocupation %><br />
+    <%= f.text_field :ocupation %>
+  </p>
+  <p>
+    <%= f.label :hobbies %><br />
+    <%= f.text_area :hobbies %>
+  </p>
+  <p>
+    <%= f.label :actual_book %><br />
+    <%= f.text_field :actual_book %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

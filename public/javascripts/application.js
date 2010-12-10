@@ -1,5 +1,11 @@
 jQuery(function($) {
 
+  
+  $('a.video-link').ytchromeless();
+
+  
+  
+  
   function split( val ) {
   	return val.split( /,\s*/ );
   }

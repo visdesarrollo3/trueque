@@ -1,0 +1,24 @@
+<% title "Trade" %>
+
+<p>
+  <strong>Book1:</strong>
+  <%= @trade.book1_id %>
+</p>
+<p>
+  <strong>Book2:</strong>
+  <%= @trade.book2_id %>
+</p>
+<p>
+  <strong>User1:</strong>
+  <%= @trade.user1_id %>
+</p>
+<p>
+  <strong>User2:</strong>
+  <%= @trade.user2_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_trade_path(@trade) %> |
+  <%= link_to "Destroy", @trade, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", trades_path %>
+</p>

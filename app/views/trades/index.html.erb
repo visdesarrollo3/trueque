@@ -1,0 +1,23 @@
+<% title "Trades" %>
+
+<table>
+  <tr>
+    <th>Book1</th>
+    <th>Book2</th>
+    <th>User1</th>
+    <th>User2</th>
+  </tr>
+  <% for trade in @trades %>
+    <tr>
+      <td><%= trade.book1_id %></td>
+      <td><%= trade.book2_id %></td>
+      <td><%= trade.user1_id %></td>
+      <td><%= trade.user2_id %></td>
+      <td><%= link_to "Show", trade %></td>
+      <td><%= link_to "Edit", edit_trade_path(trade) %></td>
+      <td><%= link_to "Destroy", trade, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Trade", new_trade_path %></p>

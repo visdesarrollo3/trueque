@@ -23,6 +23,7 @@ gem 'cancan'
 
 group :development, :test do
   gem "rspec-rails", ">= 2.0.0.beta.22"
-  gem "mocha", :group => :test
+  gem "hirb"
 end
 
+gem "mocha", :group => :test

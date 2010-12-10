@@ -1,4 +1,8 @@
 Trueque::Application.routes.draw do
+  resources :trades
+
+  resources :users
+
   get "tags/list"
 
   resources :pages

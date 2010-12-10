@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101107221215) do
+ActiveRecord::Schema.define(:version => 20101210023451) do
+
+  create_table "authorizations", :force => true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -37,6 +45,18 @@ ActiveRecord::Schema.define(:version => 20101107221215) do
     t.text     "health_description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "offered"
+    t.integer  "trade_id"
+  end
+
+  create_table "isbns", :force => true do |t|
+    t.string   "isbn"
+    t.integer  "times_traded",  :default => 0
+    t.integer  "times_created", :default => 1
+    t.string   "book_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "pages", :force => true do |t|
@@ -62,6 +82,45 @@ ActiveRecord::Schema.define(:version => 20101107221215) do
 
   create_table "tags", :force => true do |t|
     t.string "name"
+  end
+
+  create_table "trades", :force => true do |t|
+    t.integer  "book1_id"
+    t.integer  "book2_id"
+    t.integer  "user1_id"
+    t.integer  "user2_id"
+    t.boolean  "accepted"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.integer  "age"
+    t.string   "sex"
+    t.string   "ocupation"
+    t.text     "hobbies"
+    t.string   "actual_book"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "login"
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.string   "perishable_token"
+    t.string   "current_login_ip"
+    t.string   "last_login_ip"
+    t.string   "single_access_token"
+    t.integer  "login_count"
+    t.integer  "failed_login_count"
+    t.datetime "last_request_at"
+    t.datetime "current_login_at"
+    t.datetime "last_login_at"
   end
 
 end

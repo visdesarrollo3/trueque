@@ -3,20 +3,24 @@
   <head>
     <title><%= content_for?(:title) ? yield(:title) : "Trueque" %></title>
     <%= stylesheet_link_tag "jquery.ui", "application", :cache => true %>
-    <%= javascript_include_tag 'jquery.min','jquery.ui.min', 'autocomplete-rails','jquery.tools.min', 'rails', 'application', :cache => true %>
+    <%= javascript_include_tag 'jquery.min','jquery.ui.min', 'autocomplete-rails','jquery.tools.min','swfobject.js', 'jquery.ytchromeless.min.js', 'rails', 'application', :cache => true %>
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
   </head>
   <body>
     <div id="container">
       <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <%= content_tag :div, msg, :id => "flash_#{name}", :class => "alert" %>
       <% end %>
+      
       <%= content_tag :h1, yield(:title) if show_title? %>
+      
       <%= clear %>
+      
       <div id="navigation">
         <%= render_navigation %>
       </div>
+      
       <%= clear %>
       <%= yield %>
       <%= clear %>
