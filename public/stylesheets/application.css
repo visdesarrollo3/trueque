@@ -134,8 +134,26 @@ a {
 /* ######################################## INDEX STYLES */
 #login{width: 280px; float: right; background: #C7B472 url(/images/layout/backlogin.jpg) bottom left no-repeat; height: 270px;}
 
+.btn{
+  background: none repeat scroll 0 0 #DDDDDD;
+  cursor: pointer;
+  display: block;
+  padding: 2px 0;
+  text-align: center;
+  width: 80px;
+}
 .new_user_session input{
-  
+  background: none repeat scroll 0 0 #FFF;
+  border: 1px solid #8F8F8F;
+  color: #8F8F8F;
+}
+.new_user_session label{
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size:13px;
+  color:#FFF;
+  border-style: none;
+  text-decoration: none;
+  padding-top:5px;
 }
 
 .quoted-title{
@@ -149,6 +167,8 @@ a {
 }
 
 #login #login-dashboard{padding: 0px 10px; margin-top: -10px;}
+
+
 
 #sub-header {margin-bottom: 50px;}
 
