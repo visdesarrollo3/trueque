@@ -132,11 +132,11 @@ a {
 
 
 /* ######################################## INDEX STYLES */
-#login{width: 280px; float: right;}
+#login{width: 280px; float: right; background: #C7B472 url(/images/layout/backlogin.jpg) bottom left no-repeat; height: 270px;}
 
 .quoted-title{
   height: 59px;
-  background: transparent url(/images/layout/imgtitle.jpg) top right repeat-x;
+  background: transparent url(/images/layout/imgtitle.png) top right repeat-x;
   color: #FFF;
   font-family: Georgia;
   font-size: 20px;
