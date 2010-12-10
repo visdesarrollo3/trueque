@@ -1,4 +1,5 @@
 
+<% content_for :subheader do %>
 <div id="sub-header">
   <div id="slider">
     <% for banner in @banners %>
@@ -26,6 +27,8 @@
   </div> <!-- End of login div -->
   <%= clear %>
 </div> <!-- End of sub-header div -->
+<% end %>  <!-- END OF SUB-HEADER -->
+
 
 <% content_for :sidebar do %>
 <div id="sidebar">
@@ -47,7 +50,15 @@
     </div>
   </div>
 </div> <!-- End of sidebar div -->
-<% end %>
+<% end %>  <!-- END OF SIDEBAR -->
+
+
+
+<div class="left">
+  <h1>Últimos libros</h1>
+</div>
+
+
 
 
 

@@ -131,6 +131,14 @@ a {
 }
 
 .left{float: left;}
+.right{float: right;}
+
+h1,h2,h3,h4,h5,h6 {font-family: Georgia, Verdana, Helvetica;}
+
+h1{color: #1F4A57;}
+
+/* ######################################## INDEX STYLES */
+#login{width: 280px; float: right; background: #C7B472 url(/images/layout/backlogin.jpg) bottom left no-repeat; height: 270px;}
 
 .btn{
   background: none repeat scroll 0 0 #DDDDDD;
@@ -167,12 +175,33 @@ label{
 }
 
 /* ######################################## LAYOUT STYLES */
+
+#main-content {padding-left: 15px; float: left;}
+
+.footer_icons a{
+  margin-right:5px;
+}
+.eafit_icons a{
+}
+
+#interesting-links{
+  width:300px;
+  margin-left:5px;
+}
+
+#interesting-links a{
+  color: #1F4A57; 
+  font-family: "Lucida Sans Unicode","Lucida Grande",sans-serif; 
+  font-weight: normal; 
+  font-size: 13px;
+}
+
 #sidebar {float: left; width: 225px;}
-
-
 #footer {height: 150px; background: #F2F2F2; width: 100%; border: 1px solid #CCC; border-left: 0px; border-right: 0px; margin-bottom: 30px;}
-#footer .section {width: 320px; }
+#footer .section {width: 310px; }
 #footer .section h3 {color: #1F4A57; font-family: Georgia; font-weight: normal; font-size: 18px;}
+
+
 
 /* ######################################## INDEX STYLES */
 #sub-header {margin-bottom: 3px;}
