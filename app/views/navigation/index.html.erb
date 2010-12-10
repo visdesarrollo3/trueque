@@ -18,6 +18,7 @@
     <div id = "login-dashboard">
       <% if current_user %>
         HOLA USUARIO
+        <%= link_to "Cerrar sesión", logout_path %>
       <% else %>
         <%= render :partial => "user_sessions/small" %>
       <% end %>
