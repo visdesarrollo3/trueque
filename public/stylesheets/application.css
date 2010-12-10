@@ -81,8 +81,7 @@ a {
   padding-top:5px;
 }
 
-
-#flash_notice, #flash_error, #flash_alert {
+.alert, #flash_notice, #flash_error, #flash_alert {
   padding: 5px 8px;
   margin: 10px 0;
 }
@@ -130,7 +129,22 @@ a {
 }
 
 
-/* OVERLAY DIVS */
+/* ######################################## INDEX STYLES */
+#login{width: 280px; float: right;}
+
+.quoted-title{
+  height: 59px;
+  background: transparent url(/images/layout/imgtitle.jpg) top right repeat-x;
+  color: #FFF;
+  font-family: Georgia;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 10px 10px 0px;
+}
+
+#login #login-dashboard{padding: 10px 10px 0px;}
+
+/* ######################################## OVERLAY STYLES */
 #overlay {
   height:450px;
   width: 600px;
@@ -150,7 +164,6 @@ div.contentWrap {
   background: #FFF;
 }
 
-/* ######################################## OVERLAY STYLES */
 div#overlay .close {background-image:url("/images/close.png"); cursor:pointer; height:35px; position:absolute; right:-15px; top:15px; width:35px;}
 div#navigation ul {padding: 0; margin: 0; list-style: none;}
 div#navigation ul li {float: left; padding: 0 10px; margin: 0;}

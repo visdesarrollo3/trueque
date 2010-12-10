@@ -1,0 +1,11 @@
+<%= form_for UserSession.new do |f| %>
+  <p>
+    <%= f.label :login %><br />
+    <%= f.text_field :login %>
+  </p>
+  <p>
+    <%= f.label :password %><br />
+    <%= f.text_field :password %>
+  </p>
+  <p><%= f.submit "Ingresar" %></p>
+<% end %>

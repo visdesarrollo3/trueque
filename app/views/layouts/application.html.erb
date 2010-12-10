@@ -1,61 +1,76 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= content_for?(:title) ? yield(:title) : "Trueque" %></title>
-    <%= stylesheet_link_tag "jquery.ui", "nivo.slider", "application", :cache => true %>
-    <%= javascript_include_tag 'jquery.min','jquery.ui.min', 'autocomplete-rails','jquery.tools.min','jquery.nivo.slider', 'rails', 'application', :cache => true %>
-    <%= csrf_meta_tag %>
-    <%= yield(:head) %>
-  </head>
-  <body>
-    <div id="container">
-	
-		<% flash.each do |name, msg| %>
-	        <%= content_tag :div, msg, :id => "flash_#{name}", :class => "alert" %>
-	      <% end %>
+<head>
+  <title><%= content_for?(:title) ? yield(:title) : "Trueque" %></title>
+  <%= stylesheet_link_tag "jquery.ui", "nivo.slider", "application", :cache => true %>
+  <%= javascript_include_tag 'jquery.min','jquery.ui.min', 'autocomplete-rails','jquery.tools.min','jquery.nivo.slider', 'rails', 'application', :cache => true %>
+  <%= csrf_meta_tag %>
+  <%= yield(:head) %>
+</head>
+<body>
+  <div id="container">
 
-	      <%= content_tag :h1, yield(:title) if show_title? %>
-	
-     	  <%= clear %>
-	
-	<div id= "header">
-		<div id="logo">
-		  <%= link_to "E Truque - Universidad EAFIT", root_url %>
-		</div>
-		<div id= "search">
-			
-		</div>
-	</div>
-	<div id= "nav-menu">
-		<ul>
-			<li><%= link_to "Inicio", root_path %></li>
-			<li><%= link_to "El Trueque", "#" %></li>
-			<li><%= link_to "Vitamina L", "#" %></li>
-			<li><%= link_to "Club de Lectores", "#" %></li>
-			<li><%= link_to "Quienes Somos","#" %></li>
-			<li><%= link_to "Contacto", "#" %></li>
-		</ul>
-		<%= clear %>
-	</div>
-	
-	<div id="slider">
-	  <% for banner in @banners %>
-	    <%= link_to_or_default image_tag(banner.photo.url), banner %>
-	  <% end %>
-  </div>
-		
-	<div id="login">
-		
-	</div>
+    <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}", :class => "alert" %>
+    <% end %>
+
+
+
+    <div id= "header">
+      <div id="logo">
+        <%= link_to "E Truque - Universidad EAFIT", root_url %>
+      </div>
+      <div id= "search">
+
+      </div>
+    </div>
+    <div id= "nav-menu">
+      <ul>
+        <li><%= link_to "Inicio", root_path %></li>
+        <li><%= link_to "El Trueque", "#" %></li>
+        <li><%= link_to "Vitamina L", "#" %></li>
+        <li><%= link_to "Club de Lectores", "#" %></li>
+        <li><%= link_to "Quienes Somos","#" %></li>
+        <li><%= link_to "Contacto", "#" %></li>
+      </ul>
+      <%= clear %>
+    </div>
+
+    <div id="slider">
+      <% for banner in @banners %>
+      <%= link_to_or_default image_tag(banner.photo.url), banner %>
+      <% end %>
+    </div>
+
+    <div id="login" class="right">
+      <div class="quoted-title" id="login-title">
+        <% if current_user %>
+          HOLA USUARIO
+        <% else %>
+          Acceso usuarios
+        <% end %>
+      </div>
       
-      <%= clear %>
-      <%= yield %>
-      <%= clear %>
+      <div id="login-dashboard">
+        <% if current_user %>
+          HOLA USUARIO
+        <% else %>
+          <%= render :partial => "user_sessions/small" %>
+        <% end %>
+      </div>
+      
+      
     </div>
     
-    
-    <div class="overlay" id="overlay">
-    	<div class="contentWrap"></div>
-    </div>
-  </body>
+    <%= clear %>
+    <%= content_tag :h1, yield(:title) if show_title? %>
+    <%= yield %>
+    <%= clear %>
+  </div>
+
+
+  <div class="overlay" id="overlay">
+    <div class="contentWrap"></div>
+  </div>
+</body>
 </html>
