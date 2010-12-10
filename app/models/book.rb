@@ -9,7 +9,6 @@ class Book < ActiveRecord::Base
   acts_as_taggable_on :tags
   
   attr_writer :author_names
-    
   after_save :assign_authors
   
   belongs_to :user

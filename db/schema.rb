@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101210023451) do
+ActiveRecord::Schema.define(:version => 20101210043120) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -47,6 +47,10 @@ ActiveRecord::Schema.define(:version => 20101210023451) do
     t.datetime "updated_at"
     t.boolean  "offered"
     t.integer  "trade_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "isbns", :force => true do |t|
