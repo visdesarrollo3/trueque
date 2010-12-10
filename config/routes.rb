@@ -1,4 +1,6 @@
 Trueque::Application.routes.draw do
+  resources :banners
+
   match '/login' => "user_sessions#new", :as => :login
   match '/logout' => "user_sessions#destroy", :as => :logout
 
