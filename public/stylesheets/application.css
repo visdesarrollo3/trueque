@@ -31,7 +31,16 @@ a {
 }
 #logo{
   padding: 7px 10px;
+  background: transparent url("/images/layout/logo.png") no-repeat 7px 10px;
+  text-indent: -999999em;
+  width: 140px;
 }
+
+#logo a{
+  display: block;
+  height: 85px;
+}
+
 #nav-menu {
   width: 100%;
   display: block; 
