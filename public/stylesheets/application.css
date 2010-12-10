@@ -277,3 +277,5 @@ div#navigation ul li {float: left; padding: 0 10px; margin: 0;}
 /* ######################################## SMALL BOOK LIST */
 .books .book {float: left; width: 166px; padding: 0px 4px; text-align: center;}
 .books .book img {text-align: center;}
+a.view-more {text-align: center; background: transparent url(/images/layout/viewbook.png) top left no-repeat; padding-left: 30px; height: 30px; display: block; width: 60px; margin: 0 auto; text-decoration: none; color: #1F4A57;}
+a.view-more:hover {text-decoration: underline;}
