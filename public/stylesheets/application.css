@@ -82,6 +82,17 @@ a {
   text-decoration: none;
   padding-top:5px;
 }
+#nav-menu li a:hover
+{
+  color:#999999;
+}
+
+#current-poll{
+  color: #1F4A57; 
+  font-family: "Lucida Sans Unicode","Lucida Grande",sans-serif; 
+  font-weight: normal; 
+  font-size: 13px;
+}
 
 .alert, #flash_notice, #flash_error, #flash_alert {
   padding: 5px 8px;
