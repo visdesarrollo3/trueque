@@ -1,5 +1,5 @@
 class Banner < ActiveRecord::Base
-  attr_accessible :name, :photo_updated_at, :photo_file_size, :photo_content_type, :photo_file_name, :photo
+  attr_accessible :name, :photo_updated_at, :photo_file_size, :photo_content_type, :photo_file_name, :photo, :link, :description, :new_window
   
   has_attached_file :photo, :styles => { :gallery => "680x270#", :thumb => "100x100#" },
     :url  => "/uploads/banners/:attachment/:id/:style-:basename.:extension",

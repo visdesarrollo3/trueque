@@ -10,5 +10,17 @@
     <%= f.file_field :photo %>
   </p>
   
+  <p>
+    <%= f.label :description %> <br />
+    <%= f.text_area :description %>
+  </p>
+  
+  <p>
+    <%= f.label :link %> <br />
+    <%= f.text_field :link, :size => 50 %> <br />
+    <span>Se abre en una nueva ventana? </span><%= f.check_box :new_window %>
+    
+  </p>
+  
   <p><%= f.submit %></p>
 <% end %>
