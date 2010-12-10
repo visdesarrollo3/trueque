@@ -18,12 +18,13 @@
 
     <div id= "header">
       <div id="logo">
-        <%= link_to "E Truque - Universidad EAFIT", root_url %>
+        <%= link_to "E Truque - Biblioteca Universidad EAFIT", root_url %>
       </div>
       <div id= "search">
 
       </div>
-    </div>
+    </div> <!-- End of header div -->
+
     <div id= "nav-menu">
       <ul>
         <li><%= link_to "Inicio", root_path %></li>
@@ -34,35 +35,36 @@
         <li><%= link_to "Contacto", "#" %></li>
       </ul>
       <%= clear %>
-    </div>
+    </div> <!-- End of nav-menu div -->
 
-    <div id="slider">
-      <% for banner in @banners %>
-      <%= link_to_or_default image_tag(banner.photo.url), banner %>
-      <% end %>
-    </div>
+    <div id="sub-header">
+      <div id="slider">
+        <% for banner in @banners %>
+        <%= link_to_or_default image_tag(banner.photo.url), banner %>
+        <% end %>
+      </div>
 
-    <div id="login" class="right">
-      <div class="quoted-title" id="login-title">
-        <% if current_user %>
+      <div id="login" class="right">
+        <div class = "quoted-title" id="login-title">
+          <% if current_user %>
           HOLA USUARIO
-        <% else %>
+          <% else %>
           Acceso usuarios
-        <% end %>
-      </div>
-      
-      <div id="login-dashboard">
-        <% if current_user %>
+          <% end %>
+        </div>
+
+        <div id    = "login-dashboard">
+          <% if current_user %>
           HOLA USUARIO
-        <% else %>
+          <% else %>
           <%= render :partial => "user_sessions/small" %>
-        <% end %>
-      </div>
-      
-      
-    </div>
-    
-    <%= clear %>
+          <% end %>
+        </div>
+
+
+      </div> <!-- End of login div -->
+      <%= clear %>
+    </div> <!-- End of sub-header div -->
     <%= content_tag :h1, yield(:title) if show_title? %>
     <%= yield %>
     <%= clear %>

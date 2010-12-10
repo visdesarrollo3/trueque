@@ -220,6 +220,8 @@ es:
       genre: Género
       tag: Palabra clave
       author: Autor
+      user_session: Sesión
+      banner: Baner
     attributes:
       book:
         title: Título
@@ -234,6 +236,11 @@ es:
       page:
         name: Nombre
         content: Contenido
+      banner:
+        name: Nombre
+      user_session:
+        login: Usuario
+        password: Contraseña
     errors:
       header_message: "Hay errores en el formulario"
       message: "Corrige estos campos para continuar"
