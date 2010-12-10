@@ -1,0 +1,29 @@
+
+<div id="sub-header">
+  <div id="slider">
+    <% for banner in @banners %>
+    <%= link_to_or_default image_tag(banner.photo.url), banner %>
+    <% end %>
+  </div>
+
+  <div id="login" class="right">
+    <div class = "quoted-title" id="login-title">
+      <% if current_user %>
+      HOLA USUARIO
+      <% else %>
+      Acceso usuarios
+      <% end %>
+    </div>
+
+    <div id    = "login-dashboard">
+      <% if current_user %>
+      HOLA USUARIO
+      <% else %>
+      <%= render :partial => "user_sessions/small" %>
+      <% end %>
+    </div>
+
+
+  </div> <!-- End of login div -->
+  <%= clear %>
+</div> <!-- End of sub-header div -->
