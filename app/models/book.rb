@@ -20,7 +20,8 @@ class Book < ActiveRecord::Base
   has_many :offered_trades, :class_name => "Trade", :foreign_key => "book1_id"
   has_many :receive_trades, :class_name => "Trade", :foreign_key => "book2_id"
   
-
+  scope :offered, :conditions => {:offered => true}
+  scope :received, :conditions => {:offered => false}
     
   def author_names
     @author_names || authors.map(&:name).join(', ')
