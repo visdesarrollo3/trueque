@@ -176,13 +176,10 @@ label{
 
 /* ######################################## LAYOUT STYLES */
 
-#main-content {padding-left: 15px; float: left;}
+#main-content {padding-left: 15px; float: left; width: 719px;}
 
-.footer_icons a{
-  margin-right:5px;
-}
-.eafit_icons a{
-}
+.footer_icons a{ margin-right:5px; }
+.eafit_icons a{}
 
 #interesting-links{
   width:300px;
@@ -274,3 +271,9 @@ div#navigation ul li {float: left; padding: 0 10px; margin: 0;}
   text-decoration: none;
   text-transform: uppercase;
 }
+
+
+
+/* ######################################## SMALL BOOK LIST */
+.books .book {float: left; width: 166px; padding: 0px 4px; text-align: center;}
+.books .book img {text-align: center;}

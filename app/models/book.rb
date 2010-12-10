@@ -10,7 +10,8 @@ class Book < ActiveRecord::Base
   
   has_attached_file :photo, :styles => { :thumb => "125x145#" },
     :url  => "/uploads/books/:attachment/:id/:style-:basename.:extension",
-    :path => ":rails_root/public/uploads/books/:attachment/:id/:style-:basename.:extension"
+    :path => ":rails_root/public/uploads/books/:attachment/:id/:style-:basename.:extension",
+    :default_style => "thumb"
   
   
   attr_writer :author_names
