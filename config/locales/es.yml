@@ -222,6 +222,7 @@ es:
       author: Autor
       user_session: Sesión
       banner: Baner
+      comment: Comentario
     attributes:
       book:
         title: Título
