@@ -1,8 +1,4 @@
 Trueque::Application.routes.draw do
-  get "comment/create"
-
-  get "comment/destroy"
-
   resources :banners
 
   match '/login' => "user_sessions#new", :as => :login
@@ -10,7 +6,10 @@ Trueque::Application.routes.draw do
 
   resources :trades
   resources :user_sessions
-  resources :users
+  resources :users do
+    resources :comments
+    resources :books
+  end
 
   get "tags/list"
 
