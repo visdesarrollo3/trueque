@@ -174,7 +174,7 @@ input{
 label{
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   font-size:13px;
-  color:#FFF;
+  color:#8F8F8F;
   border-style: none;
   text-decoration: none;
   padding-top:5px;
@@ -192,7 +192,7 @@ label{
 
 /* ######################################## LAYOUT STYLES */
 
-#main-content {padding-left: 15px; float: left; width: 719px;}
+#main-content {padding-left: 9px; float: left; width: 719px;}
 
 .footer_icons a{ margin-right:5px; }
 .eafit_icons a{}
@@ -291,7 +291,24 @@ div#navigation ul li {float: left; padding: 0 10px; margin: 0;}
 
 
 /* ######################################## SMALL BOOK LIST */
-.books .book {float: left; width: 166px; padding: 0px 4px; text-align: center;}
-.books .book img {text-align: center;}
+.books .book {
+      float: left;
+      padding: 5px;
+      text-align: center;
+      width: 166px;
+}
+.cover{
+  width: 135px;
+  -moz-box-shadow: 5px -5px 1px #CCCCCC;
+  box-shadow: 5px -5px 1px #CCCCCC;
+  -webkit-box-shadow: 5px -5px 1px #CCCCCC;
+}
+.books .book img {
+  background-color: #FFFFFF;
+      border: 1px solid #000000;
+      color: #000000;
+      padding: 0.1em;
+  text-align: center;
+  }
 a.view-more {text-align: center; background: transparent url(/images/layout/viewbook.png) top left no-repeat; padding-left: 30px; height: 30px; display: block; width: 60px; margin: 0 auto; text-decoration: none; color: #1F4A57;}
 a.view-more:hover {text-decoration: underline;}
