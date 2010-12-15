@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
     c.validate_password_field = false
   end
 
+  extend StoreAttachmentOnS3 if Rails.env.production?
+
   has_attached_file :avatar, :styles => { :small => "100x100#" },
     :url  => "/uploads/users/:attachment/:id/:style-:basename.:extension",
     :path => ":rails_root/public/uploads/users/:attachment/:id/:style-:basename.:extension"
