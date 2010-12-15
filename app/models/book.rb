@@ -7,6 +7,10 @@ class Book < ActiveRecord::Base
   validates_presence_of :title, :synopsis, :published_date, :editorial, :isbn, :health_status, :health_description
   
   acts_as_taggable_on :tags
+  acts_as_commentable
+  acts_as_rateable
+  
+  extend StoreAttachmentOnS3 if Rails.env.production?
   
   has_attached_file :photo, :styles => { :thumb => "125x145#" },
     :url  => "/uploads/books/:attachment/:id/:style-:basename.:extension",

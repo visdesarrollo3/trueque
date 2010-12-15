@@ -1,3 +1,4 @@
+# coding: utf-8
 module MakePermalink
   def self.included(base)
     base.extend ClassMethods
@@ -26,7 +27,7 @@ module MakePermalink
           :replace_nonascii => true,
           :include_id => true
         }
-        default_options.merge!(options)
+        default_options.reverse_merge!(options)
         field = self.send(method.to_sym)
         if default_options[:replace_nonascii]
           link = field.to_s.to_url.downcase

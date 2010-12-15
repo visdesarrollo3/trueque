@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'make_permalink/acts_as_url'
 require 'make_permalink/string_extensions'
 require 'make_permalink/unidecoder'

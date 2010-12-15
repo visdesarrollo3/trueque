@@ -1,0 +1,15 @@
+<div class="comment" id="comment-<%= comment.id %>">
+  <div class="comment-info left">
+    <p><%= link_to comment.user.name, comment.user %></p>
+    <p><%= link_to image_tag(comment.user.avatar.url(:small)), comment.user%></p>
+    <p>
+      <strong>Creado el <%= comment.created_at.strftime("%D") %></strong>
+    </p>
+  </div>
+  
+  <div class="comment-body">
+    <%= comment.comment %>
+  </div>
+  <%= clear %>
+</div>
+<%= clear %>

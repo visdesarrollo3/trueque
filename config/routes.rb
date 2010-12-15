@@ -1,4 +1,8 @@
 Trueque::Application.routes.draw do
+  get "comment/create"
+
+  get "comment/destroy"
+
   resources :banners
 
   match '/login' => "user_sessions#new", :as => :login
@@ -11,7 +15,9 @@ Trueque::Application.routes.draw do
   get "tags/list"
 
   resources :pages
-  resources :books
+  resources :books do
+    resources :comments
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
