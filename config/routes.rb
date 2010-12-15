@@ -4,7 +4,13 @@ Trueque::Application.routes.draw do
   match '/login' => "user_sessions#new", :as => :login
   match '/logout' => "user_sessions#destroy", :as => :logout
 
-  resources :trades
+  resources :trades do
+    member do
+      post 'ignore'
+      post 'accept'
+      get 'pre_accept'
+    end
+  end
   resources :user_sessions
   resources :users do
     resources :comments

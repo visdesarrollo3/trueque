@@ -1,0 +1,7 @@
+<div>
+  <div class="cover"><%= link_to image_tag(book.photo.url), book %></div>
+  <div class="info">
+    <p><%= book.title %></p>
+    <p><%= link_to "Ver Libro", book %>  |  <%= link_to "Aceptar trueque", accept_trade_path(@trade, :book_id => book.id), :method => :post %></p>
+  </div>
+</div>

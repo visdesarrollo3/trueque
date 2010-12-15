@@ -26,6 +26,13 @@ class Trade < ActiveRecord::Base
   scope :pending,   :conditions => {:accepted => nil}
   scope :denied,    :conditions => {:accepted => false}
   
+  def user1
+    initiator
+  end
+  
+  def user2
+    receiver
+  end
   
   def book1
     given_book
@@ -49,6 +56,7 @@ class Trade < ActiveRecord::Base
   
   def apply_trade
     Trade.transaction do
+      logger.error {"\n\n\n ************ #{self.received_book.inspect} \n\n\n"}
       given_book.trade = received_book.trade = self
       self.save
       given_book.trade!(true) and received_book.trade!(false)

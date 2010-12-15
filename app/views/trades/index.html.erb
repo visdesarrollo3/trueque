@@ -2,20 +2,16 @@
 
 <table>
   <tr>
-    <th>Book1</th>
-    <th>Book2</th>
-    <th>User1</th>
-    <th>User2</th>
+    <th>Libro a cambiar</th>
+    <th>Usuario</th>
   </tr>
   <% for trade in @trades %>
     <tr>
-      <td><%= trade.book1_id %></td>
-      <td><%= trade.book2_id %></td>
-      <td><%= trade.user1_id %></td>
-      <td><%= trade.user2_id %></td>
-      <td><%= link_to "Show", trade %></td>
-      <td><%= link_to "Edit", edit_trade_path(trade) %></td>
-      <td><%= link_to "Destroy", trade, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= trade.book2.name %></td>
+      <td><%= trade.initiator.name %></td>
+      <td><%= link_to "Aceptar", pre_accept_trade_path(trade) %></td>
+      <td><%= link_to "Ignorar", ignore_trade_path(trade), :method => :post %></td>
+      
     </tr>
   <% end %>
 </table>

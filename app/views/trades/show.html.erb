@@ -1,24 +1,21 @@
-<% title "Trade" %>
+<% title "Trueque ##{@trade.id}" %>
 
 <p>
-  <strong>Book1:</strong>
-  <%= @trade.book1_id %>
+  <strong>Usuario que inició el trueque:</strong>
+  <%= @trade.initiator.name %>
 </p>
+
 <p>
-  <strong>Book2:</strong>
-  <%= @trade.book2_id %>
+  <strong>Libro ofrecido:</strong>
+  <%= @trade.book1.name %>
 </p>
-<p>
-  <strong>User1:</strong>
-  <%= @trade.user1_id %>
-</p>
+
 <p>
   <strong>User2:</strong>
-  <%= @trade.user2_id %>
+  <%= @trade.receiver.name %>
 </p>
 
 <p>
-  <%= link_to "Edit", edit_trade_path(@trade) %> |
-  <%= link_to "Destroy", @trade, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", trades_path %>
+  <strong>Libro requerido:</strong>
+  <%= @trade.book2.name %>
 </p>

@@ -1,6 +1,7 @@
+# coding: utf-8
 class TradesController < ApplicationController
   def index
-    @trades = Trade.all
+    @trades = current_user.pending_trades.all
   end
   
   def show
@@ -8,17 +9,52 @@ class TradesController < ApplicationController
   end
   
   def new
+    book2 = Book.find(params[:book_id])
     @trade = Trade.new
+    @trade.initiator = current_user
+    @trade.receiver = book2.user
   end
   
   def create
-    @trade = Trade.new(params[:trade])
+    book2 = Book.find(params[:book_id])
+    @trade = Trade.new
+    @trade.book2_id = book2.id
+    @trade.initiator = current_user
+    @trade.receiver = book2.user
     if @trade.save
-      flash[:notice] = "Successfully created trade."
-      redirect_to @trade
+      flash[:notice] = "Se ha enviado la petición de trueque"
+      redirect_to book2
     else
-      render :action => 'new'
+      flash[:error] = "Lo sentimos, algo extraño sucedió! Intenta nuevamente"
+      render book2
     end
+  end
+  
+  def accept
+    @trade = Trade.find params[:id]
+    @trade.book1_id = params[:book_id]
+    if @trade.accept and @trade.save
+      flash[:notice] = "El trueque ha sido exitoso! Disfruta tu nuevo libro!"
+    else
+      flash[:error] = "El sistema no pudo intercambiar los libros, intenta nuevamente"
+    end
+    redirect_to trades_path
+  end
+  
+  def pre_accept
+    @trade = Trade.find params[:id]
+    @user = @trade.user1
+    @books = @user.books
+  end
+  
+  def ignore
+    @trade = Trade.find params[:id]
+    if @trade.ignore
+      flash[:notice] = "El trueque ha sido ignorado!"
+    else
+      flash[:error] = "El sistema no pudo ignorar el trueque, intenta nuevamente"
+    end
+    redirect_to trades_path
   end
   
   def edit

@@ -1,5 +1,7 @@
 jQuery(function($) {
 
+  $(".hide-not").click(function(){$(".notifications").fadeOut("normal"); return false;})
+  
   $('#slider').nivoSlider({
     effect:'fade', //Specify sets like: 'fold,fade,sliceDown'
     animSpeed:500, //Slide transition speed

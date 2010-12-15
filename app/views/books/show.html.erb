@@ -1,13 +1,19 @@
-<% title "Book" %>
+<% title @book.title %>
+
+
 
 <p>
   <strong>Title:</strong>
   <%= @book.title %>
 </p>
-<p>
-  <strong>Available:</strong>
-  <%= @book.available %>
-</p>
+
+<% if current_user && @book.user != current_user %>
+  <p>Este libro se encuentra <%= raw state_message(@book) %></p>
+  
+  <p><%= link_to "Pedir trueque", trades_path(:book_id => @book.id), :method => :post  %></p>
+  
+<% end %>
+
 <p>
   <strong>Synopsis:</strong>
   <%= @book.synopsis %>

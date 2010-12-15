@@ -1,3 +1,4 @@
+# coding: utf-8
 class Book < ActiveRecord::Base
   include Pacecar
   
@@ -17,6 +18,8 @@ class Book < ActiveRecord::Base
     :path => ":rails_root/public/uploads/books/:attachment/:id/:style-:basename.:extension",
     :default_style => "thumb"
   
+  
+  before_create :find_or_create_isbn
   
   attr_writer :author_names
   after_save :assign_authors
@@ -66,6 +69,11 @@ class Book < ActiveRecord::Base
   end  
     
   private
+  
+  def find_or_create_isbn
+    abstract_isbn = Isbn.find_or_create_from_book
+    abstract_isbn.save
+  end
 
   def assign_authors
     if @author_names
