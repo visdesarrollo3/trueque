@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :age, :sex, :ocupation, :hobbies, :actual_book, :avatar,
   :avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at,
-  :password_confirmation, :password, :login, :password
+  :password_confirmation, :password, :login, :email
 
   make_permalink :login
   
