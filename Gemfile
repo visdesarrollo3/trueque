@@ -16,6 +16,7 @@ gem 'pacecar' # Great but not as much as searchlogic!
 gem "simple-navigation"
 gem 'cancan'
 gem 'aws-s3'
+gem 'aasm'
 
 
 # gem 'meta_where'

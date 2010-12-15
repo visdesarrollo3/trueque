@@ -26,7 +26,11 @@ class User < ActiveRecord::Base
   has_many :offered_trades,  :class_name => "Trade", :foreign_key => "user1_id"
   has_many :received_trades, :class_name => "Trade", :foreign_key => "user2_id"
   
-  has_many :completed_trades, :class_name => "Trade", :foreign_key => "user1_id", :conditions => {:accepted => true}
+  has_many :completed_trades, :class_name => "Trade", :foreign_key => "user1_id", :conditions => {:current_state => :accepted}
+  has_many :waiting_trades,   :class_name => "Trade", :foreign_key => "user1_id", :conditions => {:current_state => :pending}
+  
+  has_many :accepted_trades,  :class_name => "Trade", :foreign_key => "user2_id", :conditions => {:current_state => :accepted}
+  has_many :pending_trades,   :class_name => "Trade", :foreign_key => "user2_id", :conditions => {:current_state => :pending}
 
   def to_param
     permalink
@@ -38,8 +42,6 @@ class User < ActiveRecord::Base
     user.reset_persistence_token! #set persistence_token else sessions will not be created
     user
   end
-  
-  
   
   #here we add required validations for a new record and pre-existing record
   # validate do |user|

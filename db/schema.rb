@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101215044856) do
+ActiveRecord::Schema.define(:version => 20101215062031) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -122,9 +122,9 @@ ActiveRecord::Schema.define(:version => 20101215044856) do
     t.integer  "book2_id"
     t.integer  "user1_id"
     t.integer  "user2_id"
-    t.boolean  "accepted"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "current_state"
   end
 
   create_table "users", :force => true do |t|
