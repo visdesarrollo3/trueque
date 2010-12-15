@@ -4,6 +4,8 @@ class Banner < ActiveRecord::Base
   
   POSITIONS = %w(main vertical)
   
+  extend StoreAttachmentOnS3 if Rails.env.production?
+  
   has_attached_file :photo,
     :styles => {
         :gallery => "680x270#",
