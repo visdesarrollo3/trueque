@@ -10,16 +10,27 @@
   <div id="login" class="right">
     <div class = "quoted-title" id="login-title">
       <% if current_user %>
-      HOLA USUARIO
+        Bienvenido!
       <% else %>
-      Acceso usuarios
+        Acceso usuarios
       <% end %>
     </div>
 
     <div id = "login-dashboard">
       <% if current_user %>
-        HOLA USUARIO
-        <%= link_to "Cerrar sesión", logout_path %>
+        <div class="left">
+          <%= image_tag current_user.avatar.url(:small) %>
+        </div>
+        
+        <div class="leftr">
+          <ul>
+            <li><%= link_to "Mis libros", user_books_path(current_user) %></li>
+          </ul>
+          <%= link_to "Cerrar sesión", logout_path, :class => "small" %>
+        </div>
+        
+        
+        <%= clear %>
       <% else %>
         <%= render :partial => "user_sessions/small" %>
       <% end %>

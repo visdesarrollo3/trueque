@@ -3,10 +3,15 @@ class User < ActiveRecord::Base
   :avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at,
   :password_confirmation, :password
 
+  make_permalink :login
+  
+
+
   acts_as_authentic do |c|
     c.ignore_blank_passwords = true
     c.validate_password_field = false
   end
+  acts_as_commentable
 
   extend StoreAttachmentOnS3 if Rails.env.production?
 
@@ -23,6 +28,19 @@ class User < ActiveRecord::Base
   
   has_many :completed_trades, :class_name => "Trade", :foreign_key => "user1_id", :conditions => {:accepted => true}
 
+  def to_param
+    permalink
+  end
+
+  def self.create_from_hash(hash)
+    user = User.new(:username => hash['user_info']['name'].scan(/[a-zA-Z0-9_]/).to_s.downcase)
+    user.save(false) #create the user without performing validations. This is because most of the fields are not set.
+    user.reset_persistence_token! #set persistence_token else sessions will not be created
+    user
+  end
+  
+  
+  
   #here we add required validations for a new record and pre-existing record
   # validate do |user|
   #   if user.new_record? #adds validation if it is a new record
@@ -37,10 +55,6 @@ class User < ActiveRecord::Base
   #   end
   # end  
 
-  def self.create_from_hash(hash)
-    user = User.new(:username => hash['user_info']['name'].scan(/[a-zA-Z0-9_]/).to_s.downcase)
-    user.save(false) #create the user without performing validations. This is because most of the fields are not set.
-    user.reset_persistence_token! #set persistence_token else sessions will not be created
-    user
-  end
+  
+  
 end

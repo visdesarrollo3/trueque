@@ -1,4 +1,9 @@
-<h1>Todos los libros</h1>
+<% if @user %>
+  <h1>Todos los libros de <%= @user.name %></h1>
+<% else %>
+  <h1>Todos los libros</h1>
+<% end %>
+
 
 <table>
   <tr>
