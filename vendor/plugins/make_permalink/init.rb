@@ -1,4 +1,4 @@
-#require File.join(File.dirname(__FILE__), "lib", "make_permalink")
+# coding: utf-8
 require 'make_permalink'
 
 if Object.const_defined?("ActiveRecord")

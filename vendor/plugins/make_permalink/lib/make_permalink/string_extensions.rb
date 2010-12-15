@@ -1,3 +1,4 @@
+# coding: utf-8
 module LuckySneaks
   # These methods are all added on String class.
   module StringExtensions
@@ -74,15 +75,15 @@ module LuckySneaks
 
     # Converts German Umlauts to their transliteration according to German conventions.
     def convert_german_umlauts
-      map = { }
-      #         "Ä" => "ae",
-      #         "Ö" => "oe",
-      #         "Ü" => "ue",
-      #         "ä" => "ae",
-      #         "ö" => "oe",
-      #         "ü" => "ue",
-      #         "ß" => "ss"
-      #       }
+      map = {
+        "Ä" => "ae",
+        "Ö" => "oe",
+        "Ü" => "ue",
+        "ä" => "ae",
+        "ö" => "oe",
+        "ü" => "ue",
+        "ß" => "ss"
+      }
       gsub(/#{map.keys.join('|')}/) { |match| map[match] }
     end
 
@@ -137,8 +138,8 @@ module LuckySneaks
       dummy = dup.gsub(/\.{3,}/, " dot dot dot ") # Catch ellipses before single dot rule!
       # Special rules for money
       {
-        /(\s|^)\$(\d+)\.(\d+)(\s|$)/ => '\2 dollars \3 cents'
-        # /(\s|^)£(\d+)\.(\d+)(\s|$)/u => '\2 pounds \3 pence',
+        /(\s|^)\$(\d+)\.(\d+)(\s|$)/ => '\2 dollars \3 cents',
+        /(\s|^)£(\d+)\.(\d+)(\s|$)/u => '\2 pounds \3 pence',
       }.each do |found, replaced|
         replaced = " #{replaced} " unless replaced =~ /\\1/
         dummy.gsub!(found, replaced)
@@ -150,8 +151,8 @@ module LuckySneaks
         /\s*@\s*/ => "at",
         /(\S|^)\.(\S)/ => '\1 dot \2',
         /(\s|^)\$(\d*)(\s|$)/ => '\2 dollars',
-        # /(\s|^)£(\d*)(\s|$)/u => '\2 pounds',
-        # /(\s|^)¥(\d*)(\s|$)/u => '\2 yen',
+        /(\s|^)£(\d*)(\s|$)/u => '\2 pounds',
+        /(\s|^)¥(\d*)(\s|$)/u => '\2 yen',
         /\s*\*\s*/ => "star",
         /\s*%\s*/ => "percent",
         /\s*(\\|\/)\s*/ => "slash",
