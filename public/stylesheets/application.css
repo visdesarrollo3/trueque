@@ -296,9 +296,9 @@ div#navigation ul li {float: left; padding: 0 10px; margin: 0;}
 /* ######################################## SMALL BOOK LIST */
 .books .book {
       float: left;
-      padding: 5px;
+      padding: 10px;
       text-align: center;
-      width: 166px;
+      width: 150px;
 }
 .cover{
   width: 135px;
