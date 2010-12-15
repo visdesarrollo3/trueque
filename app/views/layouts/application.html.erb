@@ -2,8 +2,8 @@
 <html>
 <head>
   <title><%= content_for?(:title) ? yield(:title) : "Trueque" %></title>
-  <%= stylesheet_link_tag "jquery.ui", "nivo.slider", "application", :cache => true %>
-  <%= javascript_include_tag 'jquery.min','jquery.ui.min', 'autocomplete-rails','jquery.tools.min','jquery.nivo.slider', 'rails', 'application', :cache => true %>
+  <%= stylesheet_link_tag "jquery.ui", "nivo.slider", "application" %>
+  <%= javascript_include_tag 'jquery.min','jquery.ui.min', 'autocomplete-rails','jquery.tools.min','jquery.nivo.slider', 'rails', 'application' %>
   <%= csrf_meta_tag %>
   <%= yield(:head) %>
 </head>
@@ -55,8 +55,9 @@
 
     <div id="main-content">
       <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, :id => "flash_#{name}", :class => "alert" %>
+        <%= content_tag :div, msg, :id => "flash_#{name}", :class => "alert" %>
       <% end %>
+      <%= clear %>
       <%= yield %>
       <%= clear %>
     </div>
