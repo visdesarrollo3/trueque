@@ -223,6 +223,7 @@ es:
       user_session: Sesión
       banner: Baner
       comment: Comentario
+      Photo: Foto
     attributes:
       book:
         title: Título
@@ -234,6 +235,7 @@ es:
         health_status: "Estado físico del libro (número)"
         health_description: "Estado físico del libro (comentarios)"
         tag_list: Palabras claves
+        photo: Foto Portada
       page:
         name: Nombre
         content: Contenido

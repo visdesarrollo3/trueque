@@ -1,8 +1,17 @@
 <div id="sidebar">
-  <div class = "quoted-title" id="login-title">Perfil</div>
-	<div id="perfil">
-		<p>Hola Usuario</p>
-		<div id="foto-perfil"></div>
+  <div class = "quoted-title" id="login-title">
+    Perfil
+  </div>
+	<div id="perfil" style="width: 90%">
+	  
+	  <% if current_user %>
+	    <p>Hola Usuario</p>
+  		<div id="foto-perfil"></div>
+	  <% else %>
+	    <%= render :partial => "user_sessions/small" %>
+	  <% end %>
+	  
+		
 	</div>
   
   <div class = "quoted-title" id="login-title">Libros que...</div>

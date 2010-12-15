@@ -220,6 +220,7 @@ label{
 
 /* ######################################## INDEX STYLES */
 #sub-header {margin-bottom: 3px;}
+#perfil {margin: 0 auto;}
 #login{width: 280px; float: right; background: #C7B472 url(/images/layout/backlogin.jpg) bottom left no-repeat; height: 270px;}
 #current-poll {background: #E9E9E9; min-height: 250px; margin-bottom:3px;}
 #current-poll * ~ div { padding-left: 10px; }
