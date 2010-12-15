@@ -52,10 +52,18 @@ class Book < ActiveRecord::Base
     title
   end
   
-  def trade! was_offered
+  def trade! was_offered = false
     abstract_isbn.update_traded_count and self.save
     was_offered ? mark_as_offered : mark_as_received
   end
+  
+  def traded?
+    !trade.nil?
+  end
+  
+  def available?
+    trade.nil?
+  end  
     
   private
 

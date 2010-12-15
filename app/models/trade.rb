@@ -51,7 +51,7 @@ class Trade < ActiveRecord::Base
     Trade.transaction do
       given_book.trade = received_book.trade = self
       self.save
-      given_book.trade! and received_book.trade!
+      given_book.trade!(true) and received_book.trade!(false)
     end
   end
   
