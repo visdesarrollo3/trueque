@@ -9,8 +9,9 @@
 
 <% if current_user && @book.user != current_user %>
   <p>Este libro se encuentra <%= raw state_message(@book) %></p>
-  
-  <p><%= link_to "Pedir trueque", trades_path(:book_id => @book.id), :method => :post  %></p>
+  <% unless @book.traded? %>
+    <p><%= link_to "Pedir trueque", trades_path(:book_id => @book.id), :method => :post  %></p>
+  <% end %>
   
 <% end %>
 

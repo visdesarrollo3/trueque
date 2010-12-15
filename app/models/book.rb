@@ -71,7 +71,7 @@ class Book < ActiveRecord::Base
   private
   
   def find_or_create_isbn
-    abstract_isbn = Isbn.find_or_create_from_book
+    abstract_isbn = Isbn.find_or_create_from_book(self)
     abstract_isbn.save
   end
 
