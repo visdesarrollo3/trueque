@@ -9,7 +9,7 @@ class Book < ActiveRecord::Base
   
   acts_as_taggable_on :tags
   acts_as_commentable
-  acts_as_rateable
+  # acts_as_rateable
   
   extend StoreAttachmentOnS3 if Rails.env.production?
   
