@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
 
 
   has_many :books
-  has_many :comments
+  has_many :created_comments, :class_name => "Comment", :foreign_key => "user_id"
   
   has_many :offered_trades,  :class_name => "Trade", :foreign_key => "user1_id"
   has_many :received_trades, :class_name => "Trade", :foreign_key => "user2_id"

@@ -34,15 +34,15 @@
 <%= clear %>
 
 <h2>Comentarios</h2>
-<% if @book.comments.any? %>
-  <%= render @book.comments %>
+<% if @user.comments.any? %>
+  <%= render @user.comments %>
 <% else %>
   <%= raw("<p>Podrías ser el primero en comentar!</p>") if current_user %>
 <% end %>
 
 <%= clear %>
 
-<%= render :partial => "comments/small_create", :locals => {:commentable => @book} %>
+<%= render :partial => "comments/small_create", :locals => {:commentable => @user} %>
 
 
 <p>

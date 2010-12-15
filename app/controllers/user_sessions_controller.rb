@@ -1,4 +1,7 @@
 class UserSessionsController < ApplicationController
+  
+  skip_before_filter :save_location_if_needed
+  
   def new
     @user_session = UserSession.new
   end
@@ -7,7 +10,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = "Has ingresado correctamente"
-      redirect_to root_url
+      redirect_back_or_default root_url
     else
       render :action => 'new'
     end
