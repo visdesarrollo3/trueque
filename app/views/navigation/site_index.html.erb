@@ -24,6 +24,7 @@
         
         <div class="leftr">
           <ul>
+            <li><%= link_to "Mi Perfil", current_user %></li>
             <li><%= link_to "Mis libros", user_books_path(current_user) %></li>
           </ul>
           <%= link_to "Cerrar sesión", logout_path, :class => "small" %>
