@@ -6,5 +6,13 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-isbn = Page.new({:name => "¿Qué es ISBN?", :content => "El ISBN ..."})
-isbn.save
+Page.create([
+  {:name => "¿Qué es ISBN?", :content => "El ISBN ..."},
+  {:name => "Vitamina L", :content => "Vitamina L ..."},
+  {:name => "¿Quiénes somos?", :content => "Quienes somos"}
+])
+
+User.create([
+  {:email => "nhocki@gmail.com", :login => "nhocki", :password => 1234, :name => "Nicolás Hock Isaza"},
+  {:email => "jfelipe38@gmail.com", :login => "jfelipe38", :password => 1234, :name => "Juan Felipe Arango"}
+])
