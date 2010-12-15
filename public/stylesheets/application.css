@@ -144,7 +144,7 @@ a {
 .left{float: left;}
 .right{float: right;}
 
-h1,h2,h3,h4,h5,h6 {font-family: Georgia, Verdana, Helvetica;}
+h1,h2,h3,h4,h5,h6 {font-family: Georgia, Verdana, Helvetica; font-weight: normal;}
 
 h1{color: #1F4A57;}
 

@@ -10,9 +10,7 @@
 <body>
   <div id="container">
 
-    <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, :id => "flash_#{name}", :class => "alert" %>
-    <% end %>
+
 
 
 
@@ -36,63 +34,66 @@
       </ul>
       <%= clear %>
     </div> <!-- End of nav-menu div -->
-    
+
     <% if  content_for?(:subheader) %>
-      <%= yield(:subheader) %>
+    <%= yield(:subheader) %>
     <% end %>
-    
+
     <div class="left">
       <% if  content_for?(:sidebar) %>
-        <%= yield(:sidebar) %>
+      <%= yield(:sidebar) %>
       <% else %>
-        <%= render :partial => "shared/sidebar" %>
+      <%= render :partial => "shared/sidebar" %>
       <% end %>
       <%= clear %>
     </div>
-    
+
     <div id="main-content">
+      <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}", :class => "alert" %>
+      <% end %>
       <%= yield %>
       <%= clear %>
     </div>
-    
+
     <%= clear %>
-    
+
     <div id="footer">
       <div class="left section" id="interesting-links">
         <h3>Enlaces de interés</h3>
-		<p><%= link_to "Universidad EAFIT", "http://www.eafit.edu.co", :target => "_blank"%></p>
-		<p><%= link_to "Biblioteca EAFIT", "http://www.eafit.edu.co", :target => "_blank"%></p>
-		<p><%= link_to "Red de Bibliotecas", "http://www.eafit.edu.co", :target => "_blank"%></p>
+        <p><%= link_to "Universidad EAFIT", "http://www.eafit.edu.co", :target => "_blank"%></p>
+        <p><%= link_to "Biblioteca EAFIT", "http://www.eafit.edu.co", :target => "_blank"%></p>
+        <p><%= link_to "Red de Bibliotecas", "http://www.eafit.edu.co", :target => "_blank"%></p>
       </div>
-      
+
       <div class="left section" id="footer-logos">
         <h3>Con el apoyo de</h3>
-		<div class="eafit_icons">
-			<%= link_to image_tag("layout/eafit.png"), "http://www.eafit.edu.co", :target => "_blank" %>
-			<%= link_to image_tag("layout/biblio1.png"), "http://www.twitter.com", :target => "_blank"%>
-		
-		</div>
+        <div class="eafit_icons">
+          <%= link_to image_tag("layout/eafit.png"), "http://www.eafit.edu.co", :target => "_blank" %>
+          <%= link_to image_tag("layout/biblio1.png"), "http://www.twitter.com", :target => "_blank"%>
+
+        </div>
       </div>
-      
+
       <div class="left section" id="get-social">
         <h3>Encuéntranos en</h3>
-		<div class="footer_icons">
-			<%= link_to image_tag("layout/facebook.png"), "http://www.facebook.com", :target => "_blank" %>
-			<%= link_to image_tag("layout/twitter.png"), "http://www.twitter.com", :target => "_blank"%>
-			<%= link_to image_tag("layout/wordpress.png"), "http://www.wordpress.com", :target => "_blank"%>
-			<%= link_to image_tag("layout/youtube.png"), "http://www.youtube.com", :target => "_blank"%>
-			<%= link_to image_tag("layout/rss.png"), "#" %>
-		
-		</div>
+        <div class="footer_icons">
+          <%= link_to image_tag("layout/facebook.png"), "http://www.facebook.com", :target => "_blank" %>
+          <%= link_to image_tag("layout/twitter.png"), "http://www.twitter.com", :target => "_blank"%>
+          <%= link_to image_tag("layout/wordpress.png"), "http://www.wordpress.com", :target => "_blank"%>
+          <%= link_to image_tag("layout/youtube.png"), "http://www.youtube.com", :target => "_blank"%>
+          <%= link_to image_tag("layout/rss.png"), "#" %>
+
+        </div>
       </div>
     </div>
     <%= clear %>
   </div>
   <%= clear %>
-  
-  
-  
-  
+
+
+
+
   <div class="overlay" id="overlay">
     <div class="contentWrap"></div>
   </div>
