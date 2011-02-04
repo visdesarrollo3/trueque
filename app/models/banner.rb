@@ -12,8 +12,7 @@ class Banner < ActiveRecord::Base
         :thumb => "100x100#",
         :vertical => "225x270#"
     },
-    :url    => "/uploads/banners/:attachment/:id/:style-:basename.:extension",
-    :path   => ":rails_root/public/uploads/banners/:attachment/:id/:style-:basename.:extension",
+    :path   => "/uploads/banners/:attachment/:id/:style-:basename.:extension",
     :default_style => "gallery"
   
 end
