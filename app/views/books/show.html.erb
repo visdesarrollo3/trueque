@@ -45,16 +45,8 @@
 
 <%= clear %>
 
-<h2>Comentarios</h2>
-<% if @book.comments.any? %>
-  <%= render @book.comments %>
-<% else %>
-  <%= raw("<p>Podrías ser el primero en comentar!</p>") if current_user %>
-<% end %>
+<%= render :partial => "comments/list_and_form", :locals => {:commentable => @book} %>
 
-<%= clear %>
-
-<%= render :partial => "comments/small_create", :locals => {:commentable => @book} %>
 
 <p>
   <%= link_to "Edit", edit_book_path(@book) %> |

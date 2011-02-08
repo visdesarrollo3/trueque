@@ -4,6 +4,10 @@
 
 <%= raw @vitamin.embed_code %>
 
+<%= clear %>
+
+<%= render :partial => "comments/list_and_form", :locals => {:commentable => @vitamin} %>
+
 <p>
   <%= link_to "Edit", edit_vitamin_path(@vitamin) %> |
   <%= link_to "Destroy", @vitamin, :confirm => 'Are you sure?', :method => :delete %> |
