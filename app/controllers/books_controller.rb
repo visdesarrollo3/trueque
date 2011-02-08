@@ -11,8 +11,10 @@ class BooksController < ApplicationController
   
   def show
     @book = Book.find(params[:id])
-    if request.xhr?
-      render :layout => false
+    
+    respond_to do |format|
+      format.html
+      format.modal
     end
   end
   

@@ -2,7 +2,7 @@
 
 <h1><%= h @page.name %></h1>
 
-<%= simple_format h(@page.content) %>
+<%= raw(simple_format(@page.content)) %>
 
 <p>
   <%= link_to "Editar", edit_page_path(@page) %> |
