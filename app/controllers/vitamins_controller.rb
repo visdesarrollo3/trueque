@@ -16,7 +16,7 @@ class VitaminsController < ApplicationController
   def create
     @vitamin = Vitamin.new(params[:vitamin])
     
-    @featured_vitamin.demote! if @vitamin.featured?
+    @featured_vitamin.demote! if @featured_vitamin && @vitamin.featured?
 
     if @vitamin.save
       flash[:notice] = "Successfully created vitamin."
@@ -33,7 +33,7 @@ class VitaminsController < ApplicationController
   def update
     @vitamin = Vitamin.find(params[:id])
     if @vitamin.update_attributes(params[:vitamin])
-      @featured_vitamin.demote! if @vitamin.featured? && @vitamin != @featured_vitamin
+      @featured_vitamin.demote! if @featured_vitamin && @vitamin.featured? && @vitamin != @featured_vitamin
       flash[:notice] = "Successfully updated vitamin."
       redirect_to @vitamin
     else
