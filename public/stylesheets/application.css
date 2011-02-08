@@ -329,3 +329,8 @@ a.view-more {
       width: 150px;
 }
 a.view-more:hover {text-decoration: underline;}
+
+
+
+
+.youtube span {display: none;}
