@@ -28,6 +28,8 @@ a {
   font-size: 10px;
 }
 
+.bordered {border: 1px solid #000;}
+
 .notifications{color: #FFF; text-align: center; position: fixed; background: rgba(49,117,138,0.8); width: 100%; height: 25px; padding-top: 10px;}
 .notifications a {color: #CCC; text-decoration: none; text-shadow: 1px 1px 1px rgba(0,0,0,0.5);}
 .notifications a.hide-not{padding-left: 30px; }
@@ -322,3 +324,12 @@ div#navigation ul li {float: left; padding: 0 10px; margin: 0;}
   }
 a.view-more {text-align: center; background: transparent url(/images/layout/viewbook.png) top left no-repeat; padding-left: 30px; height: 30px; display: block; width: 60px; margin: 0 auto; text-decoration: none; color: #1F4A57;}
 a.view-more:hover {text-decoration: underline;}
+
+
+
+
+
+
+
+
+.youtube span {display: none;}
