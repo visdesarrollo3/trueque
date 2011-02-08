@@ -20,7 +20,7 @@ module LayoutHelper
     content_for(:head) { javascript_include_tag(*args) }
   end
   
-  def modal_to *args
+  def modal_to(*args)
     options = args.extract_options!
     options.merge! ({:rel => '#overlay'})
     name = args.first
