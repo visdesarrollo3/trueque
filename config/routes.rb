@@ -1,6 +1,6 @@
 Trueque::Application.routes.draw do
   
-  scope(:path_names => { :new => "nuevo", :edit => "edita" }) do
+  scope(:path_names => { :new => "nuevo", :edit => "editar" }) do
     resources :banners
     
     resources :trades do
