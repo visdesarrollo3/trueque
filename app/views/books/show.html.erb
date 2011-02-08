@@ -1,7 +1,5 @@
 <% title @book.title %>
 
-
-
 <p>
   <strong>Title:</strong>
   <%= @book.title %>
@@ -9,8 +7,12 @@
 
 <% if current_user && @book.user != current_user %>
   <p>Este libro se encuentra <%= raw state_message(@book) %></p>
-  <% unless @book.traded? %>
-    <p><%= link_to "Pedir trueque", trades_path(:book_id => @book.id), :method => :post  %></p>
+  <% if @book.traded? %>
+    <p>Este libro fue truequiado con <%= @book.traded_with.name %></p>
+  <% else %>
+    <p>
+      Este libro está disponible! Puedes <%= link_to "pedir un trueque", trades_path(:book_id => @book.id), :method => :post  %>
+    </p>
   <% end %>
   
 <% end %>
