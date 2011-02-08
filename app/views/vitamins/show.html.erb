@@ -1,17 +1,8 @@
 <% title "Vitamin" %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @vitamin.name %>
-</p>
-<p>
-  <strong>Video Url:</strong>
-  <%= @vitamin.video_code %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @vitamin.description %>
-</p>
+<h1><%= @vitamin.name %></h1>
+
+<%= raw @vitamin.embed_code %>
 
 <p>
   <%= link_to "Edit", edit_vitamin_path(@vitamin) %> |

@@ -11,6 +11,8 @@ jQuery(function($) {
   });
   
   
+  $("iframe").wrap("<div class='iframe-wrapper' style='text-align: center; padding: 10px 0px 20px;' />");
+  
   
   $('#slider').nivoSlider({
     effect:'fade', //Specify sets like: 'fold,fade,sliceDown'
