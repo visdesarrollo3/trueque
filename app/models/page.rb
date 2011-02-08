@@ -7,6 +7,12 @@ class Page < ActiveRecord::Base
   
   before_save :create_permalink
   
+  def self.find(id)
+    self.find_by_permalink(id) || super(id)
+  end
+  
+  
+  
   def to_param
     self.permalink
   end

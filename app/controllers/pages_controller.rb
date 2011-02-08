@@ -1,12 +1,11 @@
 class PagesController < ApplicationController
-  before_filter :find_page_by_permalink, :only => [:show, :edit, :udate, :destroy]
   
   def index
     @pages = Page.all
   end
   
   def show
-    
+    @page = Page.find params[:id]
     if request.xhr?
       render :layout => false
     end
@@ -27,10 +26,11 @@ class PagesController < ApplicationController
   end
   
   def edit
-
+    @page = Page.find params[:id]
   end
   
   def update
+    @page = Page.find params[:id]
     if @page.update_attributes(params[:page])
       flash[:notice] = "Successfully updated page."
       redirect_to @page
@@ -44,6 +44,8 @@ class PagesController < ApplicationController
     flash[:notice] = "Successfully destroyed page."
     redirect_to pages_url
   end
+  
+  private
   
   def find_page_by_permalink
     @page = Page.find_by_permalink(params[:id])
