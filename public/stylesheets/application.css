@@ -2,12 +2,11 @@
 
 body {
   background-color: #FFF;
-  font-family: Verdana, Helvetica, Arial;
-  font-size: 14px;
+  font-family: "Trebuchet MS",Helvetica,Arial;
+  font-size: 12px;
   margin:0;
   background-image:url('/images/layout/pattern.gif');
 }
-
 a img {
   border: none;
 }
@@ -301,24 +300,30 @@ div#navigation ul li {float: left; padding: 0 10px; margin: 0;}
 
 
 /* ######################################## SMALL BOOK LIST */
+.cover {
+    width: 135px;
+}
+.books .book img {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    color: #000000;
+    padding: 0.1em;
+    text-align: center;
+}
+a.view-more {
+    color: #1F4A57;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    text-decoration: none;
+    width: 60px;
+}
+
+
 .books .book {
       float: left;
       padding: 10px;
       text-align: center;
       width: 150px;
 }
-.cover{
-  width: 135px;
-  -moz-box-shadow: 5px -5px 1px #CCCCCC;
-  box-shadow: 5px -5px 1px #CCCCCC;
-  -webkit-box-shadow: 5px -5px 1px #CCCCCC;
-}
-.books .book img {
-  background-color: #FFFFFF;
-      border: 1px solid #000000;
-      color: #000000;
-      padding: 0.1em;
-  text-align: center;
-  }
-a.view-more {text-align: center; background: transparent url(/images/layout/viewbook.png) top left no-repeat; padding-left: 30px; height: 30px; display: block; width: 60px; margin: 0 auto; text-decoration: none; color: #1F4A57;}
 a.view-more:hover {text-decoration: underline;}
