@@ -1,0 +1,20 @@
+<% title "Vitamin" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @vitamin.name %>
+</p>
+<p>
+  <strong>Video Url:</strong>
+  <%= @vitamin.video_url %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @vitamin.description %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_vitamin_path(@vitamin) %> |
+  <%= link_to "Destroy", @vitamin, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", vitamins_path %>
+</p>

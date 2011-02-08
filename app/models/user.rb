@@ -2,22 +2,19 @@ class User < ActiveRecord::Base
   attr_accessible :name, :age, :sex, :ocupation, :hobbies, :actual_book, :avatar,
   :avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at,
   :password_confirmation, :password, :login, :email
-
-  make_permalink :login
   
-
-
   acts_as_authentic do |c|
     c.ignore_blank_passwords = true
     c.validate_password_field = false
   end
+  
   acts_as_commentable
+  make_permalink :login
 
   extend StoreAttachmentOnS3 if Rails.env.production?
 
   has_attached_file :avatar, :styles => { :small => "100x100#" },
-    :url  => "/uploads/users/:attachment/:id/:style-:basename.:extension",
-    :path => ":rails_root/public/uploads/users/:attachment/:id/:style-:basename.:extension"
+    :path => "/uploads/users/:attachment/:id/:style-:basename.:extension"
 
 
   has_many :books
