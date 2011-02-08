@@ -1,11 +1,10 @@
 <% title "Vitamins" %>
 
-<h1>Video Destacado</h1>
-
-<h3><%= @featured_vitamin.name %></h3>
-
-<%= raw @featured_vitamin.small_embed_code %>
-
+<% if @featured_vitamin %>
+  <h1>Video Destacado</h1>
+  <h3><%= @featured_vitamin.name %></h3>
+  <%= raw @featured_vitamin.small_embed_code %>
+<% end %>
 
 
 <h1>Otros Videos</h1>
