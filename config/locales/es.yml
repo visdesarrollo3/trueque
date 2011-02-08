@@ -226,8 +226,15 @@ es:
       user_session: Sesión
       banner: Baner
       comment: Comentario
-      Photo: Foto
+      photo: Foto
+      vitamin: Vitamina
     attributes:
+      vitamin:
+        name: Nombre
+        video_code: "Código del video"
+        description: Descripción
+        featured: Video destacado
+        
       book:
         title: Título
         available: Disponible
