@@ -17,10 +17,10 @@ Trueque::Application.routes.draw do
     resources :books
   end
 
-  get "tags/list"
+
 
   resources :pages
-  resources :books do
+  resources :books, :path => "libros" do
     resources :comments
   end
   # The priority is based upon order of creation:
@@ -70,16 +70,16 @@ Trueque::Application.routes.draw do
   #     resources :products
   #   end
 
-  match '/authors/list/' => "authors#list", :as => :authors_list
-  match '/tags/list/'    => "tags#list", :as => :tags_list
+  match '/authors/list' => "authors#list", :as => :authors_list
+  match '/tags/list'    => "tags#list",    :as => :tags_list
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => "navigation#site_index"
 
   # See how all your routes lay out with "rake routes"
-  match '/:id' => 'pages#show', :as => :static
-  match '/:id' => 'pages#modal', :as => :static_modal
+  match '/:id' => 'pages#show',   :as => :static
+  match '/:id' => 'pages#modal',  :as => :static_modal
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'

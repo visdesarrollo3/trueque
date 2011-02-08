@@ -44,7 +44,7 @@ class TradesController < ApplicationController
   def pre_accept
     @trade = Trade.find params[:id]
     @user = @trade.user1
-    @books = @user.books
+    @books = @user.books.available
   end
   
   def ignore
