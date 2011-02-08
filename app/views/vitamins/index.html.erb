@@ -1,5 +1,16 @@
 <% title "Vitamins" %>
 
+
+<div class="vitamins">
+  <% for vitamin in @vitamins %>
+    <div class="youtube">
+      <%= link_to vitamin.name, vitamin.video_url, :class => "video" %>
+    </div>
+  <% end %>
+</div>
+
+
+
 <table>
   <tr>
     <th>Name</th>
