@@ -65,7 +65,15 @@ class Book < ActiveRecord::Base
   
   def available?
     trade.nil?
-  end  
+  end
+  
+  def traded_with
+    begin
+      offered ? trade.receiver : trade.initiator
+    rescue Exception => e
+      nil
+    end
+  end
     
   private
   

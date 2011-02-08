@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101215062031) do
+ActiveRecord::Schema.define(:version => 20110208151211) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(:version => 20101215062031) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "authors", ["name"], :name => "index_authors_on_name"
 
   create_table "authorships", :force => true do |t|
     t.integer  "author_id"
@@ -92,6 +94,8 @@ ActiveRecord::Schema.define(:version => 20101215062031) do
     t.string   "name"
   end
 
+  add_index "isbns", ["isbn"], :name => "index_isbns_on_isbn"
+
   create_table "pages", :force => true do |t|
     t.string   "name"
     t.string   "permalink"
@@ -99,6 +103,8 @@ ActiveRecord::Schema.define(:version => 20101215062031) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "pages", ["permalink"], :name => "index_pages_on_permalink"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
@@ -126,6 +132,8 @@ ActiveRecord::Schema.define(:version => 20101215062031) do
     t.datetime "updated_at"
     t.string   "current_state"
   end
+
+  add_index "trades", ["book1_id", "book2_id", "user1_id", "user2_id"], :name => "index_trades_on_book1_id_and_book2_id_and_user1_id_and_user2_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
