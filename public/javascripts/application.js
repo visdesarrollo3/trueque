@@ -4,12 +4,14 @@ jQuery(function($) {
   
   $(".youtube").each(function(index, element){
     var _this = $(this);
+    var _span = $("span", _this);
     var _link = $("a.video", _this);
-    alert(_link.attr("href"));
-    var thumb_url = $.jYoutube(_link.attr("href"));
+    var thumb_url = $.jYoutube(_span.html(), "small");
     _link.html('<img src="' + thumb_url + '" class="thumb bordered" />');
   });
   
+  
+  $("iframe").wrap("<div class='iframe-wrapper' style='text-align: center; padding: 10px 0px 20px;' />");
   
   
   $('#slider').nivoSlider({
