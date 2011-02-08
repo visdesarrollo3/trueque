@@ -1,4 +1,4 @@
-<% title "Vitamins" %>
+<% title "Vitamina L" %>
 
 <% if @featured_vitamin %>
   <h1>Video Destacado</h1>
@@ -7,7 +7,7 @@
 <% end %>
 
 
-<h1>Otros Videos</h1>
+<h2>Otros Videos</h2>
 
 <div class="vitamins">
   <% for vitamin in @vitamins %>
@@ -26,4 +26,4 @@
 </div>
 
 
-<p><%= link_to "New Vitamin", new_vitamin_path %></p>
+<p><%= link_to "Agregar video", new_vitamin_path %></p>

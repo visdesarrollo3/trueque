@@ -4,6 +4,8 @@ class Vitamin < ActiveRecord::Base
   
   scope :featured, where(:featured => true).limit(1)
   
+  acts_as_commentable
+  
   def video_url
     "http://www.youtube.com/watch?v=#{video_code}"
   end

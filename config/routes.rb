@@ -1,6 +1,6 @@
 Trueque::Application.routes.draw do
   
-  resources :vitamins
+  
 
   scope(:path_names => { :new => "nuevo", :edit => "editar" }) do
     resources :banners
@@ -11,6 +11,10 @@ Trueque::Application.routes.draw do
         post 'accept'
         get 'pre_accept'
       end
+    end
+    
+    resources :vitamins do
+      resources :comments, :path => "comentarios"
     end
     
     resources :user_sessions
