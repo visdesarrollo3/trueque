@@ -39,6 +39,12 @@ class Book < ActiveRecord::Base
   scope :available, where(:trade_id => nil)
   scope :newest_first, order("created_at DESC")
   
+  make_permalink :title
+  
+  def to_param
+    permalink
+  end
+  
   def author_names
     @author_names || authors.map(&:name).join(', ')
   end
