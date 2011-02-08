@@ -1,28 +1,38 @@
 Trueque::Application.routes.draw do
-  resources :banners
+  
+  scope(:path_names => { :new => "nuevo", :edit => "edita" }) do
+    resources :banners
+    
+    resources :trades do
+      member do
+        post 'ignore'
+        post 'accept'
+        get 'pre_accept'
+      end
+    end
+    
+    resources :user_sessions
+    resources :users, :path => "usuarios" do
+      resources :comments, :path => "comentarios"
+      resources :books, :path => "libros"
+    end
+  
+    resources :pages
+    resources :books, :path => "libros" do
+      resources :comments, :path => "comentarios"
+    end
+    
+  end
+  
+  
 
   match '/login' => "user_sessions#new", :as => :login
   match '/logout' => "user_sessions#destroy", :as => :logout
 
-  resources :trades do
-    member do
-      post 'ignore'
-      post 'accept'
-      get 'pre_accept'
-    end
-  end
-  resources :user_sessions
-  resources :users do
-    resources :comments
-    resources :books
-  end
+  
 
 
-
-  resources :pages
-  resources :books, :path => "libros" do
-    resources :comments
-  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
