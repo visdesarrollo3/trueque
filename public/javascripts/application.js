@@ -6,7 +6,7 @@ jQuery(function($) {
     var _this = $(this);
     var _span = $("span", _this);
     var _link = $("a.video", _this);
-    var thumb_url = $.jYoutube(_span.html(), "small");
+    var thumb_url = $.jYoutube(_span.html(), "big");
     _link.html('<img src="' + thumb_url + '" class="thumb bordered" />');
   });
   

@@ -1,13 +1,28 @@
 <% title "Vitamins" %>
 
+<% if @featured_vitamin %>
+  <h1>Video Destacado</h1>
+  <h3><%= @featured_vitamin.name %></h3>
+  <%= raw @featured_vitamin.small_embed_code %>
+<% end %>
+
+
+<h1>Otros Videos</h1>
 
 <div class="vitamins">
   <% for vitamin in @vitamins %>
+    
     <div class="youtube">
-      <span class="thumb"><%= vitamin.video_url %></span>
+      
+      <h3><%= link_to vitamin.name, vitamin %></h3>
+      
+      <span class="url"><%= vitamin.video_url %></span>
       <%= link_to vitamin.name, vitamin, :class => "video" %>
     </div>
+    
   <% end %>
+  
+  <%= clear %>
 </div>
 
 

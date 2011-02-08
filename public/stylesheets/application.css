@@ -332,5 +332,8 @@ a.view-more:hover {text-decoration: underline;}
 
 
 
-
-.youtube span {display: none;}
+.youtube { float: left; margin: 5px; width: 200px; min-height: 180px; text-align: center;}
+.youtube h3 {margin: 5px auto; text-align: center;}
+.youtube img {text-align: center;}
+.youtube span.url { display: none; }
+.youtube .thumb { width: 200px; height: 150px; }

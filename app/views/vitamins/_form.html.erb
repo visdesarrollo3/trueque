@@ -8,6 +8,15 @@
     <%= f.label :video_code %><br />
     <%= f.text_field :video_code %>
   </p>
+  
+  <% if @featured_vitamin %>
+    <p>El video destacado actual es <%= @featured_vitamin.name %></p>
+  <% end %>
+  
+  <p>
+    <%= f.check_box :featured %>  <%= f.label :featured %>
+  </p>
+  
   <p>
     <%= f.label :description %><br />
     <%= f.text_area :description %>
