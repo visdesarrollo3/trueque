@@ -1,5 +1,7 @@
 Trueque::Application.routes.draw do
   
+  resources :vitamins
+
   scope(:path_names => { :new => "nuevo", :edit => "editar" }) do
     resources :banners
     

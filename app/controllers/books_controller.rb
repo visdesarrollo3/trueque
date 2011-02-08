@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  respond_to :html, :xml, :json, :modal
+  
   def index
     @user = User.find params[:user_id] if params[:user_id]
     @books = if @user.nil?
@@ -6,20 +8,17 @@ class BooksController < ApplicationController
               else
                 @user.books.all
               end
-    
+    respond_with @books  
   end
   
   def show
     @book = Book.find(params[:id])
-    
-    respond_to do |format|
-      format.html
-      format.modal
-    end
+    respond_with @book
   end
   
   def new
     @book = Book.new
+    respond_with @book
   end
   
   def create

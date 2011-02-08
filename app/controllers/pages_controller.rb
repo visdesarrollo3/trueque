@@ -1,25 +1,26 @@
 class PagesController < ApplicationController
+  respond_to :html, :xml, :json, :modal
   
   def index
     @pages = Page.all
+    respond_with @pages
   end
   
   def show
     @page = Page.find params[:id]
-    if request.xhr?
-      render :layout => false
-    end
+    respond_with @page
   end
   
   def new
     @page = Page.new
+    respond_with @page
   end
   
   def create
     @page = Page.new(params[:page])
     if @page.save
       flash[:notice] = "Successfully created page."
-      redirect_to static_path(@page.permalink)
+      respond_with @page, :location => static_path(@page.permalink)
     else
       render :action => 'new'
     end
@@ -27,13 +28,14 @@ class PagesController < ApplicationController
   
   def edit
     @page = Page.find params[:id]
+    respond_with @page
   end
   
   def update
     @page = Page.find params[:id]
     if @page.update_attributes(params[:page])
       flash[:notice] = "Successfully updated page."
-      redirect_to @page
+      respond_with @page, :location => static_path(@page.permalink)
     else
       render :action => 'edit'
     end
@@ -42,7 +44,7 @@ class PagesController < ApplicationController
   def destroy
     @page.destroy
     flash[:notice] = "Successfully destroyed page."
-    redirect_to pages_url
+    respond_with @page, :location => pages_url
   end
   
   private

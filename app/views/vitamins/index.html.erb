@@ -1,0 +1,21 @@
+<% title "Vitamins" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Video Url</th>
+    <th>Description</th>
+  </tr>
+  <% for vitamin in @vitamins %>
+    <tr>
+      <td><%= vitamin.name %></td>
+      <td><%= vitamin.video_url %></td>
+      <td><%= vitamin.description %></td>
+      <td><%= link_to "Show", vitamin %></td>
+      <td><%= link_to "Edit", edit_vitamin_path(vitamin) %></td>
+      <td><%= link_to "Destroy", vitamin, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Vitamin", new_vitamin_path %></p>

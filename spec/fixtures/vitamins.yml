@@ -1,0 +1,9 @@
+one:
+  name: MyString
+  video_url: MyString
+  description: MyText
+
+two:
+  name: MyString
+  video_url: MyString
+  description: MyText
