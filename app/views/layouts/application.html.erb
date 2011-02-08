@@ -1,26 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= content_for?(:title) ? yield(:title) : "Trueque" %></title>
+  <title>
+    <%= "#{yield(:title)} | Trueque Literario EAFIT" %>
+  </title>
   <%= stylesheet_link_tag "jquery.ui", "nivo.slider", "application" %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
   <%= yield(:head) %>
   
-  <script type="text/javascript">
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-20252377-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-  </script>
-  
+  <%= render "shared/google_analytics" %>
   
 </head>
 <body>
