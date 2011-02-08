@@ -11,7 +11,7 @@
   <div id="login" class="right">
     <div class = "quoted-title" id="login-title">
       <% if current_user %>
-        Este es mi perfil en el trueque electrónico
+		<%= current_user.name %>
       <% else %>
         Acceso usuarios
       <% end %>
@@ -27,7 +27,7 @@
           <ul>
             <li><%= link_to "Ver mi perfil completo", current_user %></li>
             <li><%= link_to "Ir a mis libros", user_books_path(current_user) %></li>
-			<li><%= link_to "Cerrar sesión", logout_path, :class => "small" %></li>
+			<li><%= link_to "Cerrar sesión", logout_path %></li>
           </ul>
           
         </div>

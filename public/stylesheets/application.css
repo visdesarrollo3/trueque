@@ -318,7 +318,6 @@ a.view-more {
     margin: 0 auto;
     text-align: center;
     text-decoration: none;
-    width: 60px;
 }
 
 
@@ -327,6 +326,7 @@ a.view-more {
       padding: 10px;
       text-align: center;
       width: 150px;
+      height: 200px;
 }
 a.view-more:hover {text-decoration: underline;}
 
