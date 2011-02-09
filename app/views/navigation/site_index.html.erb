@@ -19,20 +19,7 @@
 
     <div id = "login-dashboard">
       <% if current_user %>
-        <div class="left">
-          <%= image_tag current_user.avatar.url(:small) %>
-        </div>
-        
-        <div class="leftr" id="login_list">
-          <ul>
-            <li><%= link_to "Ver mi perfil completo", current_user %></li>
-            <li><%= link_to "Ir a mis libros", user_books_path(current_user) %></li>
-			<li><%= link_to "Cerrar sesión", logout_path %></li>
-          </ul>
-          
-        </div>
-        
-        
+        <%= render :partial => "users/small", :object => current_user, :as => :user %>
         <%= clear %>
       <% else %>
 <div id="login_form_home">
