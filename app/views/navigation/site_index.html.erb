@@ -23,7 +23,7 @@
           <%= image_tag current_user.avatar.url(:small) %>
         </div>
         
-        <div class="leftr">
+        <div class="leftr" id="login_list">
           <ul>
             <li><%= link_to "Ver mi perfil completo", current_user %></li>
             <li><%= link_to "Ir a mis libros", user_books_path(current_user) %></li>
@@ -35,8 +35,20 @@
         
         <%= clear %>
       <% else %>
-        <%= render :partial => "user_sessions/small" %>
-      <% end %>
+<div id="login_form_home">
+	<%= form_for UserSession.new do |f| %>
+	  <p>
+	    <%= f.label :usuario %><br />
+	    <%= f.text_field :login, :size => 33 %>
+	  </p>
+	  <p>
+	    <%= f.label :contraseña %><br />
+	    <%= f.password_field :password, :size => 33 %>
+	  </p>
+	  <p><%= f.submit :"Ingresar", :class => "btn" %></p>
+	<% end %>
+</div>
+ <% end %>
     </div>
   </div> <!-- End of login div -->
   <%= clear %>

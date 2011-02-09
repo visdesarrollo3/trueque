@@ -161,6 +161,7 @@ h1,h2,h3,h4,h5,h6 {font-family: Georgia, Verdana, Helvetica; font-weight: normal
 h1{color: #1F4A57;}
 
 /* ######################################## INDEX STYLES */
+
 #login{
   width: 280px; float: right; height: 270px;
   background: #C7B472 url(/images/layout/backlogin.jpg) bottom left no-repeat;
