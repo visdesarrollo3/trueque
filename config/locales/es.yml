@@ -143,15 +143,18 @@ es:
       second: "Segundo"
 
   helpers:
+    submit:
+      vitamin:
+        create: "Crear vitamina"
+      create: 'Crear %{model}'
+      update: 'Actualizar %{model}'
+      submit: 'Guardar %{model}'
     select:
       # Default value for :prompt => true in FormOptionsHelper
       prompt: "Por favor selecciona"
 
     # Default translation keys for submit FormHelper
-    submit:
-      create: 'Crear %{model}'
-      update: 'Actualizar %{model}'
-      submit: 'Guardar %{model}'
+    
   
   
   ########
@@ -223,8 +226,15 @@ es:
       user_session: Sesión
       banner: Baner
       comment: Comentario
-      Photo: Foto
+      photo: Foto
+      vitamin: Vitamina
     attributes:
+      vitamin:
+        name: Nombre
+        video_code: "Código del video"
+        description: Descripción
+        featured: Video destacado
+        
       book:
         title: Título
         available: Disponible
