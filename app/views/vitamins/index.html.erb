@@ -2,8 +2,10 @@
 
 <% if @featured_vitamin %>
   <h1>Video Destacado</h1>
-  <h3><%= @featured_vitamin.name %></h3>
+  <h2><%= @featured_vitamin.name %></h2>
   <%= raw @featured_vitamin.small_embed_code %>
+  <%= clear %>
+  <%= link_to "Ver comentarios del video", vitamin_path(@featured_vitamin, :anchor => "comments"), :class => "lright" %>
 <% end %>
 
 
@@ -14,7 +16,7 @@
     
     <div class="youtube">
       
-      <h3><%= link_to vitamin.name, vitamin %></h3>
+      <h2><%= link_to vitamin.name, vitamin %></h2>
       
       <span class="url"><%= vitamin.video_url %></span>
       <%= link_to vitamin.name, vitamin, :class => "video" %>

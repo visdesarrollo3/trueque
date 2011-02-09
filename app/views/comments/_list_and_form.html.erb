@@ -1,11 +1,13 @@
-<h2>Comentarios</h2>
+<div id="comments">
+  <h2>Comentarios</h2>
 
-<% if commentable.comments.any? %>
-  <%= render commentable.comments %>
-<% else %>
-  <%= raw("<p>No hay comentarios. Podrías ser el primero en comentar!</p>") if current_user %>
-<% end %>
+  <% if commentable.comments.any? %>
+    <%= render commentable.comments %>
+  <% else %>
+    <%= raw("<p>No hay comentarios. Podrías ser el primero en comentar!</p>") if current_user %>
+  <% end %>
 
-<%= clear %>
+  <%= clear %>
 
-<%= render :partial => "comments/small_create", :locals => {:commentable => commentable} %>
+  <%= render :partial => "comments/small_create", :locals => {:commentable => commentable} %>
+</div>
