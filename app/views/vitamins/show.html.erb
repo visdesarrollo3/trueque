@@ -9,7 +9,7 @@
 <%= render :partial => "comments/list_and_form", :locals => {:commentable => @vitamin} %>
 
 <p>
-  <%= link_to "Edit", edit_vitamin_path(@vitamin) %> |
-  <%= link_to "Destroy", @vitamin, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", vitamins_path %>
+  <%= link_to "Editar", edit_vitamin_path(@vitamin) %> |
+  <%= link_to "Eliminar", @vitamin, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "Volver a Vitamina L", vitamins_path %>
 </p>
