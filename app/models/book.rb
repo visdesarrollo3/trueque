@@ -16,7 +16,7 @@ class Book < ActiveRecord::Base
   has_attached_file :photo, :styles => { :thumb => "125x145#" },
     :path => "/uploads/books/:attachment/:id/:style-:basename.:extension",
     :default_style => "thumb"
-  
+
   
   before_create :find_or_create_isbn
   
