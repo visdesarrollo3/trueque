@@ -152,9 +152,10 @@ a {
   margin: 0;
 }
 
-.left{float: left;}
-.leftr {float: left; padding-left: 20px;}
-.right{float: right;}
+.left             { float: left; }
+.rleft, .leftr    { float: left; margin-left: 20px; }
+.right            { float: right; }
+.lright, .rightl  { float: right; margin-right: 20px; }
 
 h1,h2,h3,h4,h5,h6 {font-family: Georgia, Verdana, Helvetica; font-weight: normal;}
 
