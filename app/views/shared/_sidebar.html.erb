@@ -1,12 +1,25 @@
 <div id="sidebar">
-  <div class = "quoted-title" id="login-title">
-    Perfil
-  </div>
+  	<div class = "quoted-title" id="login-title">
+      <% if current_user %>
+		<%= current_user.name %>
+      <% else %>
+        Acceso usuarios
+      <% end %>
+    </div>
 	<div id="perfil" style="width: 90%">
-	  
 	  <% if current_user %>
-	    <p>Hola Usuario</p>
-  		<div id="foto-perfil"></div>
+	    <div class="left">
+          <%= image_tag current_user.avatar.url(:small) %>
+        </div>
+        
+        <div class="leftr" id="login_list">
+          <ul>
+            <li><%= link_to "Ver mi perfil completo", current_user %></li>
+            <li><%= link_to "Ir a mis libros", user_books_path(current_user) %></li>
+			<li><%= link_to "Cerrar sesión", logout_path %></li>
+          </ul>
+          
+        </div>
 	  <% else %>
 	    <%= render :partial => "user_sessions/small" %>
 	  <% end %>
