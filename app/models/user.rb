@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :age, :sex, :ocupation, :hobbies, :actual_book, :avatar,
   :avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at,
-  :password_confirmation, :password, :login, :email
+  :password, :login, :email, :webpage
   
   acts_as_authentic do |c|
     c.ignore_blank_passwords = true
@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
 
   def self.create_from_hash(hash)
     user = User.new(:username => hash['user_info']['name'].scan(/[a-zA-Z0-9_]/).to_s.downcase)
-    user.save(false) #create the user without performing validations. This is because most of the fields are not set.
+    user.save(:validate => false) #create the user without performing validations. This is because most of the fields are not set.
     user.reset_persistence_token! #set persistence_token else sessions will not be created
     user
   end

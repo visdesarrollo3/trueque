@@ -62,7 +62,7 @@
     <%= yield(:subheader) %>
     <% end %>
 
-    <div class="left">
+    <div class="left sidebar">
       <% if  content_for?(:sidebar) %>
       <%= yield(:sidebar) %>
       <% else %>
@@ -70,6 +70,7 @@
       <% end %>
       <%= clear %>
     </div>
+    <!-- End of sidebar -->
 
     <div id="main-content">
       <% flash.each do |name, msg| %>
@@ -79,9 +80,8 @@
       <%= yield %>
       <%= clear %>
     </div>
-
+    <!-- End of main-content -->
     <%= clear %>
-
     <div id="footer">
       <div class="left section" id="interesting-links">
         <h3>Enlaces de interés</h3>
@@ -111,15 +111,19 @@
         </div>
       </div>
     </div>
+    <!-- End of footer -->
     <%= clear %>
   </div>
+  <!-- End of container -->
   <%= clear %>
-
 
 
 
   <div class="overlay" id="overlay">
     <div class="contentWrap"></div>
   </div>
+  
+  <!-- Powered by Zinergia -->
+  
 </body>
 </html>

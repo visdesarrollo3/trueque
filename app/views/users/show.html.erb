@@ -1,12 +1,21 @@
-<% title @user.name %>
+<% title "Perfil de #{@user.name}" %>
+
+
+
+<div class="left avatar">
+  <%= image_tag @user.avatar.url %>
+</div>
+
+<div class="rleft">
+  <h2><%= @user.name %></h2>
+  <span class="small"> &lt; <%= @user.webpage %> &gt; </span>
+</div>
+
+<%= clear %>
 
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
-</p>
-
-<p>
-  <%= image_tag @user.avatar.url(:small) %>
 </p>
 
 <p>
