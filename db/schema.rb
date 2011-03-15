@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110209175125) do
+ActiveRecord::Schema.define(:version => 20110315231954) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -163,6 +163,7 @@ ActiveRecord::Schema.define(:version => 20110209175125) do
     t.datetime "current_login_at"
     t.datetime "last_login_at"
     t.string   "webpage"
+    t.string   "role",                :default => "user"
   end
 
   create_table "vitamins", :force => true do |t|

@@ -8,7 +8,10 @@ class User < ActiveRecord::Base
     c.validate_password_field = false
   end
   
+  ROLES = %w(admin user)
+  
   acts_as_commentable
+  
   make_permalink :login
 
   extend StoreAttachmentOnS3 if Rails.env.production?
@@ -23,11 +26,13 @@ class User < ActiveRecord::Base
   has_many :offered_trades,  :class_name => "Trade", :foreign_key => "user1_id"
   has_many :received_trades, :class_name => "Trade", :foreign_key => "user2_id"
   
-  has_many :completed_trades, :class_name => "Trade", :foreign_key => "user1_id", :conditions => {:current_state => :accepted}
-  has_many :waiting_trades,   :class_name => "Trade", :foreign_key => "user1_id", :conditions => {:current_state => :pending}
+  has_many :completed_trades, :class_name => "Trade", :foreign_key => "user1_id", :conditions => { :current_state => :accepted }
+  has_many :waiting_trades,   :class_name => "Trade", :foreign_key => "user1_id", :conditions => { :current_state => :pending  }
   
-  has_many :accepted_trades,  :class_name => "Trade", :foreign_key => "user2_id", :conditions => {:current_state => :accepted}
-  has_many :pending_trades,   :class_name => "Trade", :foreign_key => "user2_id", :conditions => {:current_state => :pending}
+  has_many :accepted_trades,  :class_name => "Trade", :foreign_key => "user2_id", :conditions => { :current_state => :accepted }
+  has_many :pending_trades,   :class_name => "Trade", :foreign_key => "user2_id", :conditions => { :current_state => :pending  }
+  
+  scope :admins, where(:role => ROLES[0])
 
   def to_param
     permalink
@@ -40,20 +45,11 @@ class User < ActiveRecord::Base
     user
   end
   
-  #here we add required validations for a new record and pre-existing record
-  # validate do |user|
-  #   if user.new_record? #adds validation if it is a new record
-  #     user.errors.add(:password, "is required") if user.password.blank? 
-  #     user.errors.add(:password_confirmation, "is required") if user.password_confirmation.blank?
-  #     user.errors.add(:password, "Password and confirmation must match") if user.password != user.password_confirmation
-  #   elsif !(!user.new_record? && user.password.blank? && user.password_confirmation.blank?) #adds validation only if password or password_confirmation are modified
-  #     user.errors.add(:password, "is required") if user.password.blank?
-  #     user.errors.add(:password_confirmation, "is required") if user.password_confirmation.blank?
-  #     user.errors.add(:password, " and confirmation must match.") if user.password != user.password_confirmation
-  #     user.errors.add(:password, " and confirmation should be atleast 4 characters long.") if user.password.length < 4 || user.password_confirmation.length < 4
-  #   end
-  # end  
-
+  def admin?
+    self.role == ROLES[0]
+  end
   
-  
+  def user?
+    self.role == ROLES[1]
+  end
 end

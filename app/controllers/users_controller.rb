@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource
+  
   def index
     @users = User.all
   end
@@ -14,7 +16,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:notice] = "Successfully created user."
+      flash[:notice] = "El usuario ha sido creado"
       redirect_to @user
     else
       render :action => 'new'
@@ -28,7 +30,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      flash[:notice] = "Successfully updated user."
+      flash[:notice] = "Tu perfil ha sido actualizado"
       redirect_to @user
     else
       render :action => 'edit'
@@ -38,7 +40,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    flash[:notice] = "Successfully destroyed user."
+    flash[:notice] = "Tu cuenta ha sido eliminada exitosamente."
     redirect_to users_url
   end
 end

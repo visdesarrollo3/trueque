@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  check_authorization
   protect_from_forgery
   
   before_filter :get_banners, :save_location_if_needed

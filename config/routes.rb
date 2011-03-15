@@ -5,7 +5,7 @@ Trueque::Application.routes.draw do
   scope(:path_names => { :new => "nuevo", :edit => "editar" }) do
     resources :banners
     
-    resources :trades do
+    resources :trades, :path => "trueque" do
       member do
         post 'ignore'
         post 'accept'
@@ -13,7 +13,7 @@ Trueque::Application.routes.draw do
       end
     end
     
-    resources :vitamins do
+    resources :vitamins, :path => "vitamina-l" do
       resources :comments, :path => "comentarios"
     end
     
@@ -23,7 +23,7 @@ Trueque::Application.routes.draw do
       resources :books, :path => "libros"
     end
   
-    resources :pages
+    resources :pages, :path => "paginas"
     resources :books, :path => "libros" do
       resources :comments, :path => "comentarios"
     end
@@ -89,8 +89,6 @@ Trueque::Application.routes.draw do
   match '/authors/list' => "authors#list", :as => :authors_list
   match '/tags/list'    => "tags#list",    :as => :tags_list
 
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
   root :to => "navigation#site_index"
 
   # See how all your routes lay out with "rake routes"

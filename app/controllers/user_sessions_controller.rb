@@ -1,5 +1,5 @@
 class UserSessionsController < ApplicationController
-  
+  skip_authorization_check
   skip_before_filter :save_location_if_needed
   
   def new

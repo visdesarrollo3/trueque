@@ -1,4 +1,5 @@
 class BannersController < ApplicationController
+  load_and_authorize_resource
   def index
     @banners = Banner.all
   end

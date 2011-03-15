@@ -1,5 +1,7 @@
 # coding: utf-8
 class TradesController < ApplicationController
+  load_and_authorize_resource
+  
   def index
     @trades = current_user.pending_trades.all
   end
@@ -36,15 +38,15 @@ class TradesController < ApplicationController
     if @trade.accept and @trade.save
       flash[:notice] = "El trueque ha sido exitoso! Disfruta tu nuevo libro!"
     else
-      flash[:error] = "El sistema no pudo intercambiar los libros, intenta nuevamente"
+      flash[:error] = "El sistema no pudo intercambiar los libros, intenta nuevamente."
     end
     redirect_to trades_path
   end
   
   def pre_accept
-    @trade = Trade.find params[:id]
-    @user = @trade.user1
-    @books = @user.books.available
+    @trade  = Trade.find params[:id]
+    @user   = @trade.user1
+    @books  = @user.books.available
   end
   
   def ignore

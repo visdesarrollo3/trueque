@@ -45,25 +45,26 @@ a {
 #header{
   width: 960px;
   height: 104px;
-  background-image:url('/images/layout/bg_header.jpg');
+  background-image:url('/images/layout/bg_header.png');
 }
 #logo{
   padding: 7px 10px;
   background: transparent url("/images/layout/logo.png") no-repeat 7px 10px;
   text-indent: -999999em;
-  width: 140px;
+  width: 445px;
 }
 
 #logo a{
   display: block;
-  height: 85px;
+  height: 45px;
 }
 
 #nav-menu {
   width: 100%;
   display: block; 
-  height:36px;
-  background: transparent url('/images/layout/bg_menu.jpg') bottom left repeat-x;
+  height:30px;
+  /*background: transparent url('/images/layout/bg_menu.jpg') bottom left repeat-x;*/
+  background: #055;
 }
 
 #nav-menu ul {
@@ -359,3 +360,9 @@ a.view-more:hover {text-decoration: underline;}
 .small-profile                    { min-width: 200px; margin: 0 auto; }
 .small-profile div#avatar         { width: 100px; margin: 0 auto; text-align: center; margin-bottom: 15px;}
 .small-profile div#login_list     { width: 100%; margin-bottom: 15px; text-align: center;}
+
+
+
+/* ######################################## COMMENTS LIST AND FORM STYLES */
+#create-comment {margin-top: 20px;}
+#comment_comment { }

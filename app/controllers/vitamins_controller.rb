@@ -1,5 +1,7 @@
 class VitaminsController < ApplicationController
-  before_filter :find_featured_vitamin
+  load_and_authorize_resource
+  
+  before_filter :find_featured_vitamin, :only => [:index]
   
   def index
     @vitamins = Vitamin.all

@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  load_and_authorize_resource
+  
   respond_to :html, :xml, :json, :modal
   
   def index
