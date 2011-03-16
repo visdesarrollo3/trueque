@@ -4,8 +4,12 @@ class ApplicationController < ActionController::Base
   before_filter :save_location_if_needed, :get_sidebar_content
   helper_method :current_user
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :error => "No tienes permiso para acceder esta página"
+  end
+
   private
-  
+
   def get_sidebar_content
     @other_users = User.scoped.shuffle.first(4)
   end
@@ -19,7 +23,7 @@ class ApplicationController < ActionController::Base
     return @current_user if defined?(@current_user)
     @current_user = current_user_session && current_user_session.record
   end
-  
+
   def save_location_if_needed
     return unless request.format.html?
     if current_user
@@ -27,16 +31,16 @@ class ApplicationController < ActionController::Base
     else
       session[:return_to] = request.request_uri
     end
-    
+
   end
-  
+
   def redirect_back_or_default(default=root_url)
     redirect_to(session[:return_to] || default)
     session[:return_to] = nil
   end
-  
+
   def redirect_to_referer_or_default (goto_url=root_url)
     redirect_to (session[:referer] || goto_url)
   end
-  
+
 end
