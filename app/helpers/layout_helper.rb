@@ -20,6 +20,10 @@ module LayoutHelper
     content_for(:head) { javascript_include_tag(*args) }
   end
   
+  def nbsp(times = 1)
+    raw("&nbsp" * times)
+  end
+  
   def modal_to(*args)
     options = args.extract_options!
     options.merge! ({:rel => '#overlay'})
