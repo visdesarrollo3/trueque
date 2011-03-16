@@ -275,7 +275,11 @@ div.contentWrap {
   background: #FFF;
 }
 
-div#overlay .close {background-image:url("/images/close.png"); cursor:pointer; height:35px; position:absolute; right:-15px; top:15px; width:35px;}
+div#overlay .close {
+  background-image: url("/images/close.png");
+  cursor: pointer; height: 35px; width:35px;
+  position: absolute; right:-55px; top: -15px;
+}
 div#navigation ul {padding: 0; margin: 0; list-style: none;}
 div#navigation ul li {float: left; padding: 0 10px; margin: 0;}
 
@@ -323,7 +327,7 @@ div#navigation ul li {float: left; padding: 0 10px; margin: 0;}
 
 /* ######################################## SMALL BOOK LIST */
 .cover {
-  width: 135px;
+  width: 135px; margin: 0 auto;
 }
 .books .book img {
   background-color: #FFFFFF;

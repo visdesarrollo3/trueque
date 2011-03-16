@@ -11,31 +11,31 @@
   <div id="login" class="right">
     <div class = "quoted-title" id="login-title">
       <% if current_user %>
-		    <%= current_user.name || "Bienvenido" %>
+      <%= current_user.name || "Bienvenido" %>
       <% else %>
-        Acceso usuarios
+      Acceso usuarios
       <% end %>
     </div>
 
     <div id = "login-dashboard">
       <% if current_user %>
-        <%= render :partial => "users/small", :object => current_user, :as => :user %>
-        <%= clear %>
+      <%= render :partial => "users/small", :object => current_user, :as => :user %>
+      <%= clear %>
       <% else %>
-<div id="login_form_home">
-	<%= form_for UserSession.new do |f| %>
-	  <p>
-	    <%= f.label :usuario %><br />
-	    <%= f.text_field :login, :size => 33 %>
-	  </p>
-	  <p>
-	    <%= f.label :contraseña %><br />
-	    <%= f.password_field :password, :size => 33 %>
-	  </p>
-	  <p><%= f.submit :"Ingresar", :class => "btn" %></p>
-	<% end %>
-</div>
- <% end %>
+      <div id="login_form_home">
+        <%= form_for UserSession.new do |f| %>
+        <p>
+          <%= f.label :usuario %><br />
+          <%= f.text_field :login, :size => 33 %>
+        </p>
+        <p>
+          <%= f.label :contraseña %><br />
+          <%= f.password_field :password, :size => 33 %>
+        </p>
+        <p><%= f.submit :"Ingresar", :class => "btn" %></p>
+        <% end %>
+      </div>
+      <% end %>
     </div>
   </div> <!-- End of login div -->
   <%= clear %>
@@ -62,11 +62,11 @@
       <%= submit_tag "Votar", :class => "btn" %>
     </div>
   </div> <!-- End of current-poll div -->
-  
+
   <div id="vertical-banner">
     <%= image_tag "layout/sidebarbanner2.jpg" %>
   </div>
-  
+
 </div> <!-- End of sidebar div -->
 <% end %>  <!-- END OF SIDEBAR -->
 
@@ -76,46 +76,20 @@
   <div id="latest-books">
     <h1>Últimos libros</h1>
     <div class="books">
-    <% for book in @latest_books %>
-      <%= render :partial => "books/book_small", :locals => {:book_small => book} %>
-    <% end %>
+      <% for book in @latest_books %>
+        <%= render :partial => "books/book_small", :locals => {:book_small => book} %>
+      <% end %>
     </div>
   </div>
-  
+
   <%= clear %>
-  
+
   <div id="best-books">
     <h1>Libros destacados</h1>
     <div class="books">
-    <% for book in @best_books %>
+      <% for book in @best_books %>
       <%= render :partial => "books/book_small", :locals => {:book_small => book} %>
-    <% end %>
+      <% end %>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,1 +1,17 @@
-<h1>Este es el modal del libro <%= @book.title %></h1>
+<h1>Vista previa de <%= @book.title %></h1>
+
+<div class="book-modal">
+  <div class="left">
+    <%= image_tag @book.photo.url(:thumb) %>
+  </div>
+  
+  <div class="rleft">
+    <% if @book.traded? %>
+      Este libro ya ha fue truequiado con <%= link_to @book.traded_with.name, @book.traded_with %>
+      <% elsif current_user && current_user.id != @book.user_id %>
+      Este libro está disponible! Puedes 
+      <%= link_to "pedir un trueque", 
+          trades_path(:book_id => @book.id), :method => :post  %>
+    <% end %>
+  </div>
+</div>
