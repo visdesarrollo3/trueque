@@ -2,16 +2,28 @@
 
 <div class="book-modal">
   <div class="left">
-    <%= image_tag @book.photo.url(:thumb) %>
+    <%= image_tag @book.photo.url(:thumb) %> <br />
+    <%= link_to "Ver más información", @book %>
   </div>
   
   <div class="rleft">
     <% if @book.traded? %>
       Este libro ya ha fue truequiado con <%= link_to @book.traded_with.name, @book.traded_with %>
       <% elsif current_user && current_user.id != @book.user_id %>
-      Este libro está disponible! Puedes 
+      <strong>Este libro está disponible! Puedes 
       <%= link_to "pedir un trueque", 
-          trades_path(:book_id => @book.id), :method => :post  %>
+          trades_path(:book_id => @book.id), :method => :post  %></strong>
     <% end %>
+    
+    <p>
+      <strong>ISBN:</strong> <%= @book.isbn %> <br />
+      <strong>Editorial:</strong> <%= @book.editorial %>
+    </p>
+    
+    
   </div>
+  
+  <%= clear %>
+  
+  <%= link_to "Ver más información", @book, :class => "modal-view-more" %>
 </div>

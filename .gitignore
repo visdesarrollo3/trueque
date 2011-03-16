@@ -5,3 +5,4 @@ tmp/**/*
 .DS_Store
 public/uploads
 public/system
+.DS_Store

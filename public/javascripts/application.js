@@ -54,7 +54,12 @@ jQuery(function($) {
     },
     onBeforeLoad: function() {
       var wrap = this.getOverlay().find(".contentWrap");
-      wrap.load(this.getTrigger().attr("href"));
+      var slider = this.getOverlay().find(".slider");
+      slider.show();
+      wrap.hide().load(this.getTrigger().attr("href"), function(){
+        slider.hide();
+        wrap.show();
+      });
     }
   });
 });

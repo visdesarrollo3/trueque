@@ -266,24 +266,27 @@ label{
 }
 
 /* container for external content. uses vertical scrollbar, if needed */
-div.contentWrap {
+.slider, .contentWrap {
   height:400px;
   width: 100%;
   padding: 0px 20px 0px;
   overflow-y:auto;
   overflow-x:hidden;
   background: #FFF;
+  position: relative;
 }
 
-div#overlay .close {
+#overlay .close {
   background-image: url("/images/close.png");
   cursor: pointer; height: 35px; width:35px;
   position: absolute; right:-55px; top: -15px;
+  z-index: 5;
 }
-div#navigation ul {padding: 0; margin: 0; list-style: none;}
-div#navigation ul li {float: left; padding: 0 10px; margin: 0;}
+#navigation ul {padding: 0; margin: 0; list-style: none;}
+#navigation ul li {float: left; padding: 0 10px; margin: 0;}
 
-
+.modal-view-more {position: absolute; bottom: 20px; right: 15px;}
+.slider {margin: 0 auto; text-align: center; padding-top: 180px; height: 220px;}
 
 /* ######################################## YOUTUBE PLAYER STYLES */
 .video-player { margin: 20px; width: 640px; }
