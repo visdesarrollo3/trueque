@@ -1,11 +1,11 @@
 <% if book.traded? %>
-  <p>
-    Libro no disponible.
-  </p>      
+<p class="centered">
+  Libro no disponible.
+</p>      
 <% elsif current_user && current_user.id != book.user_id %>
-  <% if can? :trade, book %>
-    <p>
-      <%= trade_link(book) if book.user != current_user %>
-    </p>
-  <% end %>
+<% if can? :trade, book %>
+<p class="centered">
+  <%= trade_link(book) if book.user != current_user %>
+</p>
+<% end %>
 <% end %>
