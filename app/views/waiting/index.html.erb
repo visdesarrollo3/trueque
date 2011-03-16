@@ -1,0 +1,9 @@
+<% title "Libros que espera #{@user.name}" %>
+
+<div id="all-books">
+  <div class="books">
+    <% for book in @books %>
+      <%= render book %>
+    <% end %>
+  </div>
+</div>

@@ -1,10 +1,6 @@
 Trueque::Application.routes.draw do
-  
-  
-
   scope(:path_names => { :new => "nuevo", :edit => "editar" }) do
-    resources :banners
-    
+    resources :banners    
     resources :trades, :path => "trueque" do
       member do
         post 'ignore'
@@ -21,6 +17,7 @@ Trueque::Application.routes.draw do
     resources :users, :path => "usuarios" do
       resources :comments, :path => "comentarios"
       resources :books, :path => "libros"
+      resources :waiting, :only => :index, :path => "esperando"
     end
   
     resources :pages, :path => "paginas"

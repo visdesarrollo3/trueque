@@ -1,10 +1,14 @@
 class ApplicationController < ActionController::Base
   check_authorization
   protect_from_forgery
-  before_filter :save_location_if_needed
+  before_filter :save_location_if_needed, :get_sidebar_content
   helper_method :current_user
 
   private
+  
+  def get_sidebar_content
+    @other_users = User.scoped.shuffle.first(4)
+  end
 
   def current_user_session
     return @current_user_session if defined?(@current_user_session)

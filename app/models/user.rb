@@ -21,21 +21,32 @@ class User < ActiveRecord::Base
 
 
   has_many :books
+  
   has_many :created_comments, :class_name => "Comment", :foreign_key => "user_id"
   
   has_many :offered_trades,   :class_name => "Trade", :foreign_key => "user1_id"
   has_many :received_trades,  :class_name => "Trade", :foreign_key => "user2_id"
   
   has_many :completed_trades, :class_name => "Trade", :foreign_key => "user1_id", :conditions => { :current_state => :accepted }
+  has_many :given_books,    :through => :completed_trades, :class_name => "Book", :source => :given_book
+  
   has_many :waiting_trades,   :class_name => "Trade", :foreign_key => "user1_id", :conditions => { :current_state => :pending  }
+  has_many :waiting_books,    :through => :waiting_trades, :class_name => "Book", :source => :received_book
   
   has_many :accepted_trades,  :class_name => "Trade", :foreign_key => "user2_id", :conditions => { :current_state => :accepted }
+  has_many :accepted_books,   :through => :accepted_trades, :class_name => "Book", :source => :received_book
+  
   has_many :pending_trades,   :class_name => "Trade", :foreign_key => "user2_id", :conditions => { :current_state => :pending  }
+  has_many :pending_books,    :through => :pending_trades, :class_name => "Book", :source => :given_book
   
   scope :admins, where(:role => ROLES[0])
 
   def to_param
     permalink
+  end
+  
+  def name_or_login
+    name || login
   end
 
   def self.create_from_hash(hash)

@@ -142,6 +142,7 @@ h3 { font-weight: bold; margin-bottom: 0px; }
 #nav-menu ul {
   list-style: none;
   margin: 0 auto;
+  padding-left: 22px;
 }
 
 #nav-menu li {
@@ -284,6 +285,7 @@ label{
 .book-section {margin-bottom: 20px;}
 .book-section h3 {margin: 0; font-size: 1.1em; font-family: "Trebuchet MS", Helvetica, Verdana;}
 .book-section span {font-family: Georgia, Helvetica, Verdana; color: #1F4A57; font-size: 1.5em;}
+.book-section span a  {font-weight: normal;}
 #book-info {width: 450px;}
 
 /* ######################################## OVERLAY STYLES */
@@ -364,6 +366,9 @@ label{
   text-transform: uppercase;
 }
 
+/* ######################################## BIG BOOK LIST */
+
+.book-big {border-bottom: 1px solid #CCC; padding-bottom: 8px; margin-bottom: 12px;}
 
 
 /* ######################################## SMALL BOOK LIST */

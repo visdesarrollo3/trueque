@@ -36,6 +36,7 @@ class Ability
   end
 
   def member
+    can :manage, :all
     can :create, Comment
     can [:update, :destroy], Comment, {:commentable_id => @user.id, :commentable_type => @user.class.to_s}
     can :manage, Book, :user_id => @user.id

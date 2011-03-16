@@ -2,7 +2,7 @@
   
   <div class = "quoted-title" id="login-title">
     <% if current_user %>
-      <%= current_user.name %>
+      <%= current_user.name_or_login %>
     <% else %>
       Acceso usuarios
     <% end %>
@@ -19,16 +19,38 @@
     <%= clear %>
   </div>
 
+  <% if current_user %>
+
   <div class = "quoted-title" id="login-title">Libros que...</div>
   <div id ="libros-que">
     <ul>
-      <li><%= link_to "Espero", "#" %></li>
-      <li><%= link_to "Deseo", "#" %></li>
+      <li><%= link_to "Espero", user_waiting_index_path(current_user) %></li>
       <li><%= link_to "Tengo", "#" %></li>
-      <li><%= link_to "Truequeados", "#" %></li>
+      <li><%= link_to "He Recibido", "#" %></li>
+      <li><%= link_to "He Cambiado", "#" %></li>      
     </ul>
   </div>
+  
+  <% end %>
+  
+  
   <div class = "quoted-title" id="login-title">Otros Lectores</div>
+  <div id="otros-usuarios">
+    <ul>
+      <% for user in @other_users %>
+        <li>
+          <div class="left"><%= image_tag user.avatar.url(:small) %></div>
+          <div class="rleft">
+            <%= link_to user.name_or_login, user %>
+          </div>
+          <%= clear %>
+        </li>
+      <% end %>
+    </ul>
+    <%= link_to "ver todos", users_path, :class => "view-more" %>
+  </div>
+  
+  
   <%= clear %>
 </div>
 <%= clear %>
