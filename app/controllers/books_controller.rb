@@ -5,11 +5,13 @@ class BooksController < ApplicationController
   
   def index
     @user = User.find params[:user_id] if params[:user_id]
-    @books = if @user.nil?
-                Book.all
-              else
-                @user.books.all
-              end
+    
+    if @user.nil?
+      @books = Book.all
+    else
+      @books = @user.books.all
+    end
+    
     respond_with @books  
   end
   
