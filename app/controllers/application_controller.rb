@@ -17,9 +17,7 @@ class ApplicationController < ActionController::Base
   end
   
   def save_location_if_needed
-    
     return unless request.format.html?
-    logger.error {"\n\n\n\n\n ******* request.format = #{request.format} \n\n\n\n"}
     if current_user
       session[:return_to] = nil
     else

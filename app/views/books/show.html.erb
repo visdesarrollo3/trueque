@@ -72,6 +72,13 @@
     <%= @book.health_description %>
   </div>
   
+  
+  <p class="centered">
+  <% if !@book.traded? && can?(:trade, @book) && current_user.id != @book.user_id%>
+    <%= trade_link(@book) if @book.user != current_user %>
+  <% end %>
+  <%= button_to "Volver a la lista", books_path, :method => :get, :class => "truequear" %>
+  </p>
 </div>
 
 <%= clear %>
