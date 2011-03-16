@@ -172,7 +172,7 @@ ActiveRecord::Schema.define(:version => 20110315231954) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "featured"
+    t.boolean  "featured",    :default => false
   end
 
 end

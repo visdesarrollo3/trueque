@@ -38,6 +38,64 @@ a:hover {text-decoration: underline;}
 .notifications a {color: #CCC; text-decoration: none; text-shadow: 1px 1px 1px rgba(0,0,0,0.5);}
 .notifications a.hide-not{padding-left: 30px; }
 
+.alert, #flash_notice, #flash_error, #flash_alert {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error, #flash_alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+.fieldWithErrors {
+  display: inline;
+}
+
+.error_messages {
+  width: 400px;
+  border: 2px solid #CF0000;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  font-size: 12px;
+}
+
+.error_messages h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 12px;
+  margin: 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+.error_messages p {
+  margin: 8px 10px;
+}
+
+.error_messages ul {
+  margin: 0;
+}
+
+.left             { float: left; }
+.rleft, .leftr    { float: left; margin-left: 20px; }
+.right            { float: right; }
+.lright, .rightl  { float: right; margin-right: 20px; }
+
+h1,h2,h3,h4,h5,h6 {font-family: Georgia, Verdana, Helvetica; font-weight: normal;}
+
+h1{color: #1F4A57;}
+
+
+
 #container {
   width: 960px;
   margin: 0 auto;
@@ -47,6 +105,10 @@ a:hover {text-decoration: underline;}
   -webkit-box-shadow: 0 0 20px 2px gray;
   box-shadow: 0 0 20px 2px gray;
 }
+
+
+
+/* ##################################################################### HEADER*/
 #header{
   width: 960px;
   height: 80px;
@@ -112,70 +174,15 @@ a:hover {text-decoration: underline;}
   font-size: 13px;
 }
 
-.alert, #flash_notice, #flash_error, #flash_alert {
-  padding: 5px 8px;
-  margin: 10px 0;
-}
-
-#flash_notice {
-  background-color: #CFC;
-  border: solid 1px #6C6;
-}
-
-#flash_error, #flash_alert {
-  background-color: #FCC;
-  border: solid 1px #C66;
-}
-
-.fieldWithErrors {
-  display: inline;
-}
-
-.error_messages {
-  width: 400px;
-  border: 2px solid #CF0000;
-  padding: 0px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-  font-size: 12px;
-}
-
-.error_messages h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 10px;
-  font-size: 12px;
-  margin: 0;
-  background-color: #c00;
-  color: #fff;
-}
-
-.error_messages p {
-  margin: 8px 10px;
-}
-
-.error_messages ul {
-  margin: 0;
-}
-
-.left             { float: left; }
-.rleft, .leftr    { float: left; margin-left: 20px; }
-.right            { float: right; }
-.lright, .rightl  { float: right; margin-right: 20px; }
-
-h1,h2,h3,h4,h5,h6 {font-family: Georgia, Verdana, Helvetica; font-weight: normal;}
-
-h1{color: #1F4A57;}
 
 /* ######################################## INDEX STYLES */
 
-div#login_form_home label{
+#login_form_home label{
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   font-size:14px;
   color:#FFF;
 }
-div#login_form_sidebar label{
+#login_form_sidebar label{
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   font-size:14px;
   color:#8c8c8c;
@@ -218,7 +225,7 @@ label{
 
 .small {font-size: 10px;}
 
-/* ######################################## LAYOUT STYLES */
+/* ###################################s#################### LAYOUT STYLES */
 
 #main-content {padding-left: 9px; float: left; width: 719px;}
 
@@ -243,6 +250,7 @@ label{
 #footer .section h3 {color: #1F4A57; font-family: Georgia; font-weight: normal; font-size: 18px;}
 
 
+.actions  { background: #F2F2F2; width: 80%; border: 1px solid #CCC; margin: 0 auto 30px; padding: 15px; text-align: center;}
 
 /* ######################################## INDEX STYLES */
 #sub-header {margin-bottom: 3px;}

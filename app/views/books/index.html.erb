@@ -4,31 +4,14 @@
   <% title "Todos los libros" %>
 <% end %>
 
+<div class="actions">
+  <% if can? :create, Book %> <%= link_to "Agregar libro", new_book_path %> <% end %>
+</div>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Available</th>
-    <th>Published Date</th>
-    <th>Editorial</th>
-    <th>Isbn</th>
-    <th>User</th>
-    <th>Health Status</th>
-  </tr>
-  <% for book in @books %>
-    <tr>
-      <td><%= book.title %></td>
-      <td><%= book.available %></td>
-      <td><%= book.published_date %></td>
-      <td><%= book.editorial %></td>
-      <td><%= book.isbn %></td>
-      <td><%= book.user_id %></td>
-      <td><%= book.health_status %></td>
-      <td><%= link_to "Show", book %></td>
-      <td><%= link_to "Edit", edit_book_path(book) %></td>
-      <td><%= link_to "Destroy", book, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
-</table>
-
-<p><%= link_to "New Book", new_book_path %></p>
+<div id="all-books">
+  <div class="books">
+    <% for book in @books %>
+      <%= render :partial => "books/book_small", :locals => {:book_small => book} %>
+    <% end %>
+  </div>
+</div>

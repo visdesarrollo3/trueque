@@ -1,5 +1,19 @@
 <% title @book.title %>
 
+<div class="actions">
+  <% if can? :edit, @book %>
+    <%= link_to "Editar libro", edit_book_path %>
+  <% end %>
+  
+  <% if can? :destroy, @book %>
+    | <%= link_to "Eliminar libro", @book, :confirm => '¿Está seguro?', :method => :delete %> | 
+  <% end %>
+  
+  <% if can? :index, Book %>
+    <%= link_to "Ver todos los libros", books_path %>
+  <% end %>
+</div>
+
 <p>
   <strong>Title:</strong>
   <%= @book.title %>
@@ -48,8 +62,3 @@
 <%= render :partial => "comments/list_and_form", :locals => {:commentable => @book} %>
 
 
-<p>
-  <%= link_to "Edit", edit_book_path(@book) %> |
-  <%= link_to "Destroy", @book, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", books_path %>
-</p>
