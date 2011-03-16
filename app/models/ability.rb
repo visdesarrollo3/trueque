@@ -20,6 +20,7 @@ class Ability
     @user = (user || User.new)
     if @user.admin?
       can :manage, :all
+      cannot :trade, @book, :user_id => @user.id
       return
     else
       guest
@@ -31,12 +32,15 @@ class Ability
   def guest
     can :read, :all
     cannot :read, Trade
+    cannot :trade, Book
   end
 
   def member
     can :create, Comment
     can [:update, :destroy], Comment, {:commentable_id => @user.id, :commentable_type => @user.class.to_s}
     can :manage, Book, :user_id => @user.id
+    can :trade, Book
+    cannot :trade, @book, :user_id => @user.id
   end
 
 
