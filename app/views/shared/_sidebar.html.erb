@@ -40,7 +40,7 @@
     <ul>
       <% for user in @other_users %>
         <li>
-          <div class="left"><%= image_tag user.avatar.url(:small) %></div>
+          <div class="left"><%= image_tag user.avatar.url(:mini) %></div>
           <div class="rleft">
             <%= link_to user.name_or_login, user %>
           </div>
