@@ -1,9 +1,7 @@
 class ApplicationController < ActionController::Base
   check_authorization
   protect_from_forgery
-  
   before_filter :save_location_if_needed
-  
   helper_method :current_user
 
   private
@@ -19,12 +17,15 @@ class ApplicationController < ActionController::Base
   end
   
   def save_location_if_needed
+    
     return unless request.format.html?
+    logger.error {"\n\n\n\n\n ******* request.format = #{request.format} \n\n\n\n"}
     if current_user
       session[:return_to] = nil
     else
       session[:return_to] = request.request_uri
     end
+    
   end
   
   def redirect_back_or_default(default=root_url)
