@@ -3,17 +3,8 @@
 <div class="book-modal">
   <div class="left">
     <%= image_tag @book.photo.url(:thumb) %> <br />
-    <% if @book.traded? %>
-      <p>
-        Libro no disponible.
-      </p>      
-    <% elsif current_user && current_user.id != @book.user_id %>
-      <% if can? :trade, @book %>
-        <p>
-          <%= trade_link(@book) if @book.user != current_user %>
-        </p>
-      <% end %>
-    <% end %>
+    
+    <%= render :partial => "books/trade_button.html.erb", :locals => {:book => @book} %>
     
   </div>
   

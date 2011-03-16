@@ -92,8 +92,8 @@ a:hover {text-decoration: underline;}
 
 h1,h2,h3,h4,h5,h6 {font-family: Georgia, Verdana, Helvetica; font-weight: normal;}
 
-h1{color: #1F4A57;}
-
+h1 { color: #1F4A57; }
+h3 { font-weight: bold; margin-bottom: 0px; }
 
 
 #container {
@@ -262,6 +262,12 @@ label{
 #login #login-dashboard{padding: 0px 10px; margin-top: -10px;}
 
 
+/* ######################################## BOOk SHOW STYLES */
+
+.book-section {margin-bottom: 20px;}
+.book-section h3 {margin: 0; font-size: 1.1em; font-family: "Trebuchet MS", Helvetica, Verdana;}
+.book-section span {font-family: Georgia, Helvetica, Verdana; color: #1F4A57; font-size: 1.5em;}
+#book-info {width: 450px;}
 
 /* ######################################## OVERLAY STYLES */
 #overlay {
@@ -298,7 +304,6 @@ label{
 
 .book-modal .info {width: 470px;}
 .book-modal p {margin: 0; padding: 0;}
-.book-modal h3 {font-weight: bold; margin-bottom: 0px;}
 .book-modal h1 {margin: 2px 0;}
 .book-modal .left {text-align: center;}
 

@@ -12,7 +12,7 @@ class Book < ActiveRecord::Base
   
   extend StoreAttachmentOnS3 if Rails.env.production?
   
-  has_attached_file :photo, :styles => { :thumb => "125x145#" },
+  has_attached_file :photo, :styles => { :thumb => "125x145#", :big => "230x200#" },
     :default_style => "thumb"
 
   before_create :find_or_create_isbn
@@ -42,6 +42,10 @@ class Book < ActiveRecord::Base
     permalink
   end
   
+  def cover
+    photo
+  end
+  
   def traded?
     !available?
   end
@@ -60,6 +64,10 @@ class Book < ActiveRecord::Base
   
   def author_names
     @author_names ||= authors.map(&:name).join(', ')
+  end
+  
+  def tag_names
+    @tag_names ||= tags_on(:tags).map(&:name).map(&:titleize).join(", ")
   end
   
   def name

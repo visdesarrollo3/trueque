@@ -4,9 +4,11 @@
   <% title "Todos los libros" %>
 <% end %>
 
-<div class="actions">
-  <% if can? :create, Book %> <%= link_to "Agregar libro", new_book_path %> <% end %>
-</div>
+<% if can? :create, Book %>
+  <div class="actions">
+    <%= link_to "Agregar libro", new_book_path %>
+  </div>
+<% end %>
 
 <div id="all-books">
   <div class="books">

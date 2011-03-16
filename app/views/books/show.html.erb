@@ -1,4 +1,4 @@
-<% title @book.title %>
+<% title "Libro #{@book.title}" %>
 
 <div class="actions">
   <% if can? :edit, @book %>
@@ -14,48 +14,65 @@
   <% end %>
 </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
-</p>
+<div class="left">
+  <div id="cover">
+    <%= image_tag @book.photo.url(:big) %>
+    
+    <%= render :partial => "books/trade_button", :locals => {:book => @book} %>
+    
+    
+  </div>
+</div>
 
-<% if @book.traded? %>
-  <p>Este libro fue truequiado con <%= link_to @book.traded_with.name, @book.traded_with %></p>
-<% elsif current_user && current_user.id != @book.user_id %>
-  <p>
-    Este libro está disponible! Puedes <%= link_to "pedir un trueque", trades_path(:book_id => @book.id), :method => :post  %>
-  </p>
-<% end %>
-
-
-<p>
-  <strong>Synopsis:</strong>
-  <%= @book.synopsis %>
-</p>
-<p>
-  <strong>Published Date:</strong>
-  <%= @book.published_date %>
-</p>
-<p>
-  <strong>Editorial:</strong>
-  <%= @book.editorial %>
-</p>
-<p>
-  <strong>Isbn:</strong>
-  <%= @book.isbn %>
-</p>
-<p>
-  <strong>User:</strong>
-  <%= @book.user_id %>
-</p>
-<p>
-  <strong>Health Status:</strong>
-  <%= @book.health_status %>
-</p>
-<p>
-  <strong>Health Description:</strong>
-  <%= @book.health_description %>
-</p>
+<div class="rleft" id="book-info">
+  
+  <div class="book-section">
+    <h3>Título del libro</h3>
+    <span><%= @book.title %></span>
+  </div>
+  
+  <div class="book-section">
+    <h3>Autor</h3>
+    <span><%= @book.author_names %></span>
+  </div>
+  
+  <div class="book-section">
+    <h3>Editorial</h3>
+    <span><%= @book.editorial %></span>
+  </div>
+  
+  <div class="book-section">
+    <h3>ISBN</h3>
+    <span><%= @book.isbn %></span>
+  </div>
+  
+  <div class="book-section">
+    <h3>Año de Publicación</h3>
+    <span><%= @book.published_date %></span>
+  </div>
+  
+  <div class="book-section">
+    <h3>Palabras claves</h3>
+    <%= tag_links(@book) %>
+  </div>
+  
+  <div class="book-section">
+    <h3>Sinópsis</h3>
+    <%= simple_format @book.synopsis %>
+  </div>
+  
+  <div class="book-section">
+    <h3>Estado físico del libro</h3>
+    <span><%= @book.health_status %>%</span>
+  </div>
+  
+  
+  <div class="book-section">
+    <h3>Estado físico del libro. Comentarios</h3>
+    <%= @book.health_description %>
+  </div>
+  
+</div>
 
 <%= clear %>
 
