@@ -3,24 +3,35 @@
 <div class="book-modal">
   <div class="left">
     <%= image_tag @book.photo.url(:thumb) %> <br />
-    <%= link_to "Ver más información", @book %>
-  </div>
-  
-  <div class="rleft">
     <% if @book.traded? %>
-      Este libro ya ha fue truequiado con <%= link_to @book.traded_with.name, @book.traded_with %>
-      <% elsif current_user && current_user.id != @book.user_id %>
-      <strong>Este libro está disponible! Puedes 
-      <%= link_to "pedir un trueque", 
-          trades_path(:book_id => @book.id), :method => :post  %></strong>
+      <p>
+        Libro no disponible.
+      </p>
+    <% elsif current_user && current_user.id != @book.user_id %>
+      <p>
+        <%= trade_link(@book) %>
+      </p>
     <% end %>
     
+  </div>
+  
+  <div class="rleft info">
+    <h3>Autor</h3>
     <p>
-      <strong>ISBN:</strong> <%= @book.isbn %> <br />
-      <strong>Editorial:</strong> <%= @book.editorial %>
+      <%= @book.isbn %>
     </p>
     
     
+    <h3>Sinopsis</h3>
+    <p>
+      <%= @book.synopsis %>
+    </p>
+    
+    
+    <h3>Estado físico del libro</h3>
+    <p>
+      <%= @book.health_status %>%
+    </p>
   </div>
   
   <%= clear %>

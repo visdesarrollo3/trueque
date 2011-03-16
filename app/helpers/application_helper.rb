@@ -10,5 +10,8 @@ module ApplicationHelper
     end
   end
   
+  def trade_link(book)
+    button_to "Truequear", trades_path(:book_id => book.id), :method => :post, :class => "truequear"
+  end
   
 end

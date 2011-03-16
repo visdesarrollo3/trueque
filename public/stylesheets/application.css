@@ -257,8 +257,8 @@ label{
 
 /* ######################################## OVERLAY STYLES */
 #overlay {
-  height:450px;
-  width: 600px;
+  height:405px;
+  width: 640px;
   position: relative;
   display: none;
   border-radius: 5px;
@@ -267,7 +267,7 @@ label{
 
 /* container for external content. uses vertical scrollbar, if needed */
 .slider, .contentWrap {
-  height:400px;
+  height: 405px;
   width: 100%;
   padding: 0px 20px 0px;
   overflow-y:auto;
@@ -285,8 +285,14 @@ label{
 #navigation ul {padding: 0; margin: 0; list-style: none;}
 #navigation ul li {float: left; padding: 0 10px; margin: 0;}
 
-.modal-view-more {position: absolute; bottom: 20px; right: 15px;}
-.slider {margin: 0 auto; text-align: center; padding-top: 180px; height: 220px;}
+.modal-view-more {float: right; margin: 15px 5px 8px;}
+.slider {margin: 0 auto; text-align: center; padding-top: 132px; height: 173px;}
+
+.book-modal .info {width: 470px;}
+.book-modal p {margin: 0; padding: 0;}
+.book-modal h3 {font-weight: bold; margin-bottom: 0px;}
+.book-modal .left {text-align: center;}
+
 
 /* ######################################## YOUTUBE PLAYER STYLES */
 .video-player { margin: 20px; width: 640px; }
@@ -352,7 +358,8 @@ a.view-more {
   width: 150px;
   height: 200px;
 }
-a.view-more:hover {text-decoration: underline;}
+
+.truequear {cursor: pointer;}
 
 
 
