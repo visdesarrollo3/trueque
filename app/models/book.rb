@@ -9,15 +9,12 @@ class Book < ActiveRecord::Base
   
   acts_as_taggable_on :tags
   acts_as_commentable
-  # acts_as_rateable
   
   extend StoreAttachmentOnS3 if Rails.env.production?
   
   has_attached_file :photo, :styles => { :thumb => "125x145#" },
-    :path => "/uploads/books/:attachment/:id/:style-:basename.:extension",
     :default_style => "thumb"
 
-  
   before_create :find_or_create_isbn
   
   attr_writer :author_names
@@ -29,15 +26,15 @@ class Book < ActiveRecord::Base
   has_many :authorships, :dependent => :destroy
   has_many :authors, :through => :authorships
   
-  has_many :offered_trades, :class_name => "Trade", :foreign_key => "book1_id"
-  has_many :receive_trades, :class_name => "Trade", :foreign_key => "book2_id"
+  has_many :offered_trades,   :class_name => "Trade", :foreign_key => "book1_id"
+  has_many :received_trades,  :class_name => "Trade", :foreign_key => "book2_id"
   
   belongs_to :trade
   
-  scope :offered,   :conditions => {:offered => true}
-  scope :received,  :conditions => {:offered => false}
-  scope :available, where(:trade_id => nil)
-  scope :newest_first, order("created_at DESC")
+  scope :offered,       where(:offered  => true  )
+  scope :received,      where(:offered  => false )
+  scope :available,     where(:trade_id => nil   )
+  scope :newest_first,  order("created_at DESC"  )
   
   make_permalink :title
   
@@ -45,29 +42,8 @@ class Book < ActiveRecord::Base
     permalink
   end
   
-  def author_names
-    @author_names || authors.map(&:name).join(', ')
-  end
-  
-  def mark_as_offered
-    update_attribute(:offered, true)
-  end
-  
-  def mark_as_received
-    update_attribute(:offered, false)
-  end
-  
-  def name
-    title
-  end
-  
-  def trade! was_offered = false
-    abstract_isbn.update_traded_count and self.save
-    was_offered ? mark_as_offered : mark_as_received
-  end
-  
   def traded?
-    !trade.nil?
+    !available?
   end
   
   def available?
@@ -81,7 +57,32 @@ class Book < ActiveRecord::Base
       nil
     end
   end
-    
+  
+  def author_names
+    @author_names ||= authors.map(&:name).join(', ')
+  end
+  
+  def name
+    title
+  end
+  
+  def name=(name)
+    title = name
+  end
+  
+  def mark_as_offered!
+    update_attribute(:offered, true)
+  end
+  
+  def mark_as_received!
+    update_attribute(:offered, false)
+  end
+  
+  def trade! was_offered = false
+    abstract_isbn.update_traded_count and self.save
+    was_offered ? mark_as_offered! : mark_as_received!
+  end
+  
   private
   
   def find_or_create_isbn

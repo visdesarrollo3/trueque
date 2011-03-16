@@ -28,10 +28,6 @@
   
   <div id="container">
 
-
-
-
-
     <div id= "header">
       <div id="logo">
         <%= link_to "E Truque - Biblioteca Universidad EAFIT", root_url %>
@@ -59,7 +55,7 @@
     </div> <!-- End of nav-menu div -->
 
     <% if  content_for?(:subheader) %>
-    <%= yield(:subheader) %>
+      <%= yield(:subheader) %>
     <% end %>
 
     <div class="left sidebar">
@@ -76,8 +72,15 @@
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}", :class => "alert" %>
       <% end %>
+      
       <%= clear %>
+      
+      <% if content_for?(:title) and show_title? %>
+        <h1><%= yield(:title) %></h1>
+      <% end %>
+      
       <%= yield %>
+      
       <%= clear %>
     </div>
     <!-- End of main-content -->
@@ -94,7 +97,7 @@
         <h3>Con el apoyo de</h3>
         <div class="eafit_icons">
           <%= link_to image_tag("layout/eafit.png"), "http://www.eafit.edu.co", :target => "_blank" %>
-          <%= link_to image_tag("layout/biblio1.png"), "http://www.twitter.com", :target => "_blank"%>
+          <%= link_to image_tag("layout/biblio1.png"), "http://www.eafit.edu.co/biblioteca", :target => "_blank"%>
 
         </div>
       </div>
@@ -105,8 +108,8 @@
           <%= link_to image_tag("layout/facebook.png"), "http://www.facebook.com", :target => "_blank" %>
           <%= link_to image_tag("layout/twitter.png"), "http://www.twitter.com", :target => "_blank"%>
           <%= link_to image_tag("layout/wordpress.png"), "http://www.wordpress.com", :target => "_blank"%>
-          <%= link_to image_tag("layout/youtube.png"), "http://www.youtube.com/user/medialabeafit?feature=mhum", :target => "_blank"%>
-          <%= link_to image_tag("layout/rss.png"), "#" %>
+          <%= link_to image_tag("layout/youtube.png"), "http://www.youtube.com/user/medialabeafit", :target => "_blank"%>
+          <%#= link_to image_tag("layout/rss.png"), "#" %>
 
         </div>
       </div>

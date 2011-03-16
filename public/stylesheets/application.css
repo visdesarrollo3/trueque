@@ -2,7 +2,7 @@
 
 body {
   background-color: #FFF;
-  font-family: "Trebuchet MS",Helvetica,Arial;
+  font-family: "Trebuchet MS", Helvetica, Arial;
   font-size: 12px;
   margin:0;
   background-image:url('/images/layout/pattern.gif');
@@ -12,8 +12,13 @@ a img {
 }
 
 a {
-  color: #0000FF;
+  color: #1F4A57;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
 }
+
+a:hover {text-decoration: underline;}
 
 .clear {
   clear: both;
@@ -44,13 +49,14 @@ a {
 }
 #header{
   width: 960px;
-  height: 104px;
+  height: 80px;
   background-image:url('/images/layout/bg_header.png');
+  padding: 15px 0 10px;
 }
 #logo{
   padding: 7px 10px;
   background: transparent url("/images/layout/logo.png") no-repeat 7px 10px;
-  text-indent: -999999em;
+  text-indent: -9999em;
   width: 445px;
 }
 
@@ -83,15 +89,15 @@ a {
   font-size:12px;
   color:#FFF;
   display: block;
-  border-width: 0px;
-  border-style: none;
-  text-decoration: none;
   padding-top:5px;
+  font-weight: normal;
+  text-shadow: 2px 2px 5px black;
 }
 #nav-menu li a:hover
 {
   color:#999999;
 }
+
 .separator{
   margin-top:4px;
   color: #337A8F;
@@ -207,7 +213,7 @@ label{
 .quoted-title{
   height: 59px; color: #FFF; font-family: Georgia; font-size: 20px;
   background: transparent url(/images/layout/imgtitle.png) top right repeat-x;
-  text-decoration: none; padding: 10px 10px 0px;
+  text-decoration: none; padding: 10px 10px 0px; text-shadow: 2px 2px 5px black;
 }
 
 .small {font-size: 10px;}
@@ -317,30 +323,27 @@ div#navigation ul li {float: left; padding: 0 10px; margin: 0;}
 
 /* ######################################## SMALL BOOK LIST */
 .cover {
-    width: 135px;
+  width: 135px;
 }
 .books .book img {
-    background-color: #FFFFFF;
-    border: 1px solid #CCCCCC;
-    color: #000000;
-    padding: 0.1em;
-    text-align: center;
+  background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  color: #000000;
+  padding: 0.1em;
+  text-align: center;
 }
 a.view-more {
-    color: #1F4A57;
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-    text-decoration: none;
+  display: block;
+  margin: 0 auto;
 }
 
 
 .books .book {
-      float: left;
-      padding: 10px;
-      text-align: center;
-      width: 150px;
-      height: 200px;
+  float: left;
+  padding: 10px;
+  text-align: center;
+  width: 150px;
+  height: 200px;
 }
 a.view-more:hover {text-decoration: underline;}
 

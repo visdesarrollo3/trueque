@@ -21,7 +21,7 @@ class VitaminsController < ApplicationController
     @featured_vitamin.demote! if @featured_vitamin && @vitamin.featured?
 
     if @vitamin.save
-      flash[:notice] = "Successfully created vitamin."
+      flash[:notice] = "El video ha sido creado"
       redirect_to @vitamin
     else
       render :action => 'new'
@@ -35,8 +35,10 @@ class VitaminsController < ApplicationController
   def update
     @vitamin = Vitamin.find(params[:id])
     if @vitamin.update_attributes(params[:vitamin])
-      @featured_vitamin.demote! if @featured_vitamin && @vitamin.featured? && @vitamin != @featured_vitamin
-      flash[:notice] = "Successfully updated vitamin."
+      if @featured_vitamin && @vitamin.featured? && @vitamin != @featured_vitamin
+        @featured_vitamin.demote! 
+      end
+      flash[:notice] = "El video ha sido actualizado"
       redirect_to @vitamin
     else
       render :action => 'edit'
@@ -46,7 +48,7 @@ class VitaminsController < ApplicationController
   def destroy
     @vitamin = Vitamin.find(params[:id])
     @vitamin.destroy
-    flash[:notice] = "Successfully destroyed vitamin."
+    flash[:notice] = "El video ha sido eliminado"
     redirect_to vitamins_url
   end
   

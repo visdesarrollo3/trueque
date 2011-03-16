@@ -1,4 +1,4 @@
-<% title("Página Principal") %>
+<% title "Página Principal", false %>
 
 <% content_for :subheader do %>
 <div id="sub-header">
@@ -11,7 +11,7 @@
   <div id="login" class="right">
     <div class = "quoted-title" id="login-title">
       <% if current_user %>
-		<%= current_user.name %>
+		    <%= current_user.name || "Bienvenido" %>
       <% else %>
         Acceso usuarios
       <% end %>

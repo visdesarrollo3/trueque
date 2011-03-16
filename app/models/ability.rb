@@ -17,8 +17,8 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    @user ||= User.new
-    if user.admin?
+    @user = (user || User.new)
+    if @user.admin?
       can :manage, :all
       return
     else
@@ -35,12 +35,8 @@ class Ability
 
   def member
     can :create, Comment
-    can :update, Comment, {:commentable_id => @user.id, :commentable_type => @user.class.to_s}
-  end
-
-  def author
-    can :create, Article
-    can :update, Article, :user_id => @user.id
+    can [:update, :destroy], Comment, {:commentable_id => @user.id, :commentable_type => @user.class.to_s}
+    can :manage, Book, :user_id => @user.id
   end
 
 

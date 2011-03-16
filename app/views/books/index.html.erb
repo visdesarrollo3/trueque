@@ -1,7 +1,7 @@
 <% if @user %>
-  <h1>Todos los libros de <%= @user.name %></h1>
+  <% title "Todos los libros de #{@user.name}" %>
 <% else %>
-  <h1>Todos los libros</h1>
+  <% title "Todos los libros" %>
 <% end %>
 
 

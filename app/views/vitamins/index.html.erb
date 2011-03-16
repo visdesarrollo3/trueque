@@ -28,4 +28,6 @@
 </div>
 
 
-<p><%= link_to "Agregar video", new_vitamin_path %></p>
+<% if can? :create, Vitamin %>
+  <p><%= link_to "Agregar video", new_vitamin_path %></p>
+<% end %>
