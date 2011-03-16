@@ -313,6 +313,7 @@ label{
 .book-modal p {margin: 0; padding: 0;}
 .book-modal h1 {margin: 2px 0;}
 .book-modal .left {text-align: center;}
+.book-modal .left img {margin-bottom: 8px;}
 
 
 /* ######################################## YOUTUBE PLAYER STYLES */
