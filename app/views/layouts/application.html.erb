@@ -14,18 +14,6 @@
 </head>
 <body>
   
-  <% if current_user %>
-    <% if current_user.pending_trades.any? %>
-      <div class="notifications">
-        
-        
-        Tienes <%= link_to pluralize(current_user.pending_trades.size, "trueque pendiente", "trueques pendientes"), trades_path  %>
-        
-        <a href="#" class="hide-not">ocultar</a>
-      </div>
-    <% end %>
-  <% end %>
-  
   <div id="container">
 
     <div id= "header">

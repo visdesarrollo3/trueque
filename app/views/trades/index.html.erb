@@ -1,19 +1,14 @@
-<% title "Trades" %>
+<% title "Libros que me han ofrecido" %>
 
-<table>
-  <tr>
-    <th>Libro a cambiar</th>
-    <th>Usuario</th>
-  </tr>
-  <% for trade in @trades %>
-    <tr>
-      <td><%= trade.book2.name %></td>
-      <td><%= trade.initiator.name %></td>
-      <td><%= link_to "Aceptar", pre_accept_trade_path(trade) %></td>
-      <td><%= link_to "Ignorar", ignore_trade_path(trade), :method => :post %></td>
-      
-    </tr>
-  <% end %>
-</table>
+<div class="desc">
+  Estos son los libros míos que alguien quiere. Puedes aceptar o rechazar la petición de trueque.
+</div>
 
-<p><%= link_to "New Trade", new_trade_path %></p>
+<div id="all-books">
+  <div class="books">
+    
+    <% for trade in @trades %>
+      <%= render :partial => "books/book_trade", :locals => {:book => trade.received_book, :trade => trade} %>
+    <% end %>
+  </div>
+</div>

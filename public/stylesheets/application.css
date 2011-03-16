@@ -369,7 +369,7 @@ label{
 /* ######################################## BIG BOOK LIST */
 
 .book-big {border-bottom: 1px solid #CCC; padding-bottom: 8px; margin-bottom: 12px;}
-
+.desc {margin-bottom: 30px;}
 
 /* ######################################## SMALL BOOK LIST */
 .cover {

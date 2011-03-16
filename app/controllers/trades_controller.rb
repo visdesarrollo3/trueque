@@ -3,7 +3,8 @@ class TradesController < ApplicationController
   load_and_authorize_resource
   
   def index
-    @trades = current_user.pending_trades.all
+    @trades = current_user.pending_trades
+    
   end
   
   def show

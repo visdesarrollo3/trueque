@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
   has_many :accepted_books,   :through => :accepted_trades, :class_name => "Book", :source => :received_book
   
   has_many :pending_trades,   :class_name => "Trade", :foreign_key => "user2_id", :conditions => { :current_state => :pending  }
-  has_many :pending_books,    :through => :pending_trades, :class_name => "Book", :source => :given_book
+  has_many :pending_books,    :through => :pending_trades, :class_name => "Book", :source => :received_book
   
   scope :admins, where(:role => ROLES[0])
 

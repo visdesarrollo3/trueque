@@ -25,7 +25,8 @@
   <div id ="libros-que">
     <ul>
       <li><%= link_to "Espero", user_waiting_index_path(current_user) %></li>
-      <li><%= link_to "Tengo", "#" %></li>
+      <li><%= link_to "Me han ofrecido cambiar (#{current_user.pending_trades.count})", trades_path %></li>
+      <li><%= link_to "Tengo", user_books_path(current_user) %></li>
       <li><%= link_to "He Recibido", "#" %></li>
       <li><%= link_to "He Cambiado", "#" %></li>      
     </ul>
