@@ -204,11 +204,16 @@ h3 { font-weight: bold; margin-bottom: 0px; }
   width: 80px;
 }
 
-input{
+input[type="button"] {display: inline;}
+
+.button, input{
   background: none repeat scroll 0 0 #FFF !important;
   border: 1px solid #8F8F8F;
-  color: #8F8F8F;
+  color: #8F8F8F; font-weight: normal;
 }
+
+a.button {padding: 3px;}
+a.button:hover {text-decoration: none;}
 
 label{
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
