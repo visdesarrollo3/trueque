@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   check_authorization
   protect_from_forgery
   
-  before_filter :get_banners, :save_location_if_needed
+  before_filter :save_location_if_needed
   
   helper_method :current_user
 
@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
   end
   
   def save_location_if_needed
+    return unless request.format.html?
     if current_user
       session[:return_to] = nil
     else
@@ -33,10 +34,6 @@ class ApplicationController < ActionController::Base
   
   def redirect_to_referer_or_default (goto_url=root_url)
     redirect_to (session[:referer] || goto_url)
-  end
-  
-  def get_banners
-    @banners = Banner.all
   end
   
 end
