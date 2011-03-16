@@ -10,7 +10,8 @@
 
 User.create!([
   {:email => "nhocki@gmail.com", :login => "nhocki", :password => 1234, :name => "Nicolás Hock Isaza"},
-  {:email => "jfelipe38@gmail.com", :login => "jfelipe38", :password => 1234, :name => "Juan Felipe Arango"}
+  {:email => "jfelipe38@gmail.com", :login => "jfelipe38", :password => 1234, :name => "Juan Felipe Arango"},
+  {:email => "nicolas@hockmail.com", :login => "admin", :password => ",Zinergia!", :name => "Administrador"}
 ])
 
 Page.create!([
