@@ -162,7 +162,7 @@ es:
   # Active Model Rails 3
   errors:
     # The default format to use in full error messages.
-    format: "El %{attribute} %{message}"
+    format: "<strong>%{attribute}</strong> %{message}"
 
     # The values :model, :attribute and :value are always available for interpolation
     # The value :count is available when applicable. Can be used for pluralization.
