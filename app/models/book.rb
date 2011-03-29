@@ -5,9 +5,6 @@ class Book < ActiveRecord::Base
   attr_accessible :title, :available, :synopsis, :published_date, :editorial, :isbn, :user_id, :health_status, :health_description,
                   :tag_list, :author_names, :photo_updated_at, :photo_file_size, :photo_content_type, :photo_file_name, :photo
 
-  # validates_presence_of :title, :synopsis, :published_date, :editorial, :isbn, :health_status, :health_description
-  validates_presence_of :title, :isbn
-  
   acts_as_taggable_on :tags
   acts_as_commentable
   
@@ -15,6 +12,8 @@ class Book < ActiveRecord::Base
   
   has_attached_file :photo, :styles => { :thumb => "125x145#", :big => "230x200#" },
     :default_style => "thumb"
+
+  validates_presence_of :title, :synopsis, :published_date, :editorial, :isbn, :health_status, :health_description, :photo
 
   before_create :find_or_create_isbn
   
