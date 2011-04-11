@@ -45,23 +45,11 @@
 
 <% content_for :sidebar do %>
 <div id="sidebar">
-  <div id="current-poll">
-    <div class = "quoted-title" id="login-title">
-      Encuesta
-    </div>
-    <div id="question">
-      ¿Cuál es su género preferido?
-    </div>
-    <div id="results">
-      <ul class="options" style="list-style: none; padding: 0; margin: 5px 0 5px;">
-        <li><%= radio_button_tag :drama, "Drama" %> Drama</li>
-        <li><%= radio_button_tag :drama, "Drama" %> Comedia</li>
-        <li><%= radio_button_tag :drama, "Drama" %> Crímen</li>
-        <li><%= radio_button_tag :drama, "Drama" %> Acción</li>
-      </ul>
-      <%= submit_tag "Votar", :class => "btn" %>
-    </div>
-  </div> <!-- End of current-poll div -->
+  
+  <%= render @current_survey %>
+  
+  
+
 
   <div id="vertical-banner">
     <%= image_tag "layout/sidebarbanner2.jpg" %>

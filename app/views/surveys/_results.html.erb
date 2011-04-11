@@ -1,0 +1,6 @@
+<h3>Resultados de la Encuesta</h3>
+<ul class="options" style="list-style: none; padding: 0; margin: 5px 0 5px;">
+  <% for option in survey.options %>
+    <li><%= option.option %> (<%= option.votes.size %>)</li>
+  <% end %>
+</ul>

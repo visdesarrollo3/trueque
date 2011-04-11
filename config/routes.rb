@@ -1,8 +1,9 @@
 Trueque::Application.routes.draw do
-  resources :surveys
-
   scope(:path_names => { :new => "nuevo", :edit => "editar" }) do
-    resources :banners    
+    resources :banners
+    resources :survey_votes, :only => [:create]
+    resources :surveys, :path => "encuestas"
+    
     resources :trades, :path => "trueque" do
       member do
         post 'ignore'

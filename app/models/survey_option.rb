@@ -1,6 +1,7 @@
 class SurveyOption < ActiveRecord::Base
   belongs_to :survey
   validates_presence_of :option
+  has_many :votes, :class_name => "SurveyVote", :foreign_key => "option_id"
   
   def text
     option
@@ -9,9 +10,4 @@ class SurveyOption < ActiveRecord::Base
   def blank?
     option.blank?
   end
-  
-  def votes_size
-    (rand*100).to_i
-  end
-  
 end

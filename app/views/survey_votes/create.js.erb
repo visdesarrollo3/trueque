@@ -1,0 +1,1 @@
+$("#current-poll #results").html("<%= escape_javascript render(:partial => "surveys/results", :locals => {:survey => @vote.survey}) %>");

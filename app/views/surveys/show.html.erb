@@ -17,6 +17,6 @@
 
 <ul>
   <% for option in @survey.options %>
-    <li><h3><%= option.option %> (<%= option.votes_size %>)</h3></li>
+    <li><h3><%= option.option %> (<%= option.votes.size %>)</h3></li>
   <% end %>
 </ul>

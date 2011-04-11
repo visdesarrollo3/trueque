@@ -1,0 +1,24 @@
+<div id="current-poll">
+  <div class = "quoted-title" id="login-title">
+    Encuesta
+  </div>
+  <div id="question">
+    <%= survey.question %>
+  </div>
+  <div id="results">
+    
+    <%= form_for SurveyVote.new, :remote => true do |f| %>
+      <ul class="options" style="list-style: none; padding: 0; margin: 5px 0 5px;">
+
+        <% for option in survey.options %>
+          <li>
+            <%= f.radio_button :option_id, option.id %> <%= option.option %>
+          </li>
+        <% end %>
+      </ul>
+      <%= f.submit "Votar" %>
+      
+    <% end %>
+    
+  </div>
+</div> <!-- End of current-poll div -->
