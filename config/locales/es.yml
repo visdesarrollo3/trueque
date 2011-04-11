@@ -222,6 +222,18 @@ es:
     array:
       words_connector: ", "
       last_word_connector: " y "
+
+  attributes:
+    created_at: "Creado en"
+    updated_at: "Actualizado en"
+    name: Nombre
+    password: Contraseña
+    password_confirmation: Confirmación Contraseña
+    company: Compañía
+    email: E-mail
+    phone: Teléfono
+    login: Nombre de usuario
+    role: Rol
   
   ########
   # Active Record

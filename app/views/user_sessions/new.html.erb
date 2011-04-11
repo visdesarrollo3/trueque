@@ -3,14 +3,14 @@
 <%= form_for @user_session do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :login %><br />
+    <%= f.label :login, "Nombre de usuario" %><br />
     <%= f.text_field :login %>
   </p>
   <p>
-    <%= f.label :password %><br />
+    <%= f.label :password, "Contraseña" %><br />
     <%= f.text_field :password %>
   </p>
-  <p><%= f.submit %></p>
+  <p><%= f.submit "Ingresar" %></p>
 <% end %>
 
 

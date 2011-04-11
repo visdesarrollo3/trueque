@@ -38,6 +38,9 @@ class User < ActiveRecord::Base
   has_many :pending_trades,   :class_name => "Trade", :foreign_key => "user2_id", :conditions => { :current_state => :pending  }
   has_many :pending_books,    :through => :pending_trades, :class_name => "Book", :source => :received_book
   
+  has_many :votes, :class_name => "SurveyVote"
+  has_many :voted_surveys, :through => :votes, :source => :survey
+  
   scope :admins, where(:role => ROLES[0])
 
   def to_param
@@ -46,6 +49,10 @@ class User < ActiveRecord::Base
   
   def name_or_login
     name || login
+  end
+  
+  def has_voted_on(survey)
+    voted_surveys.include?(survey)
   end
 
   def self.create_from_hash(hash)

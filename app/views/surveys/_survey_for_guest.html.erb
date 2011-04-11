@@ -1,0 +1,20 @@
+<div id="current-poll">
+  <div class = "quoted-title" id="login-title">
+    Encuesta
+  </div>
+  <div id="question">
+    <%= survey.question %>
+  </div>
+  <div id="results">
+    <ul class="options" style="list-style: none; padding: 0; margin: 5px 0 5px;">
+      <% for option in survey.options %>
+      <li>
+        <%= radio_button_tag :option_id, option.id %> <%= option.option %>
+      </li>
+      <% end %>
+    </ul>
+    <p>
+      <%= link_to "Inicia sesión", login_path %> para poder votar
+    </p>
+  </div>
+</div> <!-- End of current-poll div -->

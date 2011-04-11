@@ -7,18 +7,23 @@
   </div>
   <div id="results">
     
-    <%= form_for SurveyVote.new, :remote => true do |f| %>
-      <ul class="options" style="list-style: none; padding: 0; margin: 5px 0 5px;">
-
-        <% for option in survey.options %>
-          <li>
-            <%= f.radio_button :option_id, option.id %> <%= option.option %>
-          </li>
-        <% end %>
-      </ul>
-      <%= f.submit "Votar" %>
+    <% if current_user.has_voted_on(survey) %>
       
+      <%= render :partial => "surveys/results", :locals => {:survey => survey} %>
+    
+    <% else %>
+      <%= form_for SurveyVote.new, :remote => true do |f| %>
+        <ul class="options" style="list-style: none; padding: 0; margin: 5px 0 5px;">
+          <% for option in survey.options %>
+            <li>
+              <%= f.radio_button :option_id, option.id %> <%= option.option %>
+            </li>
+          <% end %>
+        </ul>
+        <%= f.submit "Votar" %>
+      <% end %>
     <% end %>
+        
     
   </div>
 </div> <!-- End of current-poll div -->

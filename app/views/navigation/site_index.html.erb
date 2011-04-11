@@ -46,7 +46,11 @@
 <% content_for :sidebar do %>
 <div id="sidebar">
   
-  <%= render @current_survey if @current_survey %>
+  <% if current_user %>
+    <%= render @current_survey if @current_survey %>
+  <% else %>
+    <%= render :partial => "surveys/survey_for_guest", :locals => {:survey => @current_survey} if @current_survey %>
+  <% end %>
   
   
 
