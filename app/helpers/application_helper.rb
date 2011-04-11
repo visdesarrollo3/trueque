@@ -14,4 +14,22 @@ module ApplicationHelper
     link_to "Truequear", trades_path(:book_id => book.id), :method => :post, :class => "button"
   end
   
+  def book_image(book, image_size)
+    if book.user.admin?
+      ribbon_image(book, image_size)
+    else
+      content_tag :div, image_tag(book.photo.url(image_size)), :id => "cover"
+    end
+  end
+  
+  def ribbon_image(book, size)
+    content_tag :div, :id => "cover" do
+      [
+        image_tag(book.photo.url(size)),
+        content_tag(:div, "Esquina del Trueque", :class => "ribbon-#{size}")
+      ].join("").html_safe
+        
+    end
+  end
+  
 end

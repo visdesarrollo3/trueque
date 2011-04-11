@@ -282,13 +282,29 @@ label{
 
 /* ######################################## BOOk SHOW STYLES */
 
-.book-section {margin-bottom: 20px;}
-.book-section h3 {margin: 0; font-size: 1.1em; font-family: "Trebuchet MS", Helvetica, Verdana;}
-.book-section span {font-family: Georgia, Helvetica, Verdana; color: #1F4A57; font-size: 1.5em;}
-.book-section span a  {font-weight: normal;}
+.book-section         { margin-bottom: 20px; }
+
+.book-section h3      { margin: 0; font-size: 1.1em;
+                        font-family: "Trebuchet MS", Helvetica, Verdana;
+                      }
+                      
+.book-section span    { color: #1F4A57; font-size: 1.5em;
+                        font-family: Georgia, Helvetica, Verdana;
+                      }
+                      
+.book-section span a  { font-weight: normal; }
+
 #book-info {width: 450px;}
 
-/* ######################################## OVERLAY STYLES */
+#cover { position: relative; }
+
+#cover .ribbon-big {
+  text-indent: -999em; width: 153px; height: 31px; position: absolute; top: 7px;
+  left: -7px;
+  background: transparent url(/images/layout/ribbon_big.png) top left no-repeat;
+}
+
+/* ################################################# OVERLAY STYLES */
 #overlay {
   height:405px;
   width: 640px;

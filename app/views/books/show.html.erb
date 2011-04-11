@@ -15,13 +15,8 @@
 </div>
 
 <div class="left">
-  <div id="cover">
-    <%= image_tag @book.photo.url(:big) %>
-    
-    <%= render :partial => "books/trade_button", :locals => {:book => @book} %>
-    
-    
-  </div>
+  <%= book_image(@book, :big) %>
+  <%= render :partial => "books/trade_button", :locals => {:book => @book} %>    
 </div>
 
 <div class="rleft" id="book-info">
