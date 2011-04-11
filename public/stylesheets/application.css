@@ -296,13 +296,18 @@ label{
 
 #book-info {width: 450px;}
 
-#cover { position: relative; }
+.book-cover { position: relative; }
 
-#cover .ribbon-big {
-  text-indent: -999em; width: 153px; height: 31px; position: absolute; top: 7px;
-  left: -7px;
+.book-cover .ribbon-big {
+  text-indent: -999em; width: 153px; height: 31px; position: absolute; top: 7px; left: -7px;
   background: transparent url(/images/layout/ribbon_big.png) top left no-repeat;
 }
+
+.book-cover .ribbon-thumb {
+  text-indent: -999em; width: 127px; height: 26px; position: absolute; top: 8px; left: -4px;
+  background: transparent url(/images/layout/ribbon_small.png) top left no-repeat;
+}
+
 
 /* ################################################# OVERLAY STYLES */
 #overlay {
@@ -391,6 +396,7 @@ label{
 .cover {
   width: 135px; margin: 0 auto;
 }
+
 .books .book img {
   background-color: #FFFFFF;
   border: 1px solid #CCCCCC;

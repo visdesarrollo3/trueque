@@ -18,12 +18,12 @@ module ApplicationHelper
     if book.user.admin?
       ribbon_image(book, image_size)
     else
-      content_tag :div, image_tag(book.photo.url(image_size)), :id => "cover"
+      content_tag :div, image_tag(book.photo.url(image_size)), :class => "cover"
     end
   end
   
   def ribbon_image(book, size)
-    content_tag :div, :id => "cover" do
+    content_tag :div, :class => "book-cover" do
       [
         image_tag(book.photo.url(size)),
         content_tag(:div, "Esquina del Trueque", :class => "ribbon-#{size}")
