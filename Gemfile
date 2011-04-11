@@ -18,6 +18,7 @@ gem 'cancan'
 gem 'aws-s3'
 gem 'aasm'
 gem 'kaminari'
+gem 'nested_form'
 
 
 # gem 'meta_where'

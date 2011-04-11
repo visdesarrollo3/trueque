@@ -1,4 +1,4 @@
-<%= form_for @survey do |f| %>
+<%= nested_form_for @survey do |f| %>
   <%= f.error_messages %>
   <p>
     <%= f.label :question %><br />
@@ -8,5 +8,17 @@
     <%= f.label :featured_at %><br />
     <%= f.date_select :featured_at %>
   </p>
+  
+  <h3>Opciones de la Encuesta</h3>
+
+  <%= f.fields_for :survey_options do |option_form| %>
+    <%= option_form.text_field :option %>
+    <%= option_form.link_to_remove "Eliminar opción" %>
+  <% end %>
+  
+  <p>
+    <%= f.link_to_add "Agregar Opción", :survey_options %>
+  </p>
+
   <p><%= f.submit %></p>
 <% end %>
