@@ -304,7 +304,7 @@ label{
 }
 
 .book-cover .ribbon-thumb {
-  text-indent: -999em; width: 127px; height: 26px; position: absolute; top: 8px; left: -4px;
+  text-indent: -999em; width: 127px; height: 26px; position: absolute; top: 8px; left: -6px;
   background: transparent url(/images/layout/ribbon_small.png) top left no-repeat;
 }
 
