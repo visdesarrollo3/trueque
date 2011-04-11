@@ -3,11 +3,11 @@
   <div id="todos-usuarios">
     <ul>
       <% for user in @users %>
-        <li>
+        <li id="user-list">
           <div class="left"><%= image_tag user.avatar.url(:mini) %></div>
           <div class="rleft">
-            <%= user.name %>
-            <%= link_to "Ver perfil", user %>
+            <p><strong><%= @user.name %></strong></p>
+              <%= link_to "Ver perfil", user %>
           </div>
           <%= clear %>
         </li>
