@@ -1,5 +1,11 @@
 es:
   
+  mensajes:
+    ver: Ver
+    editar: Editar
+    eliminar: Eliminar
+    confirmar_eliminar: "¿Está seguro? Esto no se puede deshacer"
+  
   number:
     # Used in number_with_delimiter()
     # These are also the defaults for 'currency', 'percentage', 'precision', and 'human'
