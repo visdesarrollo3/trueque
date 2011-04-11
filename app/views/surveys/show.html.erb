@@ -1,0 +1,16 @@
+<% title "Survey" %>
+
+<p>
+  <strong>Question:</strong>
+  <%= @survey.question %>
+</p>
+<p>
+  <strong>Featured At:</strong>
+  <%= @survey.featured_at %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_survey_path(@survey) %> |
+  <%= link_to "Destroy", @survey, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", surveys_path %>
+</p>

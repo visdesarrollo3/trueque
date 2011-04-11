@@ -1,4 +1,6 @@
 Trueque::Application.routes.draw do
+  resources :surveys
+
   scope(:path_names => { :new => "nuevo", :edit => "editar" }) do
     resources :banners    
     resources :trades, :path => "trueque" do

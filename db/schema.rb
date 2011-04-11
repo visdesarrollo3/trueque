@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110315231954) do
+ActiveRecord::Schema.define(:version => 20110411032704) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -106,6 +106,13 @@ ActiveRecord::Schema.define(:version => 20110315231954) do
 
   add_index "pages", ["permalink"], :name => "index_pages_on_permalink"
 
+  create_table "surveys", :force => true do |t|
+    t.string   "question"
+    t.date     "featured_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -172,7 +179,7 @@ ActiveRecord::Schema.define(:version => 20110315231954) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "featured",    :default => false
+    t.boolean  "featured"
   end
 
 end

@@ -1,0 +1,23 @@
+<% title "Todas las Encuestas" %>
+
+<% if can? :create, Survey %>
+<div class="actions">
+  <%= link_to "Crear encuesta", new_survey_path %>
+</div>
+<% end %>
+
+<table>
+  <tr>
+    <th>Pregunta</th>
+    <th>Total Votos</th>
+  </tr>
+  <% for survey in @surveys %>
+    <tr>
+      <td><%= survey.question %></td>
+      <td><%= survey.featured_at %></td>
+      <td><%= link_to "Show", survey %></td>
+      <td><%= link_to "Edit", edit_survey_path(survey) %></td>
+      <td><%= link_to "Destroy", survey, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,12 @@
+<%= form_for @survey do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :question %><br />
+    <%= f.text_field :question %>
+  </p>
+  <p>
+    <%= f.label :featured_at %><br />
+    <%= f.date_select :featured_at %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
