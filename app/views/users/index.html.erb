@@ -5,9 +5,10 @@
       <% for user in @users %>
         <li id="user-list">
           <div class="left avatar"><%= image_tag @user.avatar.url %></div>
-          <div class="rleft">
-            <p><h2><%= @user.name %></h2></p>
-              <%= link_to "Ver perfil", user %>
+            <div class="rleft">
+              <p><h2><%= user.name %></h2></p>
+            </div>
+            <%= link_to "Ver perfil", user %>
           </div>
           <%= clear %>
         </li>
