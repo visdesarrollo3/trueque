@@ -8,9 +8,9 @@ class Banner < ActiveRecord::Base
   
   has_attached_file :photo,
     :styles => {
-        :gallery => "680x270#",
-        :thumb => "100x100#",
-        :vertical => "225x270#"
+      :gallery => "680x270#",
+      :thumb => "100x100#",
+      :vertical => "225x270#"
     },
     :default_style => "gallery"
   

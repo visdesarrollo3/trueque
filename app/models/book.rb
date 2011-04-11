@@ -10,8 +10,9 @@ class Book < ActiveRecord::Base
   
   extend StoreAttachmentOnS3 if Rails.env.production?
   
-  has_attached_file :photo, :styles => { :thumb => "125x145#", :big => "230x200#" },
-    :default_style => "thumb"
+  has_attached_file :photo,
+              :styles => { :thumb => "125x145#", :big => "230x200#" },
+              :default_style => "thumb"
 
   validates_presence_of :title, :synopsis, :published_date, :editorial, :isbn, :health_status, :health_description, :photo
 
