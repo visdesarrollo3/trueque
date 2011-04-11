@@ -1,5 +1,11 @@
 <% title "Vitamina L" %>
 
+<% if can? :create, Vitamin %>
+<div class="actions">
+  <%= link_to "Agregar video", new_vitamin_path %>
+</div>
+<% end %>
+
 <% if @featured_vitamin %>
   <h1>Video Destacado</h1>
   <h2><%= @featured_vitamin.name %></h2>
@@ -26,8 +32,3 @@
   
   <%= clear %>
 </div>
-
-
-<% if can? :create, Vitamin %>
-  <p><%= link_to "Agregar video", new_vitamin_path %></p>
-<% end %>

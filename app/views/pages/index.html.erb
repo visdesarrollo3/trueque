@@ -1,3 +1,10 @@
+<% title "Administrar Páginas" %>
+
+<% if can? :create, Page %>
+<div class="actions">
+  <%= link_to "Crear página", new_page_path %>
+</div>
+<% end %>
 
 <table>
   <tr>
@@ -14,5 +21,3 @@
     </tr>
   <% end %>
 </table>
-
-<p><%= link_to "New Page", new_page_path %></p>
