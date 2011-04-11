@@ -10,10 +10,12 @@ class SurveysController < ApplicationController
 
   def new
     @survey = Survey.new
+    @survey.options.build
   end
 
   def create
     @survey = Survey.new(params[:survey])
+    @survey.options.build if @survey.options.empty?
     if @survey.save
       redirect_to @survey, :notice => "Successfully created survey."
     else

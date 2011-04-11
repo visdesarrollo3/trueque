@@ -237,13 +237,21 @@ es:
       comment: Comentario
       photo: Foto
       vitamin: Vitamina
+      survey: Encuesta
+      survey_option: Opción de encuesta
     attributes:
       vitamin:
         name: Nombre
         video_code: "Código del video"
         description: Descripción
         featured: Video destacado
-        
+      survey:
+        question: Pregunta de la encuesta
+        featured_at: Activa desde
+        options: Las opciones
+        survey_options: Las opciones
+      survey_option:
+        option: (pregunta)
       book:
         title: Título
         available: Disponible

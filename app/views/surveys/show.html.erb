@@ -1,16 +1,22 @@
-<% title "Survey" %>
+<% title "Encuesta #{@survey.question}" %>
+
+<% if can? :manage, @survey %>
+<div class="actions">
+  <%= link_to "Editar encuesta", edit_survey_path(@survey) %> | 
+  <%= link_to "Ver todas las encuestas", surveys_path %> | 
+  <%= link_to "Eliminar encuesta", survey_path(@survey), :method => :delete, :confirm => I18n.t(:"es.mensajes.eliminar_confirmar") %>
+</div>
+<% end %>
 
 <p>
-  <strong>Question:</strong>
-  <%= @survey.question %>
-</p>
-<p>
-  <strong>Featured At:</strong>
+  <strong>Encuesta Activa Desde</strong>
   <%= @survey.featured_at %>
 </p>
 
-<p>
-  <%= link_to "Edit", edit_survey_path(@survey) %> |
-  <%= link_to "Destroy", @survey, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", surveys_path %>
-</p>
+<h2>Resultados de la Encuesta</h2>
+
+<ul>
+  <% for option in @survey.options %>
+    <li><h3><%= option.option %> (<%= option.votes_size %>)</h3></li>
+  <% end %>
+</ul>

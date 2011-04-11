@@ -1,6 +1,6 @@
 class SurveyOption < ActiveRecord::Base
   belongs_to :survey
-  validates_presence_of :survey_id, :option
+  validates_presence_of :option
   
   def text
     option
@@ -10,5 +10,8 @@ class SurveyOption < ActiveRecord::Base
     option.blank?
   end
   
+  def votes_size
+    (rand*100).to_i
+  end
   
 end

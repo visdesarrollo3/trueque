@@ -2,22 +2,27 @@
   <%= f.error_messages %>
   <p>
     <%= f.label :question %><br />
-    <%= f.text_field :question %>
+    <%= f.text_field :question, :size => 70 %>
   </p>
-  <p>
-    <%= f.label :featured_at %><br />
-    <%= f.date_select :featured_at %>
-  </p>
-  
-  <h3>Opciones de la Encuesta</h3>
 
-  <%= f.fields_for :survey_options do |option_form| %>
-    <%= option_form.text_field :option %>
-    <%= option_form.link_to_remove "Eliminar opción" %>
+  <h3>Opciones de la Encuesta</h3>
+  
+  <% for option in @survey.options do %>
+    <%= f.fields_for :options, option do |option_form| %>
+      <p>
+        <%= option_form.text_field :option, :size => 40 %>
+        <%= option_form.link_to_remove "Eliminar opción" %>
+      </p>
+    <% end %>
   <% end %>
   
   <p>
-    <%= f.link_to_add "Agregar Opción", :survey_options %>
+    <%= f.link_to_add "Agregar Opción", :options %>
+  </p>
+  
+  <p>
+    <%= f.label :featured_at, "Encuenta activa desde" %><br />
+    <%= f.date_select :featured_at %>
   </p>
 
   <p><%= f.submit %></p>
