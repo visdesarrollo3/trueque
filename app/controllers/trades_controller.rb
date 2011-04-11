@@ -4,7 +4,6 @@ class TradesController < ApplicationController
   
   def index
     @trades = current_user.pending_trades
-    
   end
   
   def show

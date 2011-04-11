@@ -1,18 +1,25 @@
 <% title "Banners" %>
 
-<table>
-  <tr>
-    <th>Name</th>
-  </tr>
-  <% for banner in @banners %>
-    <tr>
-      <td><%= banner.name %></td>
-      <td><%= link_to "Show", banner %></td>
-      <td><%= link_to "Edit", edit_banner_path(banner) %></td>
-      <td><%= link_to "Destroy", banner, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
-</table>
+<% for banner in @banners %>
+<div class="banner_block">
+  <div class="banner_photo left"><%= image_tag banner.photo.url(:thumb), :class => "bordered" %> </div>
+  <div class="rleft" style="width: 450px">
+    <p><strong>Posición: </strong><%= banner.position %></p>
+    <p>
+      <strong>Dirección de destino: </strong>
+      <br />
+      <%= banner.link %>
+    </p>
+    <p>
+      <%= link_to  I18n.t(:"mensajes.ver"), banner %>
+      <%= link_to  I18n.t(:"mensajes.editar"), edit_banner_path(banner) %>
+      <%= link_to  I18n.t(:"mensajes.eliminar"), banner, :confirm => I18n.t(:"mensajes.confirmar_eliminar"), :method => :delete %>
+    </p>
+    
+  </div>
+  <%= clear %>
+</div>
+<%= clear %>
+<% end %>
 
-<p><%= link_to "New Banner", new_banner_path %></p>
-
+<p><%= link_to  "Crear banner", new_banner_path %></p>

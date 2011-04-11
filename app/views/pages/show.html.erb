@@ -1,10 +1,12 @@
-<% title @page.name, false %>
+<% title @page.name %>
 
-<h1><%= h @page.name %></h1>
+<% if can? :manage, @page %>
+<div class="actions">
+  <%= link_to "Editar página", edit_page_path(@page) %> | 
+  <%= link_to "Administrar páginas", pages_path %> | 
+  <%= link_to "Eliminar página", page_path(@page), :method => :delete, :confirm => I18n.t(:"es.mensajes.eliminar_confirmar") %>
+</div>
+<% end %>
 
 <%= raw(simple_format(@page.content)) %>
 
-<p>
-  <%= link_to "Editar", edit_page_path(@page) %> |
-  <%= link_to "Eliminar", @page, :confirm => 'Are you sure?', :method => :delete %>
-</p>

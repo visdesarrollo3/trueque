@@ -4,7 +4,7 @@
 <div id="sub-header">
   <div id="slider">
     <% for banner in @banners %>
-    <%= link_to_or_default image_tag(banner.photo.url), banner %>
+      <%= link_to_or_default image_tag(banner.photo.url), banner %>
     <% end %>
   </div>
 
@@ -85,7 +85,7 @@
   <%= clear %>
 
   <div id="best-books">
-    <h1>Libros destacados</h1>
+    <h1>Libros de La Esquina del Trueque</h1>
     <div class="books">
       <% for book in @best_books %>
       <%= render :partial => "books/book_small", :locals => {:book_small => book} %>

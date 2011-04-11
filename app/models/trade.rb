@@ -1,5 +1,6 @@
 class Trade < ActiveRecord::Base
   include AASM
+  acts_as_commentable
   aasm_column :current_state
   aasm_initial_state :pending
 

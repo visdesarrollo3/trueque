@@ -5,9 +5,23 @@ class ApplicationController < ActionController::Base
   before_filter :save_location_if_needed, :get_sidebar_content
   helper_method :current_user
 
+  # application_controller.rb
+
   rescue_from CanCan::AccessDenied do |exception|
+    user = current_user
+    logger.info { "\n\n************************************** Access Denied" }
+    logger.info { "[Beggining of Cancan Log]" }
+    logger.info { "\t[Cancan] Denied when accessing: #{exception.subject}##{exception.action}" }
+    logger.info { "\t[Cancan] Guest: #{user.nil?}" }
+    unless user.nil?
+      logger.info { "\t[Cancan] User login: #{user.login}" }
+      logger.info { "\t[Cancan] User Role: #{user.role}" }
+    end
+    logger.info { "[End of Cancan Log]" }
+    logger.info { "**************************************\n\n" }
     redirect_to root_url, :error => "No tienes permiso para acceder esta página"
   end
+
 
   private
 
