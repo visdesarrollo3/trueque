@@ -1,27 +1,16 @@
-<% title "Users" %>
+<% title "Todos los usuarios" %>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Age</th>
-    <th>Sex</th>
-    <th>Ocupation</th>
-    <th>Hobbies</th>
-    <th>Actual Book</th>
-  </tr>
-  <% for user in @users %>
-    <tr>
-      <td><%= user.name %></td>
-      <td><%= user.age %></td>
-      <td><%= user.sex %></td>
-      <td><%= user.ocupation %></td>
-      <td><%= user.hobbies %></td>
-      <td><%= user.actual_book %></td>
-      <td><%= link_to "Show", user %></td>
-      <td><%= link_to "Edit", edit_user_path(user) %></td>
-      <td><%= link_to "Destroy", user, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
-</table>
-
-<p><%= link_to "New User", new_user_path %></p>
+  <div id="todos-usuarios">
+    <ul>
+      <% for user in @users %>
+        <li>
+          <div class="left"><%= image_tag user.avatar.url(:mini) %></div>
+          <div class="rleft">
+            <%= user.name %>
+            <%= link_to "Ver perfil", user %>
+          </div>
+          <%= clear %>
+        </li>
+      <% end %>
+    </ul>
+  </div>

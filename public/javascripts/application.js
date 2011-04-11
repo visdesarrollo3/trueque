@@ -17,7 +17,7 @@ jQuery(function($) {
   $('#slider').nivoSlider({
     effect:'fade', //Specify sets like: 'fold,fade,sliceDown'
     animSpeed: 500, //Slide transition speed
-    pauseTime: 6000,
+    pauseTime: 9000,
     startSlide: 0, //Set starting Slide (0 index)
     directionNav: true, //Next & Prev
     directionNavHide: true, //Only show on hover
