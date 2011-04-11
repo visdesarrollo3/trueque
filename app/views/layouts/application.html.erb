@@ -48,24 +48,24 @@
 
     <div class="left sidebar">
       <% if  content_for?(:sidebar) %>
-      <%= yield(:sidebar) %>
+        <%= yield(:sidebar) %>
       <% else %>
-      <%= render :partial => "shared/sidebar" %>
+        <%= render :partial => "shared/sidebar" %>
       <% end %>
       <%= clear %>
     </div>
     <!-- End of sidebar -->
 
     <div id="main-content">
+      <% if content_for?(:title) and show_title? %>
+        <h1><%= yield(:title) %></h1>
+      <% end %>
+      
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}", :class => "alert" %>
       <% end %>
       
       <%= clear %>
-      
-      <% if content_for?(:title) and show_title? %>
-        <h1><%= yield(:title) %></h1>
-      <% end %>
       
       <%= yield %>
       

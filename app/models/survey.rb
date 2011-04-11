@@ -1,4 +1,5 @@
 class Survey < ActiveRecord::Base
+  default_scope order("featured_at DESC").includes([:options, :votes])
   attr_accessible :question, :featured_at, :options, :options_attributes
   has_many :options,  :class_name => "SurveyOption"
   has_many :votes,    :class_name => "SurveyVote"

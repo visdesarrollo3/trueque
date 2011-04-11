@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     end
     logger.info { "[End of Cancan Log]" }
     logger.info { "**************************************\n\n" }
-    redirect_to root_url, :error => "No tienes permiso para acceder esta página"
+    redirect_to root_url, :alert => "No tienes permiso para acceder esta página"
   end
 
 

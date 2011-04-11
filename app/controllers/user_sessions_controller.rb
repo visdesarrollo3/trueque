@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class UserSessionsController < ApplicationController
   skip_authorization_check
   skip_before_filter :save_location_if_needed
@@ -12,6 +14,7 @@ class UserSessionsController < ApplicationController
       flash[:notice] = "Has ingresado correctamente"
       redirect_back_or_default root_url
     else
+      flash[:error] = "Nombre de usuario/contraseña inválidos"
       render :action => 'new'
     end
   end
