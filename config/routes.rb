@@ -5,6 +5,7 @@ Trueque::Application.routes.draw do
     resources :surveys, :path => "encuestas"
     
     resources :trades, :path => "trueque" do
+      resources :comments
       member do
         post 'ignore'
         post 'accept'

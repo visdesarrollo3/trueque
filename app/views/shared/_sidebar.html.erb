@@ -24,9 +24,9 @@
   <div class = "quoted-title" id="login-title">Libros que...</div>
   <div id ="libros-que">
     <ul>
-      <li><%= link_to "Espero", user_waiting_index_path(current_user) %></li>
+      <li><%= link_to "He solicitado", user_waiting_index_path(current_user) %></li>
       <li><%= link_to "Me han ofrecido (#{current_user.pending_trades.count})", trades_path %></li>
-      <li><%= link_to "Tengo", user_books_path(current_user) %></li>
+      <li><%= link_to "Ofrezco", user_books_path(current_user) %></li>
       <li><%= link_to "He Recibido", "#" %></li>
       <li><%= link_to "He Cambiado", "#" %></li>      
     </ul>
@@ -40,17 +40,12 @@
     <ul>
       <% for user in @other_users %>
         <li>
-          <div class="left"><%= image_tag user.avatar.url(:mini) %></div>
-          <div class="rleft">
-            <%= link_to user.name_or_login, user %>
-          </div>
-          <%= clear %>
+          <%= render :partial => "users/mini", :locals => {:user => user} %>
         </li>
       <% end %>
     </ul>
     <%= link_to "ver todos", users_path, :class => "view-more" %>
   </div>
-  
   
   <%= clear %>
 </div>

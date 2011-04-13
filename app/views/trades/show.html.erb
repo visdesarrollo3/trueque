@@ -1,21 +1,35 @@
-<% title "Trueque ##{@trade.id}" %>
+<% title "Trueque Pactado" %>
 
-<p>
-  <strong>Usuario que inició el trueque:</strong>
-  <%= @trade.initiator.name %>
-</p>
+<div id="trade-info">
+  <div class="left">
+    <div class="left"><%= book_image(@trade.book1, :thumb) %></div>
+    <div class="rleft">
+      <h2><%= @trade.book1.title %></h2>
+      <p>
+        <%= @trade.book1.author_names %>
+      </p>
+      <div class="user">
+        <%= render :partial => "users/mini", :locals => {:user => @trade.user1} %>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="rleft">
+    <div class="left"><%= book_image(@trade.book2, :thumb) %></div>
+    <div class="rleft">
+      <h2><%= @trade.book2.title %></h2>
+      <p>
+        <%= @trade.book2.author_names %>
+      </p>
+      <div class="user">
+        <%= render :partial => "users/mini", :locals => {:user => @trade.user1} %>
+      </div>
+    </div>
+  </div>
+  
+  <%= clear %>
+</div>
+<%= clear %>
 
-<p>
-  <strong>Libro ofrecido:</strong>
-  <%= @trade.book1.name %>
-</p>
-
-<p>
-  <strong>User2:</strong>
-  <%= @trade.receiver.name %>
-</p>
-
-<p>
-  <strong>Libro requerido:</strong>
-  <%= @trade.book2.name %>
-</p>
+<%= render :partial => "comments/list_and_form", :locals => {:commentable => @trade} %>

@@ -21,8 +21,8 @@ gem 'kaminari'
 gem 'nested_form'
 
 
-# gem 'meta_where'
-# gem 'meta_search' # replaces searchlogic
+gem 'meta_where'
+gem 'meta_search'
 
 
 group :development, :test do

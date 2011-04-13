@@ -442,3 +442,7 @@ a.view-more {
 /* ######################################## COMMENTS LIST AND FORM STYLES */
 #create-comment {margin-top: 20px;}
 #comment_comment { }
+
+/* ######################################## TRADES SHOW */
+#trade-info {margin-bottom: 25px;}
+#trade-info h2 {margin: 0; padding: 0;}

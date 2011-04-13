@@ -40,7 +40,7 @@ class TradesController < ApplicationController
     else
       flash[:error] = "El sistema no pudo intercambiar los libros, intenta nuevamente."
     end
-    redirect_to trades_path
+    redirect_to @trade
   end
   
   def pre_accept
