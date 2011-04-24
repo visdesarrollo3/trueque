@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.6'
+gem 'rails', '3.0.7'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'capistrano'
 gem 'jquery-rails'
@@ -19,6 +19,7 @@ gem 'aws-s3'
 gem 'aasm'
 gem 'kaminari'
 gem 'nested_form'
+gem 'right_aws'
 gem 'heroku_s3_backup'
 
 
