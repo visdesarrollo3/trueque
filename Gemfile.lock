@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/nhocki/heroku_s3_backup.git
+  revision: b050f3f70eb8cca2f91a922cc76d565ed8cfd312
+  specs:
+    heroku_s3_backup (0.0.1)
+      right_aws (~> 1.10)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -50,8 +57,6 @@ GEM
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
-    heroku_s3_backup (0.0.1)
-      right_aws (~> 1.10)
     highline (1.6.1)
     hirb (0.4.3)
     i18n (0.5.0)
@@ -156,7 +161,7 @@ DEPENDENCIES
   aws-s3
   cancan
   capistrano
-  heroku_s3_backup
+  heroku_s3_backup!
   hirb
   jquery-rails
   kaminari
