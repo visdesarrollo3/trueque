@@ -24,6 +24,12 @@ class ApplicationController < ActionController::Base
 
 
   private
+  
+  def require_admin
+    unless current_user && current_user.admin?
+      raise CanCan::AccessDenied and return
+    end
+  end
 
   def get_sidebar_content
     @other_users = User.scoped.shuffle.first(4)

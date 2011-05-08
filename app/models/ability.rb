@@ -38,6 +38,11 @@ class Ability
   def member
     can :manage, :all
     can :create, Comment
+    
+    can :comment, Trade do |trade|
+      trade.user1_id == @user.id or trade.user2_id == @user.id
+    end
+    
     can [:update, :destroy], Comment, {:commentable_id => @user.id, :commentable_type => @user.class.to_s}
     can :manage, Book, :user_id => @user.id
     can :trade, Book

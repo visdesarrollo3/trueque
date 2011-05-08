@@ -20,9 +20,7 @@ gem 'aasm'
 gem 'kaminari'
 gem 'nested_form'
 gem 'right_aws'
-gem 'heroku_s3_backup', :git => 'git://github.com/nhocki/heroku_s3_backup.git'
-
-
+gem 'heroku-s3-backup-zinergia'
 gem 'meta_where'
 gem 'meta_search'
 
