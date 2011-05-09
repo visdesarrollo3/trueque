@@ -10,11 +10,13 @@
       <br />
       <%= banner.link %>
     </p>
+    <% if can? :manage, banner %>
     <p>
       <%= link_to  I18n.t(:"mensajes.ver"), banner %>
       <%= link_to  I18n.t(:"mensajes.editar"), edit_banner_path(banner) %>
       <%= link_to  I18n.t(:"mensajes.eliminar"), banner, :confirm => I18n.t(:"mensajes.confirmar_eliminar"), :method => :delete %>
     </p>
+    <% end %>
     
   </div>
   <%= clear %>

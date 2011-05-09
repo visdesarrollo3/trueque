@@ -4,6 +4,7 @@ class TradesController < ApplicationController
   
   def index
     @trades = current_user.pending_trades
+    @description = "Estos son los libros tuyos que alguien quiere. Puedes aceptar o rechazar la petición de trueque."
   end
   
   def show

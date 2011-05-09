@@ -26,8 +26,11 @@ class User < ActiveRecord::Base
   has_many :offered_trades,   :class_name => "Trade", :foreign_key => "user1_id"
   has_many :received_trades,  :class_name => "Trade", :foreign_key => "user2_id"
   
-  has_many :completed_trades, :class_name => "Trade", :foreign_key => "user1_id", :conditions => { :current_state => :accepted }
-  has_many :given_books,    :through => :completed_trades, :class_name => "Book", :source => :given_book
+  has_many :completed_trades,           :class_name => "Trade", :foreign_key => "user1_id", :conditions => { :current_state => :accepted }
+  has_many :completed_receibed_trades,  :class_name => "Trade", :foreign_key => "user2_id", :conditions => { :current_state => :accepted }
+  
+  has_many :given_books,          :through => :completed_trades,          :class_name => "Book", :source => :given_book
+  has_many :received_books,       :through => :completed_receibed_trades, :class_name => "Book", :source => :received_book
   
   has_many :waiting_trades,   :class_name => "Trade", :foreign_key => "user1_id", :conditions => { :current_state => :pending  }
   has_many :waiting_books,    :through => :waiting_trades, :class_name => "Book", :source => :received_book
@@ -40,6 +43,9 @@ class User < ActiveRecord::Base
   
   has_many :votes, :class_name => "SurveyVote"
   has_many :voted_surveys, :through => :votes, :source => :survey
+
+  has_many :grades
+  has_many :graded_trades, :through => :grades, :class_name => "Trade", :source => :trade
   
   scope :admins, where(:role => ROLES[0])
 

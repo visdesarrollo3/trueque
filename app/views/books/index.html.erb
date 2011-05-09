@@ -1,7 +1,7 @@
 <% if @user %>
-  <% title "Todos los libros de #{@user.name}" %>
+  <% title "Todos los libros disponibles de #{@user.name}" %>
 <% else %>
-  <% title "Todos los libros" %>
+  <% title "Todos los libros disponibles" %>
 <% end %>
 
 <% if can? :create, Book %>

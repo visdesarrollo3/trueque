@@ -1,4 +1,8 @@
 Trueque::Application.routes.draw do
+  get "received_books/index"
+
+  resources :grades
+
   get "admin/index"
 
   scope(:path_names => { :new => "nuevo", :edit => "editar" }) do
@@ -17,6 +21,10 @@ Trueque::Application.routes.draw do
         post 'ignore'
         post 'accept'
         get 'pre_accept'
+      end
+      
+      collection do
+        get 'completed'
       end
     end
     

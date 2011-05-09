@@ -6,9 +6,9 @@ class BooksController < ApplicationController
   def index
     @user = User.find params[:user_id] if params[:user_id]
     if @user.nil?
-      @books = Book.all
+      @books = Book.available
     else
-      @books = @user.books.all
+      @books = @user.books.available
     end
     respond_with @books  
   end

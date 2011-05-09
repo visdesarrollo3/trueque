@@ -4,5 +4,4 @@ class WaitingController < ApplicationController
     @user = User.find params[:user_id]
     @books = @user.waiting_books
   end
-
 end

@@ -1,11 +1,11 @@
 <div id="login_form_sidebar">
 <%= form_for UserSession.new do |f| %>
   <p>
-    <%= f.label :usuario %><br />
+    <%= f.label :login, "Usuario" %><br />
     <%= f.text_field :login, :size => 27 %>
   </p>
   <p>
-    <%= f.label :contraseña %><br />
+    <%= f.label :password, "Contraseña" %><br />
     <%= f.password_field :password, :size => 27 %>
   </p>
   <p><%= f.submit :"Ingresar", :class => "btn" %></p>

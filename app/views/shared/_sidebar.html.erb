@@ -1,6 +1,6 @@
 <div id="sidebar">
   
-  <div class = "quoted-title" id="login-title">
+  <div class = "quoted-title login-title">
     <% if current_user %>
       <%= current_user.name_or_login %>
     <% else %>
@@ -21,7 +21,7 @@
 
   <% if current_user %>
 
-  <div class = "quoted-title" id="login-title">Libros que...</div>
+  <div class = "quoted-title login-title" >Libros que...</div>
   <div id ="libros-que">
     <ul>
       <li><%= link_to "He solicitado", user_waiting_index_path(current_user) %></li>
@@ -35,7 +35,7 @@
   <% end %>
   
   
-  <div class = "quoted-title" id="login-title">Otros Lectores</div>
+  <div class = "quoted-title login-title">Otros Lectores</div>
   <div id="otros-usuarios">
     <ul>
       <% for user in @other_users %>

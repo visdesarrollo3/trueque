@@ -33,10 +33,10 @@ class Ability
     can :read, :all
     cannot :read, Trade
     cannot :trade, Book
+    cannot :read, Banner
   end
 
   def member
-    can :manage, :all
     can :create, Comment
     
     can :comment, Trade do |trade|
@@ -45,6 +45,10 @@ class Ability
     
     can [:update, :destroy], Comment, {:commentable_id => @user.id, :commentable_type => @user.class.to_s}
     can :manage, Book, :user_id => @user.id
+    can :index, Trade
+    can :read, Trade do |t|
+      trade.user1_id == @user.id or trade.user2_id == @user.id
+    end
     can :trade, Book
     cannot :trade, @book, :user_id => @user.id
   end

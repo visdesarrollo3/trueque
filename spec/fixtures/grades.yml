@@ -1,0 +1,9 @@
+one:
+  user_id: 1
+  trade_id: 1
+  score: 1
+
+two:
+  user_id: 1
+  trade_id: 1
+  score: 1

@@ -29,7 +29,7 @@
       <ul>
         <li><%= link_to "Inicio", root_path %></li>
 		<li class ="separator">|</li>
-        <li><%= link_to "El Trueque", books_path %></li>
+        <li><%= link_to "Libros Disponibles", books_path %></li>
 		<li class ="separator">|</li>
         <li><%= link_to "Vitamina L", vitamins_path %></li>
         <li class ="separator">|</li>
@@ -104,6 +104,9 @@
     </div>
     <!-- End of footer -->
     <%= clear %>
+    <span style="text-align: center; margin: 0 auto; display: block">
+      <%= link_to "Site developed by Zinergia", 'http://www.zinergia.co', :target => '_blank' %>
+    </span>
   </div>
   <!-- End of container -->
   <%= clear %>
