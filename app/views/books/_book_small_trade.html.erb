@@ -1,8 +1,25 @@
-<div>
-  <div class="cover"><%= link_to image_tag(book.photo.url), book %></div>
-  <div class="info">
-    <p><%= book.title %></p>
+<div class="book-big">
+  <div class="left">
+    <%= link_to image_tag(book.photo.url(:thumb)), book %>
+  </div>
+  <div class="rleft">
+    <div class="book-section">
+      <span><%= link_to book.title, book %></span> <br />
+      <%=  book.author_names %>
+    </div>
+
+    <div class="book-section">
+      <h3>Nombre del usuario dueño</h3>
+      <%= link_to book.user.name_or_login, book.user %>
+    </div>
+    
+    <div class="book-section">
+      <h3>Estado del libro</h3>
+      <%= book.health_status %>%
+    </div>
     
     <p><%= modal_to "Ver libro", book_path(book, :format => "modal"), :id => "div-id" %> |  <%= link_to "Aceptar trueque", accept_trade_path(@trade, :book_id => book.id), :method => :post %></p>
   </div>
+  <%= clear %>
 </div>
+<%= clear %>

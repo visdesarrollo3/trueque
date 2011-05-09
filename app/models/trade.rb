@@ -24,6 +24,7 @@ class Trade < ActiveRecord::Base
   belongs_to :received_book,  :class_name => "Book", :foreign_key => "book2_id"
   
   has_many :grades, :limit => 2
+  has_many :calificators, :through => :grades, :class_name => "User", :source => :user
     
   scope :completed, :conditions => {:accepted => true}
   scope :pending,   :conditions => {:accepted => nil}

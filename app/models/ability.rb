@@ -18,9 +18,16 @@ class Ability
 
   def initialize(user)
     @user = (user || User.new)
+    
+    alias_action :accept, :pre_accept, :ignore, :to => :make_trade
+    
+    
     if @user.admin?
       can :manage, :all
-      cannot :trade, @book, :user_id => @user.id
+      cannot :trade, Book do |book|
+        @user.waiting_books.include?(book)
+      end
+      cannot :trade, Book, :user_id => @user.id
       return
     else
       guest
@@ -46,11 +53,15 @@ class Ability
     can [:update, :destroy], Comment, {:commentable_id => @user.id, :commentable_type => @user.class.to_s}
     can :manage, Book, :user_id => @user.id
     can :index, Trade
-    can :read, Trade do |t|
+    can :make_trade, Trade do |trade|
       trade.user1_id == @user.id or trade.user2_id == @user.id
     end
     can :trade, Book
-    cannot :trade, @book, :user_id => @user.id
+    
+    cannot :trade, Book do |book|
+      @user.waiting_books.include?(book)
+    end
+    cannot :trade, Book, :user_id => @user.id
   end
 
 
