@@ -1,0 +1,13 @@
+<% unless trade.graded_by?(current_user) %>
+
+  <%= form_for [trade, trade.grades.build] do |f| %>
+    <%= f.label :score, "Calificación" %>
+    <%= f.select :score, grade_options %>
+    <%= f.submit "Enviar calificación" %>
+  <% end %>
+
+<% else %>
+
+  <p>Ya has calificado este trueque. Tu puntaje fue <%= trade.score_from(current_user) %>.</p>
+
+<% end %>

@@ -58,6 +58,18 @@ class Trade < ActiveRecord::Base
     aasm_current_state
   end
   
+  def graded_by?(user)
+    calificators.include?(user)
+  end
+  
+  def score
+    grades.map(&:score).flatten.inject(0.0) {|sum, score| sum += score} / grades.size.to_f
+  end
+  
+  def score_from(user)
+    grades.where(:user => user).first.score.to_f
+  end
+  
   def other_user(user)
     return initiator if receiver  == user
     return receiver  if initiator == user

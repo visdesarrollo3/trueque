@@ -37,14 +37,17 @@
     <h2>Califica este trueque</h2>
     
     <p>
-      La calificación de los truques es vital para el funcionamiento de la comunidad. Así, las personas podrán saber si el usuario con el que están realizando el trueque es confiable o no.
+      La calificación de los truques es vital para el funcionamiento de la comunidad. Así, las personas podrán saber si el usuario con el que están realizando el trueque es confiable o no. <br />
+      Tu voto <strong>NO</strong> podrá ser cambiado.
     </p>
     
-    <%= form_for [@trade, @trade.grades.build] do |f| %>
-      <%= f.label :score, "Calificación" %>
-      <%= f.select :score, grade_options %>
-      <%= f.submit "Enviar calificación" %>
-    <% end %>
+    <p>
+      La calificación de este trueque es de <%= @trade.score %>. <br />
+      <%= other_users_score(@trade) %>
+    </p>
+    
+    <%= render "grades/trade", :trade => @trade %>
+
   </div>
   
 </div>
