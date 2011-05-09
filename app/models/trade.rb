@@ -58,6 +58,13 @@ class Trade < ActiveRecord::Base
     aasm_current_state
   end
   
+  def other_user(user)
+    return initiator if receiver  == user
+    return receiver  if initiator == user
+    logger.error {"******* In trade #{self.id} the user #{user.id}##{user.name_or_login} was trying to get the other user. Nil was returned"}
+    nil
+  end
+  
   def apply_trade
     Trade.transaction do
       logger.error {"\n\n\n ************ #{self.received_book.inspect} \n\n\n"}

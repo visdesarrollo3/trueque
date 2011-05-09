@@ -52,6 +52,7 @@ class Ability
     
     can [:update, :destroy], Comment, {:commentable_id => @user.id, :commentable_type => @user.class.to_s}
     can :manage, Book, :user_id => @user.id
+    can :manage, User, :id => @user.id
     can :index, Trade
     can :make_trade, Trade do |trade|
       trade.user1_id == @user.id or trade.user2_id == @user.id

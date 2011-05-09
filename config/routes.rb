@@ -1,8 +1,5 @@
 Trueque::Application.routes.draw do
   get "received_books/index"
-
-  resources :grades
-
   get "admin/index"
 
   scope(:path_names => { :new => "nuevo", :edit => "editar" }) do
@@ -17,6 +14,7 @@ Trueque::Application.routes.draw do
     
     resources :trades, :path => "trueque" do
       resources :comments
+      resources :grades, :only => [:create]
       member do
         post 'ignore'
         post 'accept'
