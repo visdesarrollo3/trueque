@@ -147,7 +147,7 @@ h3 { font-weight: bold; margin-bottom: 0px; }
 
 #nav-menu li {
   float: left;
-  padding: 0px 21px;
+  padding: 0px 18px;
 }
 
 #nav-menu li a
@@ -446,3 +446,8 @@ a.view-more {
 /* ######################################## TRADES SHOW */
 #trade-info {margin-bottom: 25px;}
 #trade-info h2 {margin: 0; padding: 0;}
+
+#trade-info #given-book {width: 48%;}
+#trade-info .trade-book-info {width: 190px;}
+
+#trade-info #received-book {width: 48%;}

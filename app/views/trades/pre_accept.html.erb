@@ -1,5 +1,6 @@
+<% title "Libros disponibles para cambiar de #{@user.name}" %>
+
 <div id="best-books">
-  <h1>Libros de <%= @user.name %></h1>
   <div class="books">
   <% for book in @books %>
     <%= render :partial => "books/book_small_trade", :locals => {:book => book} %>

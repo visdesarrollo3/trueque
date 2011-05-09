@@ -1,29 +1,32 @@
 <% title "Trueque Pactado" %>
 
 <div id="trade-info">
-  <div class="left">
-    <div class="left"><%= book_image(@trade.book1, :thumb) %></div>
-    <div class="rleft">
+  <div class="left" id="given-book">
+    <div class="left">
+      <%= book_image(@trade.book1, :thumb) %>
+    </div>
+    
+    <div class="rleft trade-book-info">
       <h2><%= @trade.book1.title %></h2>
       <p>
         <%= @trade.book1.author_names %>
       </p>
       <div class="user">
-        <%= render :partial => "users/mini", :locals => {:user => @trade.user1} %>
+        <%= link_to @trade.user1.name_or_login, @trade.user1 %>
       </div>
     </div>
   </div>
   
   
-  <div class="rleft">
+  <div class="right" id="received-book">
     <div class="left"><%= book_image(@trade.book2, :thumb) %></div>
-    <div class="rleft">
+    <div class="rleft trade-book-info">
       <h2><%= @trade.book2.title %></h2>
       <p>
         <%= @trade.book2.author_names %>
       </p>
       <div class="user">
-        <%= render :partial => "users/mini", :locals => {:user => @trade.user1} %>
+        <%= link_to @trade.user2.name_or_login, @trade.user2 %>
       </div>
     </div>
   </div>

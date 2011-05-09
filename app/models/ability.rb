@@ -19,7 +19,7 @@ class Ability
   def initialize(user)
     @user = (user || User.new)
     
-    alias_action :accept, :pre_accept, :ignore, :to => :make_trade
+    alias_action :accept, :pre_accept, :ignore, :read, :to => :make_trade
     
     
     if @user.admin?
