@@ -1,2 +1,10 @@
-<h1>ReceivedBooks#index</h1>
-<p>Find me in app/views/received_books/index.html.erb</p>
+<% title "Libros que he recibido" %>
+
+<p>
+  Estos son los libros que has recibido por algún trueque. Si quieres ver información sobre el trueque de un libro específico, haz clic en la carátula del libro que quieras ver.
+</p>
+
+
+<% for trade in @received_trades %>
+  <%= render "trades/trade", :trade => trade, :user => @user %>
+<% end %>

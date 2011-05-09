@@ -1,5 +1,4 @@
 Trueque::Application.routes.draw do
-  get "received_books/index"
   get "admin/index"
 
   scope(:path_names => { :new => "nuevo", :edit => "editar" }) do
@@ -7,6 +6,8 @@ Trueque::Application.routes.draw do
     namespace :admin do
       resources :pages, :surveys, :comments, :trades
     end
+    
+    
 
     resources :banners
     resources :survey_votes, :only => [:create]
@@ -35,6 +36,8 @@ Trueque::Application.routes.draw do
       resources :comments, :path => "comentarios"
       resources :books, :path => "libros"
       resources :waiting, :only => :index, :path => "esperando"
+      resources :received_books, :only => :index, :path => "recibidos"
+      resources :given_books, :only => :index, :path => "cambiados"
     end
   
     resources :pages, :path => "paginas"

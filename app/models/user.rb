@@ -46,15 +46,19 @@ class User < ActiveRecord::Base
 
   has_many :grades
   has_many :graded_trades, :through => :grades, :class_name => "Trade", :source => :trade
-  
+      
   scope :admins, where(:role => ROLES[0])
+
+
+  alias :received_books :accepted_books
 
   def to_param
     permalink
   end
   
   def name_or_login
-    name || login
+    return name if name.present?
+    login
   end
   
   def has_voted_on(survey)
@@ -66,6 +70,14 @@ class User < ActiveRecord::Base
     user.save(:validate => false) #create the user without performing validations. This is because most of the fields are not set.
     user.reset_persistence_token! #set persistence_token else sessions will not be created
     user
+  end
+  
+  def initiated?(trade)
+    trade.initiator == self
+  end
+  
+  def received?(trade)
+    !initiated?(trade)
   end
   
   def admin?

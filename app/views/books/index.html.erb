@@ -13,7 +13,7 @@
 <div id="all-books">
   <div class="books">
     <% for book in @books %>
-      <%= render :partial => "books/book_small", :locals => {:book_small => book} %>
+      <%= render "books/book_small", :book_small => book %>
     <% end %>
   </div>
 </div>

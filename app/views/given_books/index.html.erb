@@ -1,0 +1,9 @@
+<% title "Libros que he cambiado" %>
+
+<p>
+  Estos son los libros que eran tuyos pero ya los cambiaste con alguien más. Si quieres ver información sobre el trueque de un libro específico, haz clic en la carátula del libro que quieras ver.
+</p>
+
+<% for trade in @received_trades %>
+  <%= render "trades/trade", :trade => trade, :user => trade.other_user(@user) %>
+<% end %>

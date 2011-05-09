@@ -1,0 +1,8 @@
+<div class="book left">
+  <div class="cover">
+    <%= link_to book_image(trade.given_book, :thumb), trade %>
+  </div>
+  <div class="info">
+    <p><%= link_to trade.given_book.title, trade, :class => "view-more" %></p>
+  </div>
+</div>

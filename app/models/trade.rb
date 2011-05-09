@@ -30,6 +30,8 @@ class Trade < ActiveRecord::Base
   scope :pending,   :conditions => {:accepted => nil}
   scope :denied,    :conditions => {:accepted => false}
   
+  scope :newest_first, order("created_at DESC")
+  
   def user1
     initiator
   end

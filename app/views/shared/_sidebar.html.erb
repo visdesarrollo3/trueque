@@ -27,8 +27,8 @@
       <li><%= link_to "He solicitado", user_waiting_index_path(current_user) %></li>
       <li><%= link_to "Me han solicitado (#{current_user.pending_books.size})", trades_path %></li>
       <li><%= link_to "Ofrezco", user_books_path(current_user) %></li>
-      <li><%= link_to "He Recibido", "#" %></li>
-      <li><%= link_to "He Cambiado", "#" %></li>      
+      <li><%= link_to "He Recibido", user_received_books_path(current_user) %></li>
+      <li><%= link_to "He Cambiado", user_given_books_path(current_user) %></li>      
     </ul>
   </div>
   

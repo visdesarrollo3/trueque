@@ -1,0 +1,5 @@
+<% if user.initiated?(trade) %>
+  <%= render "trades/received", :trade => trade %>
+<% else %>
+  <%= render "trades/initiated", :trade => trade %>
+<% end %>
