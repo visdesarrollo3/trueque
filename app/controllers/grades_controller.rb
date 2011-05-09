@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class GradesController < ApplicationController
   def create
     @grade = current_user.grades.new(params[:grade])
