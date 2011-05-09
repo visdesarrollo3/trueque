@@ -42,11 +42,12 @@
     </p>
     
     <p>
-      La calificación de este trueque es de <%= @trade.score %>. <br />
       <%= other_users_score(@trade) %>
     </p>
     
     <%= render "grades/trade", :trade => @trade %>
+
+    <h3>La calificación de este trueque es de <%= @trade.score %>. <br /></h3>
 
   </div>
   
