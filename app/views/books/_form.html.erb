@@ -1,21 +1,26 @@
 <div class = "new-book">
 <%= form_for @book, :html => {:multipart => true} do |f| %>
-  <%= f.error_messages %>
+<%= f.error_messages %>
+<p>
+  <%= f.label :title %><br />
+  <%= f.text_field :title, :size => 90 %>
+</p>
+
 <div class = "left">
   <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.label :isbn %> <%= modal_to "¿Qué es ISBN?", static_path('que-es-isbn', :format => :modal), :id => "div-id" %><br />
+    <%= f.text_field :isbn, :size => 50 %>
   </p>
 
-<p>
-    <%= f.label :isbn %> <%= modal_to "¿Qué es ISBN?", static_path('que-es-isbn', :format => :modal), :id => "div-id" %><br />
-    <%= f.text_field :isbn %>
- </p>
-
-<p>
-  <%= f.label :published_date %><br />
-  <%= f.text_field :published_date %>
-</p>
+  <p>
+    <%= f.label :published_date %><br />
+    <%= f.text_field :published_date, :size => 50 %>
+  </p>
+  
+  <p>
+    <%= f.label :tag_list %><br />
+    <%= f.text_field :tag_list, :size => 50 %>
+  </p>
 
 </div>
 
@@ -24,16 +29,16 @@
     <%= f.label :photo %> <br />
     <%= f.file_field :photo %>
   </p>
-  
-<p>
-  <%= f.label :author %><br />
-  <%= f.text_field :author_names %>
-</p>
 
-<p>
-  <%= f.label :editorial %><br />
-  <%= f.text_field :editorial %>
-</p>
+  <p>
+    <%= f.label :author %><br />
+    <%= f.text_field :author_names, :size => 50 %>
+  </p>
+
+  <p>
+    <%= f.label :editorial %><br />
+    <%= f.text_field :editorial, :size => 50 %>
+  </p>
 
 </div>
 
@@ -43,27 +48,24 @@
 </p> -->
 <!-- Autor(es) -->
 
-
+<%= clear %>
 
 <!-- Género -->
-<p>
-  <%= f.label :tag_list %><br />
-  <%= f.text_field :tag_list %>
-</p>
+
 
 <p>
   <%= f.label :synopsis %><br />
-  <%= f.text_area :synopsis %>
+  <%= f.text_area :synopsis, :size => "85x10" %>
 </p>
 
 <p>
   <%= f.label :health_status %><br />
-  <%= f.text_field :health_status %>
+  <%= f.text_field :health_status, :size => 8 %> <span style="font-size: 1.4em;">%</span>
 </p>
 
 <p>
   <%= f.label :health_description %><br />
-  <%= f.text_area :health_description %>
+  <%= f.text_area :health_description, :size => "85x5" %>
 </p>
 
 <p><%= f.submit %></p>
@@ -73,50 +75,50 @@
 </div>
 <% content_for :head do %>
 <script type="text/javascript">
-  jQuery(function($){
-    
-    function split( val ) {
-    	return val.split( /,\s*/ );
-    }
+jQuery(function($){
 
-    function extractLast( term ) {
-    	return split( term ).pop();
+  function split( val ) {
+  return val.split( /,\s*/ );
+}
+
+function extractLast( term ) {
+  return split( term ).pop();
+}
+
+$.ajax({
+  url: "<%= tags_list_url(:format => :xml) %>",
+  dataType: "xml",
+  success: function(xmlResponse){
+    var data = $("acts-as-taggable-on-tag", xmlResponse).map(function(){
+      return {value: $( "name", this ).text(), id: $( "id", this ).text()};
+      }).get();
+
+      $("#book_tag_list").autocomplete({
+        minLength: 0,
+        source: function (request, response){
+          response($.ui.autocomplete.filter(data, extractLast(request.term)));
+        },
+        focus: function() {return false;},
+        select: function(event, ui){
+          var terms = split( this.value );
+          terms.pop();
+          terms.push( ui.item.value );
+          terms.push( "" );
+          this.value = terms.join( ", " );
+          return false;
+        }
+      });
     }
-    
-    $.ajax({
-      url: "<%= tags_list_url(:format => :xml) %>",
-      dataType: "xml",
-      success: function(xmlResponse){
-        var data = $("acts-as-taggable-on-tag", xmlResponse).map(function(){
-          return {value: $( "name", this ).text(), id: $( "id", this ).text()};
+  });
+
+  $.ajax({
+    url: "<%= authors_list_url(:format => :xml) %>",
+    dataType: "xml",
+    success: function(xmlResponse){
+      var author_data = $("author", xmlResponse).map(function(){
+        return {value: $( "name", this ).text()};
         }).get();
-        
-        $("#book_tag_list").autocomplete({
-          minLength: 0,
-          source: function (request, response){
-            response($.ui.autocomplete.filter(data, extractLast(request.term)));
-          },
-          focus: function() {return false;},
-          select: function(event, ui){
-            var terms = split( this.value );
-            terms.pop();
-            terms.push( ui.item.value );
-            terms.push( "" );
-            this.value = terms.join( ", " );
-            return false;
-          }
-        });
-      }
-    });
-    
-    $.ajax({
-      url: "<%= authors_list_url(:format => :xml) %>",
-      dataType: "xml",
-      success: function(xmlResponse){
-        var author_data = $("author", xmlResponse).map(function(){
-          return {value: $( "name", this ).text()};
-        }).get();
-        
+
         $("#book_author_names").autocomplete({
           minLength: 0,
           source: function (request, response){
@@ -135,5 +137,5 @@
       }
     });
   });
-</script>
-<% end %>
+  </script>
+  <% end %>
