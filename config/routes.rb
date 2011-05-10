@@ -10,16 +10,16 @@ Trueque::Application.routes.draw do
     namespace :admin do
       resources :pages, :surveys, :comments, :trades
     end
-  
-  
-    resources :forum_categories, :path => "club-de-lectores", :as => "forums" do
-      resources :forum_threads, :as => "threads"
+      
+    resources :forum_categories, :path => "club-de-lectores", :shallow => true do
+      resources :forum_threads,  :path => "hilos"
     end
     
-    resources :forum_threads, :as => "threads" do
+    resources :forum_threads,  :path => "hilos", :only => [:show] do
       resources :comments
     end
-
+    
+    
     resources :banners
     resources :survey_votes, :only => [:create]
     resources :surveys, :path => "encuestas"

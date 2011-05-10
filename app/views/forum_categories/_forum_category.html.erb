@@ -1,10 +1,13 @@
 <div class="foro-cat">
-  <h2 class="foro-title"><%= link_to forum_category.name, forum_category %></h2>
-  
+  <h2 class="foro-title">
+    <%= link_to forum_category.name, forum_category %>
+    <span class="right">
+      <%= link_to "Crear nuevo hilo", new_forum_category_forum_thread_path(forum_category) %>
+    </span>
+    <%= clear %>
+  </h2>
   <div class="threads">
-    
-    <%= render forum_category.forum_threads %>
-    
+    <%= render forum_category.forum_threads %>    
   </div>
   <!-- End of div.threads -->
 </div>

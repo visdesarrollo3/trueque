@@ -441,7 +441,9 @@ a.view-more {
 
 /* ######################################## COMMENTS LIST AND FORM STYLES */
 #create-comment {margin-top: 20px;}
-#comment_comment { }
+.comment {margin-bottom: 15px; border-bottom: 1px solid #DDD; padding-bottom: 15px;}
+.comment-body {width: 500px; float: left; margin-left: 5px;}
+.comment-info {width: 60px;  min-height: 50px; text-align: center; margin: 0 auto;}
 
 /* ######################################## TRADES SHOW */
 #trade-info {padding-bottom: 15px; margin-bottom: 25px; border-bottom: 1px solid #DDD;}

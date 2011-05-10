@@ -1,26 +1,27 @@
-<% title "Forum Thread" %>
+<% title "#{@forum_thread.category.name} :: #{@forum_thread.title}" %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @forum_thread.title %>
-</p>
-<p>
-  <strong>Body:</strong>
-  <%= @forum_thread.body %>
-</p>
-<p>
-  <strong>Forum Category:</strong>
-  <%= @forum_thread.forum_category_id %>
-</p>
+<h2>Volver a la categoría: <%= link_to @forum_thread.category.name, @forum_thread.category %></h2>
+
+
+<%= render "comments/comment", :comment => @forum_thread %>
+
+<%= clear %>
+
+<div id="comments">
+  <% if @forum_thread.comments.any? %>
+    <%= render @forum_thread.comments %>
+  <% else %>
+    <p>No hay aportes. Podrías ser el primero en responder!</p>
+  <% end %>
+
+  <%= clear %>
+
+  <%= render :partial => "comments/small_create", :locals => {:commentable => @forum_thread} %>
+</div>
+
 
 <p>
   <%= link_to "Edit", edit_forum_thread_path(@forum_thread) %> |
   <%= link_to "Destroy", @forum_thread, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", forum_threads_path %>
+  <%= link_to "View All", @forum_thread.category %>
 </p>
-
-<%= clear %>
-
-<%= render :partial => "comments/list_and_form", :locals => {:commentable => @forum_thread} %>
-
-

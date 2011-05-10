@@ -1,6 +1,6 @@
 <div class="thread">
   <h4 class="thread-title">
-    <%= link_to forum_thread.title, forum_thread %> <br />
+    <%= link_to forum_thread.title, forum_thread_path(forum_thread) %> <br />
     <span> <%= link_to pluralize(forum_thread.comments.size, 'comentario'), forum_thread_path(forum_thread, :anchor => "comments")%> </span>
   </h4>
   

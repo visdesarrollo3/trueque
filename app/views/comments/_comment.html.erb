@@ -1,13 +1,13 @@
 <div class="comment" id="comment-<%= comment.id %>">
   <div class="comment-info left">
-    <p><%= link_to comment.user.name, comment.user %></p>
-    <p><%= link_to image_tag(comment.user.avatar.url(:small)), comment.user%></p>
-    <p>
-      <strong>Creado el <%= time_ago_in_words(comment.created_at) %></strong>
-    </p>
+    <p><%= link_to image_tag(comment.user.avatar.url(:comment)), comment.user%></p>
   </div>
   
   <div class="comment-body">
+    <p><%= link_to comment.user.name, comment.user %></p>
+    <p>
+      <strong>Hace <%= time_ago_in_words(comment.created_at) %></strong>
+    </p>
     <%= comment.comment %>
   </div>
   <%= clear %>

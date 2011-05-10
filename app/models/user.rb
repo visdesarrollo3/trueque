@@ -16,9 +16,10 @@ class User < ActiveRecord::Base
 
   extend StoreAttachmentOnS3 if Rails.env.production?
 
-  has_attached_file :avatar, :styles => { :small => "100x100#", :mini => "35x35#", :big => "200x200#" },
+  has_attached_file :avatar, :styles => { :small => "100x100#", :mini => "35x35#", :big => "200x200#", :comment => "50x50#" },
     :default_style => :small
 
+  has_many :forum_threads
 
   has_many :books
   has_many :created_comments, :class_name => "Comment", :foreign_key => "user_id"
