@@ -457,6 +457,7 @@ a.view-more {
 
 /* ######################################## CLUB DE LECTORES (FORUMS) */
 .foro-cat {margin-bottom: 25px;}
-.foro-title {background: #666 url(/images/layout/forum-cat-bg.png) no-repeat 15px 35px; color: #FFF; height: 30px;}
-.foro-title a {color: #FFF;}
+.foro-title {background: #666; color: #FFF; padding: 5px;}
+.foro-title a {color: #FFF; font-weight: normal; border-bottom: 1px dotted white;}
+.foro-title a:hover {border-bottom: 1px solid white; text-decoration: none;}
 .thread {padding-bottom: 8px; border-bottom: 1px solid #DDD;}

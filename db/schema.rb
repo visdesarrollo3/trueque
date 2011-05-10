@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110509235827) do
+ActiveRecord::Schema.define(:version => 20110510051141) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -88,6 +88,15 @@ ActiveRecord::Schema.define(:version => 20110509235827) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "forum_threads", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "forum_category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "grades", :force => true do |t|

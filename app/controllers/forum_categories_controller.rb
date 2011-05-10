@@ -1,7 +1,7 @@
 class ForumCategoriesController < ApplicationController
   load_and_authorize_resource
   def index
-    @forum_categories = ForumCategory.all
+    @forum_categories = ForumCategory.includes(:recent_threads)
   end
 
   def show

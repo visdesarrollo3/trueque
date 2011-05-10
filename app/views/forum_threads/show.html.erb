@@ -1,0 +1,26 @@
+<% title "Forum Thread" %>
+
+<p>
+  <strong>Title:</strong>
+  <%= @forum_thread.title %>
+</p>
+<p>
+  <strong>Body:</strong>
+  <%= @forum_thread.body %>
+</p>
+<p>
+  <strong>Forum Category:</strong>
+  <%= @forum_thread.forum_category_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_forum_thread_path(@forum_thread) %> |
+  <%= link_to "Destroy", @forum_thread, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", forum_threads_path %>
+</p>
+
+<%= clear %>
+
+<%= render :partial => "comments/list_and_form", :locals => {:commentable => @forum_thread} %>
+
+
