@@ -1,12 +1,21 @@
-<% title "Forum Category" %>
+<% title @forum_category.name %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @forum_category.name %>
-</p>
+<div class="actions">
+  <% if can? :edit, @forum_category %>
+    <%= link_to "Editar categoría", edit_forum_category_path(@forum_category) %>  | 
+  <% end %>
+  
+  <% if can? :create, ForumThread %>
+  <%= link_to "Crear hilo de discusión", new_forum_category_forum_thread_path(@forum_category) %>  | 
+  <% end %>
+  
+  <% if can? :destroy, @forum_category %>
+  <%= link_to "Eliminar categoría", @forum_category, :confirm => '¿Está seguro?', :method => :delete %> | 
+  <% end %>
+  
+  <% if can? :index, ForumCategory %>
+    <%= link_to "Volver al club de lectores", books_path %>
+  <% end %>
+</div>
 
-<p>
-  <%= link_to "Edit", edit_forum_category_path(@forum_category) %> |
-  <%= link_to "Destroy", @forum_category, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", forum_categories_path %>
-</p>
+<%= render @forum_category.forum_threads  %>

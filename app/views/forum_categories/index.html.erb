@@ -1,8 +1,11 @@
 <% title "Club de lectores" %>
 
+<% if can? :create, ForumCategory %>
+<div class="actions">
+  <%= link_to "Crear categoría", new_forum_category_path %>
+</div>
+<% end %>
+
 <div id="club-lectores">
   <%= render @forum_categories %>
 </div>
-
-
-<p><%= link_to "New Forum Category", new_forum_category_path %></p>

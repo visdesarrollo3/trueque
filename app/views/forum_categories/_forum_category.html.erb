@@ -1,9 +1,12 @@
 <div class="foro-cat">
   <h2 class="foro-title">
     <%= link_to forum_category.name, forum_category %>
+    <% if can? :create, ForumThread %>
     <span class="right">
-      <%= link_to "Crear nuevo hilo", new_forum_category_forum_thread_path(forum_category) %>
+      <%= link_to "Crear nuevo hilo",
+          new_forum_category_forum_thread_path(forum_category) %>
     </span>
+    <% end %>
     <%= clear %>
   </h2>
   <div class="threads">
