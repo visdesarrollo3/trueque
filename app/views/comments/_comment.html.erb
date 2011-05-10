@@ -4,9 +4,9 @@
   </div>
   
   <div class="comment-body">
-    <p><%= link_to comment.user.name, comment.user %></p>
     <p>
-      <strong>Hace <%= time_ago_in_words(comment.created_at) %></strong>
+      <%= link_to comment.user.name, comment.user %> <br />
+      <strong class="small">Hace <%= time_ago_in_words(comment.created_at) %></strong>
     </p>
     <%= comment.comment %>
   </div>
