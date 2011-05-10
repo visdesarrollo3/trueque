@@ -1,34 +1,33 @@
+<div class = "new-book">
 <%= form_for @book, :html => {:multipart => true} do |f| %>
   <%= f.error_messages %>
+<div class = "left">
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </p>
-  
+
+<p>
+    <%= f.label :isbn %> <%= modal_to "¿Qué es ISBN?", static_path('que-es-isbn', :format => :modal), :id => "div-id" %><br />
+    <%= f.text_field :isbn %>
+ </p>
+
+<p>
+  <%= f.label :published_date %><br />
+  <%= f.text_field :published_date %>
+</p>
+
+</div>
+
+<div class = "rleft">
   <p>
     <%= f.label :photo %> <br />
     <%= f.file_field :photo %>
   </p>
   
-  <p>
-    <%= f.label :isbn %> <%= modal_to "¿Qué es ISBN?", static_path('que-es-isbn', :format => :modal), :id => "div-id" %><br />
-    <%= f.text_field :isbn %>
-  </p>
-
-<!-- <p>
-<%= f.label :available %><br />
-<%= f.check_box :available %>
-</p> -->
-<!-- Autor(es) -->
-
 <p>
   <%= f.label :author %><br />
   <%= f.text_field :author_names %>
-</p>
-
-<p>
-  <%= f.label :published_date %><br />
-  <%= f.text_field :published_date %>
 </p>
 
 <p>
@@ -36,8 +35,17 @@
   <%= f.text_field :editorial %>
 </p>
 
-<!-- Género -->
+</div>
 
+<!-- <p>
+<%= f.label :available %><br />
+<%= f.check_box :available %>
+</p> -->
+<!-- Autor(es) -->
+
+
+
+<!-- Género -->
 <p>
   <%= f.label :tag_list %><br />
   <%= f.text_field :tag_list %>
@@ -61,6 +69,8 @@
 <p><%= f.submit %></p>
 <% end %>
 
+
+</div>
 <% content_for :head do %>
 <script type="text/javascript">
   jQuery(function($){
