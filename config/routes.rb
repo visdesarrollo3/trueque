@@ -1,4 +1,6 @@
 Trueque::Application.routes.draw do
+  
+
   get "admin/index"
 
   scope(:path_names => { :new => "nuevo", :edit => "editar" }) do
@@ -6,7 +8,9 @@ Trueque::Application.routes.draw do
     namespace :admin do
       resources :pages, :surveys, :comments, :trades
     end
-    
+  
+  
+    resources :forum_categories, :path => "club-de-lectores"
     
 
     resources :banners

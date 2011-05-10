@@ -45,6 +45,7 @@ class Ability
 
   def member
     can :create, Comment
+    can :list, Author
     
     can :comment, Trade do |trade|
       trade.user1_id == @user.id or trade.user2_id == @user.id
