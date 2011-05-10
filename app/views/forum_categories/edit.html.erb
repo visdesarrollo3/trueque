@@ -1,8 +1,8 @@
-<% title "Edit Forum Category" %>
+<% title "Editando Categoía: #{@forum_category.name}" %>
 
 <%= render 'form' %>
 
 <p>
-  <%= link_to "Show", @forum_category %> |
-  <%= link_to "View All", forum_categories_path %>
+  <%= link_to "Volver sin guardar", @forum_category %> |
+  <%= link_to "Volver al club de lectores", forum_categories_path %>
 </p>

@@ -1,5 +1,5 @@
-<% title "New Forum Thread" %>
+<% title "Crear hilo de discusión en #{@category.name}" %>
 
 <%= render 'form' %>
 
-<p><%= link_to "Back to List", forum_categories_path %></p>
+<p><%= link_to "Volver a #{@category.name}", @category %></p>

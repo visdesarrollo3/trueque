@@ -1,0 +1,23 @@
+<% title "Contacto" %>
+
+<%= form_for @contact_form, :validate => true do |f| %>
+  <%#= f.error_messages %>
+  <dl>
+    <dt class="required"><%= f.label :name %></dt>
+    <dd>
+      <%= f.text_field :name, :class => "required", :size => 45 %>
+    </dd>
+    
+    <dt class="required"><%= f.label :email, "Correo electónico" %></dt>
+    <dd><%= f.text_field :email, :size => 45 %></dd>
+
+    <%= clear %>
+
+    <dt class="required"><%= f.label :body, "Mensaje" %></dt>
+    <dd><%= f.text_area :body, :size => "58x10" %></dd>
+  </dl>
+  <%= clear %>
+  <p><%= f.submit "Say Hello!" %></p>
+  <%= clear %>
+<% end %>    
+</div>

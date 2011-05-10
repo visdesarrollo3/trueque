@@ -1,7 +1,7 @@
 # encoding: UTF-8
 
 class ForumThreadsController < ApplicationController
-  before_filter :get_forum_category, :only => [:new, :edit, :create, :update]
+  before_filter :get_forum_category, :only => [:new, :create]
   load_and_authorize_resource
   def index
     @forum_threads = ForumThread.all
@@ -19,21 +19,22 @@ class ForumThreadsController < ApplicationController
     @forum_thread = current_user.forum_threads.new(params[:forum_thread])
     @forum_thread.forum_category = @category
     if @forum_thread.save
-      redirect_to @forum_thread, :notice => "El hilo de discución ha sido creado."
+      redirect_to @forum_thread, :notice => "El hilo de discusión ha sido creado."
     else
       render :action => 'new'
     end
   end
 
   def edit
-    @forum_thread = @category.forum_threads.find(params[:id])
-    
+    @forum_thread = ForumThread.find(params[:id])
+    @category = @forum_thread.category
   end
 
   def update
     @forum_thread = ForumThread.find(params[:id])
+    params[:forum_thread].delete(:forum_category_id)
     if @forum_thread.update_attributes(params[:forum_thread])
-      redirect_to @forum_thread, :notice  => "El hilo de discución ha sido editado."
+      redirect_to @forum_thread, :notice  => "El hilo de discusión ha sido editado."
     else
       render :action => 'edit'
     end
@@ -42,7 +43,7 @@ class ForumThreadsController < ApplicationController
   def destroy
     @forum_thread = ForumThread.find(params[:id])
     @forum_thread.destroy
-    redirect_to @forum_thread.forum_category, :notice => "El hilo de discución ha sido eliminado."
+    redirect_to @forum_thread.forum_category, :notice => "El hilo de discusión ha sido eliminado."
   end
   
   private

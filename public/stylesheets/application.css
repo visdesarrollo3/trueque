@@ -463,3 +463,33 @@ a.view-more {
 .foro-title a {color: #FFF; font-weight: normal; border-bottom: 1px dotted white;}
 .foro-title a:hover {border-bottom: 1px solid white; text-decoration: none;}
 .thread {padding-bottom: 8px; border-bottom: 1px solid #DDD;}
+
+
+
+
+/* ========================================================================================
+ * Form Styles
+ * ====================================================================================== */
+
+
+input {padding: 3px; font-size: 12px;}
+
+form dt{
+  position: relative;
+  margin: 4px 8px 0 0; padding: 0; width: 120px;
+  white-space: nowrap;
+}
+
+dt.required {font-weight: lighter;}
+
+form dd{
+  font-size: 10px; margin: 0 0 15px;
+}
+
+dd input{
+  vertical-align: middle;
+}
+
+.field_with_errors label.message {margin-left: 10px; }
+
+

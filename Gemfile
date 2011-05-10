@@ -23,6 +23,7 @@ gem 'right_aws'
 gem 'heroku-s3-backup-zinergia'
 gem 'meta_where'
 gem 'meta_search'
+gem 'client_side_validations'
 
 
 group :development, :test do

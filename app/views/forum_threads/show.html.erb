@@ -2,6 +2,19 @@
 
 <h2>Volver a la categoría: <%= link_to @forum_thread.category.name, @forum_thread.category %></h2>
 
+<div class="actions">
+  <% if can? :edit, @forum_thread %>
+    <%= link_to "Editar hilo", edit_forum_thread_path(@forum_thread) %>  | 
+  <% end %>
+  
+  <% if can? :destroy, @forum_thread %>
+  <%= link_to "Eliminar discusión", @forum_thread, :confirm => '¿Está seguro?', :method => :delete %> | 
+  <% end %>
+  
+  <% if can? :show, @forum_thread.category %>
+    <%= link_to "Volver a #{@forum_thread.category.name}", @forum_thread.category %>
+  <% end %>
+</div>
 
 <%= render "comments/comment", :comment => @forum_thread %>
 

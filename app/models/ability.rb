@@ -56,7 +56,8 @@ class Ability
     can :manage, User, :id => @user.id
     can :index, Trade
     can :create, Grade
-    can :create, ForumThread
+    can [:create, :read], ForumThread
+    can :manage, ForumThread, :user_id => @user.id
     can :make_trade, Trade do |trade|
       trade.user1_id == @user.id or trade.user2_id == @user.id
     end

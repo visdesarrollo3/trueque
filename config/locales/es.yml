@@ -234,6 +234,8 @@ es:
     phone: Teléfono
     login: Nombre de usuario
     role: Rol
+    title: Título
+    body: Mensaje
   
   ########
   # Active Record
@@ -251,6 +253,8 @@ es:
       vitamin: Vitamina
       survey: Encuesta
       survey_option: Opción de encuesta
+      forum_category: Categoría para el Club de Lectores
+      forum_thread: Hilo de discusión
     attributes:
       vitamin:
         name: Nombre

@@ -5,8 +5,13 @@ class ForumThread < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :title, :body, :forum_category_id
   acts_as_commentable
+  make_permalink :title
   
   alias :category :forum_category
+
+  def to_param
+    permalink
+  end
 
   def comment
     body
