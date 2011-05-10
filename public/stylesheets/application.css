@@ -179,7 +179,29 @@ h3 { font-weight: bold; margin-bottom: 0px; }
   font-size: 13px;
 }
 
+/* ######################################## NEW BOOK FORM */
 
+.new-book{
+	
+}
+.new-book label{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size:14px;
+	color:#8c8c8c;
+}
+
+.new-book.input{
+	width: 330px;
+}
+
+.new-book.left{
+width: 50%; 
+float: left;	
+}
+.new-book.rleft{
+width: 50%; 
+float: left;	
+}
 /* ######################################## INDEX STYLES */
 
 #login_form_home label{
