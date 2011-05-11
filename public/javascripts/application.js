@@ -21,8 +21,22 @@ var hide_notifications = function(){
   $(".notifications").fadeOut("normal"); return false;
 }
 
+var max = function(a, b){
+  if(a > b) return a;
+  return b;
+}
+
+var make_content_equal_height = function(){
+  var _content = jQuery("#main-content");
+  var _sidebar = jQuery("#sidebar");
+  var height = max(_content.outerHeight(true), _sidebar.outerHeight(true));
+  _content.height(height);
+  _sidebar.height(height);
+}
 
 jQuery(function($) {
+
+  make_content_equal_height();
 
   $(".hide-not").live('click', hide_notifications);
   
@@ -40,7 +54,7 @@ jQuery(function($) {
   
   $('#slider').nivoSlider(nivo_options);
   
-  $("#main-content, #sidebar").equalHeights();
+  
 
   function split( val ) {
     return val.split( /,\s*/ );
