@@ -276,7 +276,7 @@ label{
   font-size: 13px;
 }
 
-#sidebar { float: left; width: 225px; background-color:#E9E9E9; }
+#sidebar { float: left; width: 225px; background-color:#E9E9E9; padding-bottom: 80px;}
 
 #libros-que li {margin:0px 8px 12px; border-bottom: 1px solid #999; padding: 4px 5px; font-family: Georgia, Helvetica, Verdana;}
 #libros-que a  {color: #333; font-size: 1.3em; font-weight: normal;}

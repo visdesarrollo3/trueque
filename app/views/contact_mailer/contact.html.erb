@@ -1,0 +1,22 @@
+<div style="width: 100%; background: #EEE;">
+  <div style="width: 650px; margin: 0 auto;">
+    <p>
+      <strong><%= @contact.name %></strong> ha escrito un mensaje
+    </p>
+    
+    <div>
+      <%= simple_format @contact.body %>
+    </div>
+    
+    <p>
+      El correo de <%= @contact.name %> es <%= @contact.email %>
+    </p>
+    
+    <hr>
+    
+    <p>
+      Email Delivery System <br />
+      <%= link_to "Zinergia", 'http://zinergia.co' %>
+    </p>
+  </div>
+</div>

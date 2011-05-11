@@ -3,7 +3,7 @@ Trueque::Application.routes.draw do
 
   scope(:path_names => { :new => "nuevo", :edit => "editar" }) do
     
-    resources :contact_forms
+    resources :contact_forms, :path => "contacto"
     
     namespace :admin do
       resources :pages, :surveys, :comments, :trades

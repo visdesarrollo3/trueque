@@ -5,7 +5,7 @@ var nivo_options = {
     startSlide: 0, //Set starting Slide (0 index)
     directionNav: true, //Next & Prev
     directionNavHide: true, //Only show on hover
-    controlNav: true, //1,2,3...
+    controlNav: false, //1,2,3...
     keyboardNav: true, //Use left & right arrows
     pauseOnHover: true, //Stop animation while hovering
     manualAdvance: false, //Force manual transitions
@@ -39,6 +39,8 @@ jQuery(function($) {
   
   
   $('#slider').nivoSlider(nivo_options);
+  
+  $("#main-content, #sidebar").equalHeights();
 
   function split( val ) {
     return val.split( /,\s*/ );

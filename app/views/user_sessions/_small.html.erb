@@ -2,11 +2,11 @@
 <%= form_for UserSession.new do |f| %>
   <p>
     <%= f.label :login, "Usuario" %><br />
-    <%= f.text_field :login, :size => 27 %>
+    <%= f.text_field :login, :size => 20 %>
   </p>
   <p>
     <%= f.label :password, "Contraseña" %><br />
-    <%= f.password_field :password, :size => 27 %>
+    <%= f.password_field :password, :size => 20 %>
   </p>
   <p><%= f.submit :"Ingresar", :class => "btn" %></p>
 <% end %>
