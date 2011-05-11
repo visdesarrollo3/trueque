@@ -10,7 +10,7 @@ class ContactFormsController < ApplicationController
     else
       flash[:alert] = "Ha habido un error con tus datos. Por favor corrige la información e ingresa todos los campos."
     end
-    redirect_to root_url
+    redirect_to contact_forms_path
   end
 
   def index
