@@ -18,12 +18,11 @@ gem 'aws-s3'
 gem 'aasm'
 gem 'kaminari'
 gem 'nested_form'
-gem 'right_aws'
 gem 'heroku-s3-backup-zinergia'
 gem 'meta_where'
 gem 'meta_search'
 gem 'client_side_validations'
-gem 'paperclip', '2.3.10'
+gem 'paperclip', '~> 2.3.10'
 
 group :development, :test do
   gem "rspec-rails", ">= 2.0.0.beta.22"

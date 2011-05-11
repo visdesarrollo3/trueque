@@ -53,8 +53,8 @@ GEM
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
-    heroku-s3-backup-zinergia (0.0.1)
-      right_aws (>= 2.1.0)
+    heroku-s3-backup-zinergia (0.0.2)
+      aws-s3 (~> 0.6.2)
     highline (1.6.1)
     hirb (0.4.5)
     i18n (0.5.0)
@@ -89,7 +89,7 @@ GEM
       net-ssh (>= 1.99.1)
     nifty-generators (0.4.6)
     pacecar (1.4.5)
-    paperclip (2.3.10)
+    paperclip (2.3.11)
       activerecord (>= 2.3.0)
       activesupport (>= 2.3.2)
     polyglot (0.3.1)
@@ -117,9 +117,6 @@ GEM
     rake (0.8.7)
     rd_searchlogic (3.0.0.rc4)
       activerecord (>= 3.0.0)
-    right_aws (2.1.0)
-      right_http_connection (>= 1.2.5)
-    right_http_connection (1.3.0)
     rspec (2.6.0.rc6)
       rspec-core (= 2.6.0.rc6)
       rspec-expectations (= 2.6.0.rc6)
@@ -170,11 +167,10 @@ DEPENDENCIES
   nested_form
   nifty-generators
   pacecar
-  paperclip (= 2.3.10)
+  paperclip (~> 2.3.10)
   rails (= 3.0.7)
   rails3-jquery-autocomplete
   rd_searchlogic (= 3.0.0.rc4)
-  right_aws
   rspec-rails (>= 2.0.0.beta.22)
   simple-navigation
   sqlite3-ruby
