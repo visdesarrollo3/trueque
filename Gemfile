@@ -23,7 +23,7 @@ gem 'heroku-s3-backup-zinergia'
 gem 'meta_where'
 gem 'meta_search'
 gem 'client_side_validations'
-gem 'paperclip'
+gem 'paperclip', '2.3.10'
 
 group :development, :test do
   gem "rspec-rails", ">= 2.0.0.beta.22"

@@ -89,7 +89,7 @@ GEM
       net-ssh (>= 1.99.1)
     nifty-generators (0.4.6)
     pacecar (1.4.5)
-    paperclip (2.3.11)
+    paperclip (2.3.10)
       activerecord (>= 2.3.0)
       activesupport (>= 2.3.2)
     polyglot (0.3.1)
@@ -170,7 +170,7 @@ DEPENDENCIES
   nested_form
   nifty-generators
   pacecar
-  paperclip
+  paperclip (= 2.3.10)
   rails (= 3.0.7)
   rails3-jquery-autocomplete
   rd_searchlogic (= 3.0.0.rc4)
