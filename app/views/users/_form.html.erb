@@ -1,12 +1,15 @@
+<div class = "user-form">
 <%= form_for @user, :html => {:multipart => true} do |f| %>
   <%= f.error_messages %>
+  
+<div class = "left">
   <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :avatar %>
-    <%= f.file_field :avatar %>
+    <%= f.label :ocupation %><br />
+    <%= f.text_field :ocupation %>
   </p>
   <p>
     <%= f.label :age %><br />
@@ -16,14 +19,14 @@
     <%= f.label :sex %><br />
     <%= f.text_field :sex %>
   </p>
-  <p>
-    <%= f.label :ocupation %><br />
-    <%= f.text_field :ocupation %>
+</div>
+
+<div class = "rleft">
+	<p>
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
   </p>
-  <p>
-    <%= f.label :hobbies %><br />
-    <%= f.text_area :hobbies %>
-  </p>
+  
   <p>
     <%= f.label :actual_book %><br />
     <%= f.text_field :actual_book %>
@@ -33,6 +36,11 @@
     <%= f.label :webpage %><br />
     <%= f.text_field :webpage %>
   </p>
-  
+<p>
+    <%= f.label :hobbies %><br />
+    <%= f.text_area :hobbies %>
+  </p>
+ </div>
   <p><%= f.submit %></p>
 <% end %>
+</div>
