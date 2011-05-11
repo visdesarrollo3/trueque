@@ -5,7 +5,6 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'capistrano'
 gem 'jquery-rails'
 gem 'nifty-generators'
-gem 'paperclip'
 gem 'acts_as_commentable'
 gem 'acts-as-taggable-on'
 gem 'acts_as_rateable'
@@ -24,7 +23,7 @@ gem 'heroku-s3-backup-zinergia'
 gem 'meta_where'
 gem 'meta_search'
 gem 'client_side_validations'
-
+gem 'paperclip'
 
 group :development, :test do
   gem "rspec-rails", ">= 2.0.0.beta.22"
