@@ -53,7 +53,7 @@ GEM
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
-    heroku-s3-backup-zinergia (1.0.0)
+    heroku-s3-backup-zinergia (1.0.1)
       aws-s3 (~> 0.6.2)
     highline (1.6.1)
     hirb (0.4.5)
