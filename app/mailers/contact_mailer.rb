@@ -1,5 +1,5 @@
 class ContactMailer < ActionMailer::Base
-  default :to   => "biblioteca@eafit.edu.co"
+  default :to   => "actividadculturalbiblioteca@eafit.edu.co"
   default :bcc  => "nhock@zinergia.co"
   
   def contact(contact)
