@@ -10,6 +10,12 @@ module ApplicationHelper
     end
   end
   
+  def bordered_image(source, options = {})
+    options[:class] ||= ""
+    options[:class] = options[:class].split.push("bordered").uniq
+    image_tag(source, options)
+  end
+  
   def trade_link(book)
     link_to "Truequear", trades_path(:book_id => book.id), :method => :post, :class => "button"
   end

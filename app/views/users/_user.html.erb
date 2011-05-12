@@ -1,0 +1,21 @@
+<div class="user">
+  <div class="left avatar">
+    <%= avatar_link(user) %>
+  </div>
+  
+  <div class="rleft">
+    <h2 style="margin-top: 0; padding-top: 0">
+      <%= user.name %>
+    </h2>
+    
+    <p>
+      <strong><%= user.ocupation %></strong>
+    </p>
+    
+    <p>
+      <%= link_to "Ver perfil", user %>
+    </p>
+    
+  </div>
+  <%= clear %>
+</div>

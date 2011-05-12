@@ -468,6 +468,9 @@ a.view-more {
 .small-profile div#avatar         { width: 100px; margin: 0 auto; text-align: center; margin-bottom: 15px;}
 .small-profile div#login_list     { width: 100%; margin-bottom: 15px; text-align: center;}
 
+/* ######################################## USER LIST Users#index STYLES */
+.user {float: left; margin-right: 25px; width: 40%;}
+
 /* ######################################## BIG PROFILE Users#Show STYLES */
 #profile .rleft {min-height: 200px;}
 #profile .rleft h2 {margin: 0;}
