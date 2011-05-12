@@ -1,5 +1,16 @@
 <% title "Lista de usuarios" %>
 
+<% if admin? %>
+  <div class="actions">
+    <%= link_to "Crear nuevo usuario", new_user_path %>  
+  </div>
+<% end %>
+
+
+<%= paginate @users %>
+
 <div id="todos-usuarios">
   <%= render @users %>
 </div>
+
+<%= paginate @users %>
