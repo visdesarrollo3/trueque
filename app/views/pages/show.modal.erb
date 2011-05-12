@@ -1,4 +1,4 @@
 <% title @page.name %>
 
-<%= raw(simple_format(@page.content)) %>
+<%= raw(@page.content.to_html) %>
 

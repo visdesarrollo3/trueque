@@ -13,6 +13,10 @@
 
 </head>
 <body>
+  
+  <% if admin? %>
+    <%= render "admin/menu" %>
+  <% end %>
 
   <div id="container">
 

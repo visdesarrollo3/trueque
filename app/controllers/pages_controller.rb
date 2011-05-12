@@ -1,9 +1,11 @@
+# encoding: UTF-8
+
 class PagesController < ApplicationController
   load_and_authorize_resource
   respond_to :html, :xml, :json, :modal
   
   def index
-    @pages = Page.all
+    @pages = Page.alpha_sort.all
     respond_with @pages
   end
   
@@ -20,7 +22,7 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(params[:page])
     if @page.save
-      flash[:notice] = "Successfully created page."
+      flash[:notice] = "La página ha sido creada"
       respond_with @page, :location => static_path(@page.permalink)
     else
       render :action => 'new'
@@ -35,7 +37,7 @@ class PagesController < ApplicationController
   def update
     @page = Page.find params[:id]
     if @page.update_attributes(params[:page])
-      flash[:notice] = "Successfully updated page."
+      flash[:notice] = "La página ha sido editada"
       respond_with @page, :location => static_path(@page.permalink)
     else
       render :action => 'edit'
@@ -44,7 +46,7 @@ class PagesController < ApplicationController
   
   def destroy
     @page.destroy
-    flash[:notice] = "Successfully destroyed page."
+    flash[:notice] = "La página ha sido eliminada"
     respond_with @page, :location => pages_url
   end
   

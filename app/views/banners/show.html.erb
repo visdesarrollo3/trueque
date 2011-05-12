@@ -1,16 +1,19 @@
-<% title "Banner" %>
+<% title "Banner: #{@banner.name}" %>
+
+<div class="actions">
+  <% if can? :edit, @banner %>
+    <%= link_to "Editar banner", edit_banner_path(@banner) %>
+  <% end %>
+  
+  <% if can? :destroy, @banner %>
+    | <%= link_to "Eliminar banner", @banner, :confirm => '¿Está seguro?', :method => :delete %> | 
+  <% end %>
+  
+  <% if can? :index, Banner %>
+    <%= link_to "Ver todos los banners", banners_path %>
+  <% end %>
+</div>
 
 <p>
-  <strong>Name:</strong>
-  <%= @banner.name %>
-</p>
-
-<p>
-  <%= image_tag @banner.photo.url(:thumb) %>
-</p>
-
-<p>
-  <%= link_to "Edit", edit_banner_path(@banner) %> |
-  <%= link_to "Destroy", @banner, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", banners_path %>
+  <%= image_tag @banner.photo.url(:gallery) %>
 </p>

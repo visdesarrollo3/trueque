@@ -1,19 +1,32 @@
-<% title "Banners" %>
+<% title "Baners" %>
+
+<div class="actions">
+  <% if can? :create, Banner %>
+    <%= link_to "Crear Banner", new_banner_path %>
+  <% end %>
+</div>
+
+
+
 
 <% for banner in @banners %>
 <div class="banner_block">
-  <div class="banner_photo left"><%= image_tag banner.photo.url(:thumb), :class => "bordered" %> </div>
+  <div class="banner_photo left">
+    <%= link_to image_tag(banner.photo.url(:thumb), :class => "bordered"), banner %>
+  </div>
   <div class="rleft" style="width: 450px">
-    <p><strong>Posición: </strong><%= banner.position %></p>
+    <h2 style="margin-top: 0; padding-top: 0;"><%= banner.name %></h2>
+    
     <p>
       <strong>Dirección de destino: </strong>
       <br />
       <%= banner.link %>
     </p>
+    
     <% if can? :manage, banner %>
     <p>
-      <%= link_to  I18n.t(:"mensajes.ver"), banner %>
-      <%= link_to  I18n.t(:"mensajes.editar"), edit_banner_path(banner) %>
+      <%= link_to  I18n.t(:"mensajes.ver"), banner %> | 
+      <%= link_to  I18n.t(:"mensajes.editar"), edit_banner_path(banner) %> | 
       <%= link_to  I18n.t(:"mensajes.eliminar"), banner, :confirm => I18n.t(:"mensajes.confirmar_eliminar"), :method => :delete %>
     </p>
     <% end %>
@@ -23,5 +36,3 @@
 </div>
 <%= clear %>
 <% end %>
-
-<p><%= link_to  "Crear banner", new_banner_path %></p>

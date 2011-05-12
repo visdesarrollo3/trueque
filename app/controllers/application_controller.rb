@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   check_authorization
   protect_from_forgery
   before_filter :save_location_if_needed, :get_sidebar_content
-  helper_method :current_user
+  helper_method :current_user, :admin?
 
   # application_controller.rb
 
@@ -24,6 +24,10 @@ class ApplicationController < ActionController::Base
 
 
   private
+  
+  def admin?
+    current_user && current_user.admin?
+  end
   
   def require_admin
     unless current_user && current_user.admin?

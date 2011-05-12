@@ -3,7 +3,10 @@ class Page < ActiveRecord::Base
   validates_presence_of :name, :content
   before_save :create_permalink
   make_permalink :name, :include_id => false
-
+  acts_as_textile :content
+  
+  scope :alpha_sort, order("name ASC")
+  
   def self.find(id)
     self.find_by_permalink(id) || super(id)
   end

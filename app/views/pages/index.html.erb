@@ -1,4 +1,4 @@
-<% title "Administrar Páginas" %>
+<% title "Archivo de Páginas" %>
 
 <% if can? :create, Page %>
 <div class="actions">
@@ -6,18 +6,19 @@
 </div>
 <% end %>
 
-<table>
+<table width="90%">
   <tr>
-    <th>Name</th>
-    <th>Permalink</th>
+    <th>Nombre</th>
+    <th>Enlace Permanente</th>
+    <th>Fecha Creación</th>
+    <th>Última Actualización</th>
   </tr>
   <% for page in @pages %>
-    <tr>
-      <td><%= page.name %></td>
-      <td><%= page.permalink %></td>
-      <td><%= link_to "Show", page %></td>
-      <td><%= link_to "Edit", edit_page_path(page) %></td>
-      <td><%= link_to "Destroy", page, :confirm => 'Are you sure?', :method => :delete %></td>
+    <tr align="center">
+      <td><%= link_to page.name, page %></td>
+      <td><%= page_url(page) %></td>
+      <td><%= I18n.l page.created_at %></td>
+      <td><%= l page.updated_at %></td>
     </tr>
   <% end %>
 </table>

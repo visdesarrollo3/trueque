@@ -443,7 +443,9 @@ a.view-more {
 .truequear {cursor: pointer;}
 
 
-
+/* ######################################## ADMIN MENU */
+#admin-menu {margin: 0 auto; width: 960px;}
+#admin-menu li {float: left; padding: 10px 15px; font-size: 1.0em;}
 
 /* ######################################## VITAMINS HOME */
 .vitamins {text-align: center; width: 630px; margin: 0 auto;}

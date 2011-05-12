@@ -23,6 +23,7 @@ gem 'meta_where'
 gem 'meta_search'
 gem 'client_side_validations'
 gem 'paperclip', '~> 2.3.10'
+gem 'acts_as_markup'
 
 group :development, :test do
   gem "rspec-rails", ">= 2.0.0.beta.22"
