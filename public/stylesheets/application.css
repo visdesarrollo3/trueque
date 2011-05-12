@@ -524,7 +524,7 @@ form dt{
   white-space: nowrap;
 }
 
-.required {font-weight: normal; color: #555;}
+.required {font-weight: bold; color: #555;}
 
 form dd{
   font-size: 10px; margin: 0 0 15px;
