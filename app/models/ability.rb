@@ -41,9 +41,11 @@ class Ability
     cannot :read, Trade
     cannot :trade, Book
     cannot :read, Banner
+    can :create, User
   end
 
   def member
+    cannot :create, User
     can :create, Comment
     can :list, Author
     

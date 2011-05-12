@@ -21,7 +21,7 @@
 
     <div id = "login-dashboard">
       <% if current_user %>
-      <%= render :partial => "users/small", :object => current_user, :as => :user %>
+        <%= render :partial => "users/small", :object => current_user, :as => :user %>
       <%= clear %>
       <% else %>
       <div id="login_form_home">
@@ -36,6 +36,9 @@
         </p>
         <p><%= f.submit :"Ingresar", :class => "btn" %></p>
         <% end %>
+        <p>
+          Si no tienes una cuenta, <%= link_to "crea una aquí", new_user_path %>.
+        </p>
       </div>
       <% end %>
     </div>

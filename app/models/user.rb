@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
     :password, :login, :email, :webpage
   
   acts_as_authentic do |c|
-    c.ignore_blank_passwords = true
-    c.validate_password_field = false
+    # c.ignore_blank_passwords = true
+    # c.validate_password_field = false
   end
   
   ROLES = %w(admin user)
