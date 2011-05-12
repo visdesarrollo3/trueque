@@ -16,66 +16,62 @@
 
 
 <div id="profile">
-  
-</div>
+  <div class="left avatar">
+    <%= image_tag @user.avatar.url(:big) %>
+  </div>
 
-<div class="left avatar">
-  <%= image_tag @user.avatar.url(:big) %>
-</div>
+  <div class="rleft">
+    <h2>Nombre</h2>
+    <h1><%= @user.name %></h1>
+    <% if @user.webpage? %>
+      <span class="small"> &lt; <%= @user.webpage %> &gt; </span>
+    <% end %>
 
-<div class="rleft">
-  <h2>Nombre</h2>
-  <h1><%= @user.name %></h1>
-  <% if @user.webpage? %>
-    <span class="small"> &lt; <%= @user.webpage %> &gt; </span>
+    <%= profile_section_if_present(@user.age, "Edad") %>
+    <%= profile_section_if_present(@user.actual_book, "Libro Actual") %>
+    <%= profile_section_if_present(@user.ocupation, "Ocupación") %>
+  </div>
+
+  <%= clear %>
+
+  <% if @user.hobbies.present? %>
+    <h2>Acerca de mi</h2>
+    <%= simple_format @user.hobbies %>
   <% end %>
 
-  <%= profile_section_if_present(@user.age, "Edad") %>
-  <%= profile_section_if_present(@user.actual_book, "Libro Actual") %>
-  <%= profile_section_if_present(@user.ocupation, "Ocupación") %>
+  <%= clear %>
+
+  <% if @books.any? %>
+  <div class="profile-section">
+    <h1>Libros disponibles de <%= @user.name %></h1>
+    <% for book in @books %>
+      <%= render "books/book_small", :book_small => book %>
+    <% end %>
+    <%= clear %>
+  </div>
+  <% end %>
+
+
+  <% if @waiting_books.any? %>
+    <div class="profile-section">
+      <h1>Libros que espera <%= @user.name %></h1>
+      <% for book in @waiting_books %>
+        <%= render "books/book_small", :book_small => book %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= clear %>
+
+  <h2>Comentarios</h2>
+  <% if @user.comments.any? %>
+    <%= render @user.comments %>
+  <% else %>
+    <%= raw("<p>Podrías ser el primero en comentar!</p>") if current_user %>
+  <% end %>
+
+  <%= clear %>
+
+  <%= render :partial => "comments/small_create", :locals => {:commentable => @user} %>
 </div>
 
-<%= clear %>
-
-<% if @user.hobbies.present? %>
-  <h2>Acerca de mi</h2>
-  <%= simple_format @user.hobbies %>
-<% end %>
-
-<%= clear %>
-
-<% if @books.any? %>
-<h1>Libros disponibles de <%= @user.name %></h1>
-<% for book in @books %>
-  <%= render "books/book_small", :book_small => book %>
-<% end %>
-<%= clear %>
-<% end %>
-
-
-<% if @waiting_books.any? %>
-  <h1>Libros que espera <%= @user.name %></h1>
-  <% for book in @waiting_books %>
-    <%= render "books/book_small", :book_small => book %>
-  <% end %>
-<% end %>
-
-<%= clear %>
-
-<h2>Comentarios</h2>
-<% if @user.comments.any? %>
-  <%= render @user.comments %>
-<% else %>
-  <%= raw("<p>Podrías ser el primero en comentar!</p>") if current_user %>
-<% end %>
-
-<%= clear %>
-
-<%= render :partial => "comments/small_create", :locals => {:commentable => @user} %>
-
-
-<p>
-  <%= link_to "Edit", edit_user_path(@user) %> |
-  <%= link_to "Destroy", @user, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", users_path %>
-</p>

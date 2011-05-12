@@ -29,7 +29,7 @@ var max = function(a, b){
 var make_content_equal_height = function(){
   var _content = jQuery("#main-content");
   var _sidebar = jQuery("#sidebar");
-  var height = max(_content.outerHeight(true), _sidebar.outerHeight(true));
+  var height = max(_content.outerHeight(true) + 50, _sidebar.outerHeight(true) + 50);
   _content.css('min-height', height);
   _sidebar.css('min-height', height);
 }
