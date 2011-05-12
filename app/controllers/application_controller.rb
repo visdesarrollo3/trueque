@@ -36,7 +36,7 @@ class ApplicationController < ActionController::Base
   end
 
   def get_sidebar_content
-    @other_users = User.scoped.shuffle.first(4)
+    @other_users = User.scoped.shuffle.first(5)
   end
 
   def current_user_session
