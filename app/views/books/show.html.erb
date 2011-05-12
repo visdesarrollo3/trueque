@@ -2,7 +2,7 @@
 
 <div class="actions">
   <% if can? :edit, @book %>
-    <%= link_to "Editar libro", edit_book_path %>
+    <%= link_to "Editar libro", edit_book_path(@book) %>
   <% end %>
   
   <% if can? :destroy, @book %>
@@ -13,6 +13,7 @@
     <%= link_to "Ver todos los libros", books_path %>
   <% end %>
 </div>
+
 
 
 

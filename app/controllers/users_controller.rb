@@ -6,7 +6,9 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user = User.find(params[:id])
+    @user = User.includes(:waiting_books).find(params[:id])
+    @waiting_books = @user.waiting_books.limit(4)
+    @books = @user.books.newest_first.available.limit(4)
   end
   
   def new
