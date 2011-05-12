@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, :styles => { :small => "100x100#", :mini => "35x35#", :big => "200x200#", :comment => "50x50#" },
     :default_style => :small
+    
+  validates_presence_of :name
 
   has_many :forum_threads
 

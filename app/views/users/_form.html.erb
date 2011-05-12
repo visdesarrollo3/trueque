@@ -4,24 +4,19 @@
   
 <div class = "left">
   <p>
-    <%= f.label :name %><br />
+    <%= f.label :name, :class => "required" %><br />
     <%= f.text_field :name, :size => 40 %>
   </p>
   
   <p>
-    <%= f.label :login %> <br />
+    <%= f.label :login, :class => "required" %> <br />
     <%= f.text_field :login, :size => 50 %>
   </p>
   
   <p>
-    <%= f.label :password %> <br />
+    <%= f.label :password, :class => "required" %> <br />
     <%= f.password_field :password, :size => 50 %>
   </p> 
-  
-  <p>
-    <%= f.label :login %> <br />
-    <%= f.text_field :login, :size => 50 %>
-  </p>
   
   <p>
     <%= f.label "Ocupación" %><br />
@@ -29,8 +24,14 @@
   </p>
   <p>
     <%= f.label "Edad" %><br />
-    <%= f.text_field :age, :size => 30 %>
+    <%= f.text_field :age, :size => 5 %> años
   </p>
+  
+	<p>
+    <%= f.label "Sexo" %><br />
+    <%= f.select :sex, [["Mujer", "Mujer"], ["Hombre", "Hombre"]] %>
+  </p>
+
 </div>
 
 <div class = "rleft">
@@ -40,11 +41,11 @@
   </p>
 
   <p>
-    <%= f.label :email %> <br />
+    <%= f.label :email, :class => "required" %> <br />
     <%= f.text_field :email, :size => 50 %>
   </p>
    <p>
-	    <%= f.label :password_confirmation %> <br />
+	    <%= f.label :password_confirmation, :class => "required" %> <br />
 	    <%= f.password_field :password_confirmation, :size => 50 %>
 	</p>
   
@@ -56,11 +57,6 @@
   <p>
     <%= f.label "Sitio Web" %><br />
     <%= f.text_field :webpage, :size => 50 %>
-  </p>
-
-	<p>
-    <%= f.label "Sexo" %><br />
-    <%= f.select :sex, [["Mujer", "Mujer"], ["Hombre", "Hombre"]] %>
   </p>
 
  </div>

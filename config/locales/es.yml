@@ -1,4 +1,26 @@
 es:
+  authlogic:
+    error_messages:
+      login_blank: no puede estar en blanco
+      login_not_found: no es válido
+      login_invalid: solo puede tener lertas, números, espacios y .-_@.
+      consecutive_failed_logins_limit_exceeded: El límite de ingresos fallidos fue superado. La cuenta ha sido deshabilitada.
+      email_invalid: debe ser un email válido.
+      password_blank: no puede estar en blanco
+      password_invalid: no es válida
+      not_active: La cuenta no está activa.
+      not_confirmed: La cuenta no está confirmada.
+      not_approved: La cuenta no ha sido aprobada.
+      no_authentication_details: Por favor, llena los campos.
+    models:
+      user_session: Sesión
+    attributes:
+      user_session: 
+        login: Nombre de usuario
+        email: E-mail
+        password: Contraseña
+        remember_me: Recuérdame
+        
   views:
     pagination:
       previous: "&lt; Previous"
