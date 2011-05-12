@@ -1,4 +1,11 @@
 es:
+  views:
+    pagination:
+      previous: "&lt; Previous"
+      next: "Next &gt;"
+      first: "Inicio"
+      last: "Final"
+      truncate: "..."
   
   mensajes:
     ver: Ver

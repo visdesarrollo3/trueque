@@ -6,9 +6,9 @@ class BooksController < ApplicationController
   def index
     @user = User.find params[:user_id] if params[:user_id]
     if @user.nil?
-      @books = Book.available.newest_first
+      @books = Book.available.newest_first.page(params[:page]).per(20)
     else
-      @books = @user.books.available.newest_first
+      @books = @user.books.available.newest_first.page(params[:page]).per(20)
     end
     respond_with @books  
   end

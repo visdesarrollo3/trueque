@@ -442,6 +442,13 @@ a.view-more {
 
 .truequear {cursor: pointer;}
 
+/* ######################################## PAGINATION */
+.pagination {text-align: center;}
+.pagination .first   {margin-right: 20px;}
+.pagination .last    {margin-left:  20px;}
+.pagination .page    {margin: 0px 2px; text-align: center;}
+.pagination .current {font-weight: bold;}
+
 
 /* ######################################## ADMIN MENU */
 #admin-menu {margin: 0 auto; width: 960px;}

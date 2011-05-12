@@ -10,6 +10,8 @@
   </div>
 <% end %>
 
+<%= paginate @books %>
+
 <div id="all-books">
   <div class="books">
     <% for book in @books %>
@@ -17,3 +19,7 @@
     <% end %>
   </div>
 </div>
+
+<%= clear %>
+
+<%= paginate @books %>
