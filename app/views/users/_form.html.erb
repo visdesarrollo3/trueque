@@ -5,68 +5,73 @@
 <div class = "left">
   <p>
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :size => 40 %>
   </p>
   
   <p>
     <%= f.label :login %> <br />
-    <%= f.text_field :login %>
-  </p>
-  
-  <p>
-    <%= f.label :email %> <br />
-    <%= f.text_field :email %>
+    <%= f.text_field :login, :size => 50 %>
   </p>
   
   <p>
     <%= f.label :password %> <br />
-    <%= f.password_field :password %>
-  </p>
-  
-  <p>
-    <%= f.label :password_confirmation %> <br />
-    <%= f.password_field :password_confirmation %>
-  </p>
+    <%= f.password_field :password, :size => 50 %>
+  </p> 
   
   <p>
     <%= f.label :login %> <br />
-    <%= f.text_area :login %>
+    <%= f.text_field :login, :size => 50 %>
   </p>
   
   <p>
-    <%= f.label :ocupation %><br />
-    <%= f.text_field :ocupation %>
+    <%= f.label "Ocupación" %><br />
+    <%= f.text_field :ocupation, :size => 50 %>
   </p>
   <p>
-    <%= f.label :age %><br />
-    <%= f.text_field :age %>
-  </p>
-  <p>
-    <%= f.label :sex %><br />
-    <%= f.text_field :sex %>
+    <%= f.label "Edad" %><br />
+    <%= f.text_field :age, :size => 30 %>
   </p>
 </div>
 
 <div class = "rleft">
-	<p>
-    <%= f.label :avatar %>
+   <p>
+    <%= f.label :avatar %><br />
     <%= f.file_field :avatar %>
   </p>
+
+  <p>
+    <%= f.label :email %> <br />
+    <%= f.text_field :email, :size => 50 %>
+  </p>
+   <p>
+	    <%= f.label :password_confirmation %> <br />
+	    <%= f.password_field :password_confirmation, :size => 50 %>
+	</p>
   
   <p>
-    <%= f.label :actual_book %><br />
-    <%= f.text_field :actual_book %>
+    <%= f.label "Libro Actual" %><br />
+    <%= f.text_field :actual_book, :size => 50 %>
   </p>
   
   <p>
-    <%= f.label :webpage %><br />
-    <%= f.text_field :webpage %>
+    <%= f.label "Sitio Web" %><br />
+    <%= f.text_field :webpage, :size => 50 %>
   </p>
-<p>
-    <%= f.label :hobbies %><br />
-    <%= f.text_area :hobbies %>
+
+	<p>
+    <%= f.label "Sexo" %><br />
+    <%= f.text_field :sex, :size => 30 %>
   </p>
+
  </div>
+
+<%= clear %>
+
+	<p>
+    <%= f.label :hobbies %><br />
+    <%= f.text_area :hobbies, :size => "60x10" %>
+  </p>
+
   <p><%= f.submit %></p>
 <% end %>
 </div>
