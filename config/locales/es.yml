@@ -245,6 +245,7 @@ es:
     role: Rol
     title: Título
     body: Mensaje
+    
   
   ########
   # Active Record
@@ -258,6 +259,7 @@ es:
       author: Autor
       user_session: Sesión
       banner: Baner
+      user: Usuario
       comment: Comentario
       photo: Foto
       vitamin: Vitamina
@@ -297,6 +299,8 @@ es:
       user_session:
         login: Usuario
         password: Contraseña
+      user:
+        hobbies: Acerca de mí
     errors:
       header_message: "Hay errores en el formulario"
       message: "Corrige estos campos para continuar"
