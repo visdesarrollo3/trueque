@@ -92,6 +92,6 @@ class User < ActiveRecord::Base
   end
   
   def esquina_del_trueque?
-    self.persisted? and self-role == ROLES[2]
+    self.persisted? and self.role == ROLES[2]
   end
 end
