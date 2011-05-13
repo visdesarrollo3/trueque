@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
     # c.validate_password_field = false
   end
   
-  ROLES = %w(admin user)
+  ROLES = %w(admin user esquinatrueque)
   
   acts_as_commentable
   
@@ -50,7 +50,8 @@ class User < ActiveRecord::Base
   has_many :grades
   has_many :graded_trades, :through => :grades, :class_name => "Trade", :source => :trade
       
-  scope :admins, where(:role => ROLES[0])
+  scope :admins,      where(:role => ROLES[0])
+  scope :esquina_trueque, where(:role => ROLES[2])
 
 
   alias :received_books :accepted_books
@@ -88,6 +89,10 @@ class User < ActiveRecord::Base
   end
   
   def user?
-    self.persisted? and self.role == ROLES[1]
+    self.persisted? and (self.role == ROLES[1] or self.role == ROLES[2])
+  end
+  
+  def esquina_trueque?
+    self.persisted? and self.role == ROLES[2]
   end
 end

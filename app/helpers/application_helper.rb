@@ -21,7 +21,7 @@ module ApplicationHelper
   end
   
   def book_image(book, image_size, klass="cover")
-    if book.user.admin?
+    if book.user.esquina_trueque?
       ribbon_image(book, image_size)
     else
       content_tag :div, image_tag(book.photo.url(image_size)), :class => klass
