@@ -57,9 +57,6 @@
     <%= render :partial => "surveys/survey_for_guest", :locals => {:survey => @current_survey} if @current_survey %>
   <% end %>
   
-  
-
-
   <div id="vertical-banner">
     <%= image_tag "layout/sidebarbanner2.jpg" %>
   </div>
@@ -74,7 +71,7 @@
     <h1>Últimos libros</h1>
     <div class="books">
       <% for book in @latest_books %>
-        <%= render "books/book_small", :book_small => book %>
+        <%= render "books/book_small", :book => book %>
       <% end %>
     </div>
   </div>
@@ -85,7 +82,7 @@
     <h1>Libros de La Esquina del Trueque</h1>
     <div class="books">
       <% for book in @best_books %>
-        <%= render "books/book_small", :book_small => book %>
+        <%= render "books/book_small", :book => book %>
       <% end %>
     </div>
   </div>
