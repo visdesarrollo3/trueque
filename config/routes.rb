@@ -2,6 +2,9 @@ Trueque::Application.routes.draw do
   get "admin/index"
 
   scope(:path_names => { :new => "nuevo", :edit => "editar" }) do
+    resources :books, :path => "libros" do
+      resources :comments, :path => "comentarios"
+    end
     
     resources :contact_forms, :path => "contacto"
     
@@ -36,6 +39,8 @@ Trueque::Application.routes.draw do
       end
     end
     
+    
+    
     resources :vitamins, :path => "vitamina-l" do
       resources :comments, :path => "comentarios"
     end
@@ -50,9 +55,7 @@ Trueque::Application.routes.draw do
     end
   
     resources :pages, :path => "paginas"
-    resources :books, :path => "libros" do
-      resources :comments, :path => "comentarios"
-    end
+    
     
   end
   
