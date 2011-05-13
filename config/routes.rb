@@ -50,7 +50,7 @@ Trueque::Application.routes.draw do
     end
   
     resources :pages, :path => "paginas"
-    resources :books, :path => "libros" do
+    resources :books do
       resources :comments, :path => "comentarios"
     end
     
