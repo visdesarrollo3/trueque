@@ -1,14 +1,14 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :age, :sex, :ocupation, :hobbies, :actual_book, :avatar,
     :avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at,
-    :password, :login, :email, :webpage
+    :password, :login, :email, :webpage, :password_confirmation
   
   acts_as_authentic do |c|
     # c.ignore_blank_passwords = true
     # c.validate_password_field = false
   end
   
-  ROLES = %w(admin user)
+  ROLES = %w(admin user esquinatrueque)
   
   acts_as_commentable
   
@@ -88,6 +88,10 @@ class User < ActiveRecord::Base
   end
   
   def user?
-    self.persisted? and self.role == ROLES[1]
+    self.persisted? and !admin?
+  end
+  
+  def esquina_del_trueque?
+    self.persisted? and self-role == ROLES[2]
   end
 end

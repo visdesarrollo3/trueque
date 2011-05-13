@@ -1,8 +1,8 @@
 <div class="book left">
   <div class="cover">
-    <%= modal_to book_image(book, :thumb), book_path(book, :format => "modal") %>
+    <%= modal_to book_image(book_small, :thumb), book_path(book_small, :format => "modal") %>
   </div>
   <div class="info">
-    <p><%= link_to book.title, book, :class => "view-more" %></p>
+    <p><%= link_to book_small.title, book_small, :class => "view-more" %></p>
   </div>
 </div>
