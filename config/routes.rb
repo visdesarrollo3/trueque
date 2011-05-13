@@ -1,5 +1,6 @@
 Trueque::Application.routes.draw do
   get "admin/index"
+  match "libros/:id" => "books#show"
 
   scope(:path_names => { :new => "nuevo", :edit => "editar" }) do
     resources :books, :path => "libros" do
