@@ -7,7 +7,6 @@ gem 'jquery-rails'
 gem 'nifty-generators'
 gem 'acts_as_commentable'
 gem 'acts-as-taggable-on'
-gem 'acts_as_rateable'
 gem 'authlogic'
 gem 'rd_searchlogic', '3.0.0.rc4' # gem install rd_searchlogic -v 3.0.0.rc3 --pre
 gem 'rails3-jquery-autocomplete'
