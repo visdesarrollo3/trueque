@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :age, :sex, :ocupation, :hobbies, :actual_book, :avatar,
     :avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at,
-    :password, :login, :email, :webpage, :password_confirmation
+    :password, :login, :email, :webpage
   
   acts_as_authentic do |c|
     # c.ignore_blank_passwords = true
