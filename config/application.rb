@@ -31,7 +31,7 @@ module Trueque
     config.i18n.default_locale = :es
 
     # JavaScript files you want as :defaults (application.js is always included).    
-    config.action_view.javascript_expansions[:defaults] = %w(jquery.min jquery.ui.min autocomplete-rails jquery.tools.min jquery.nivo.slider.pack jQtube rails)
+    config.action_view.javascript_expansions[:defaults] = %w(jquery.min jquery.ui.min autocomplete-rails jquery.tools.min jquery.nivo.slider jQtube rails)
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
