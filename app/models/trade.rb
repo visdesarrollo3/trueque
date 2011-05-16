@@ -65,7 +65,11 @@ class Trade < ActiveRecord::Base
   end
   
   def score
-    grades.map(&:score).flatten.inject(0.0) {|sum, score| sum += score} / grades.size.to_f
+    if grades.any?
+      grades.map(&:score).flatten.inject(0.0) {|sum, score| sum += score.to_f} / grades.size.to_f
+    else
+      0.0
+    end
   end
   
   def score_from(user)
