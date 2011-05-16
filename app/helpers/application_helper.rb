@@ -21,6 +21,7 @@ module ApplicationHelper
   end
   
   def book_image(book, image_size, klass="cover")
+    return "" if book.nil?
     if book.user.esquina_del_trueque?
       ribbon_image(book, image_size)
     else
@@ -29,6 +30,7 @@ module ApplicationHelper
   end
   
   def ribbon_image(book, size)
+    return "" if book.nil?
     content_tag :div, :class => "book-cover" do
         image_tag(book.photo.url(size)) + 
         content_tag(:div, "Esquina del Trueque", :class => "ribbon-#{size}")    
