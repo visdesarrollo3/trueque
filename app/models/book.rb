@@ -1,6 +1,6 @@
 # coding: utf-8
 class Book < ActiveRecord::Base
-  default_scope order("created_at DESC")
+  default_scope order('"books"."created_at" DESC')
   include Pacecar
   
   attr_accessible :title, :available, :synopsis, :published_date, :editorial, :isbn, :user_id, :health_status, :health_description,
@@ -36,7 +36,7 @@ class Book < ActiveRecord::Base
   scope :offered,       where(:offered  => true  )
   scope :received,      where(:offered  => false )
   scope :available,     where(:trade_id => nil   )
-  scope :newest_first,  order("created_at DESC"  )
+  scope :newest_first,  order("books.created_at DESC"  )
   
   make_permalink :title
   
