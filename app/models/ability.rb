@@ -49,6 +49,7 @@ class Ability
     can :create, Comment
     can :list, Author
     
+    
     can :comment, Trade do |trade|
       trade.user1_id == @user.id or trade.user2_id == @user.id
     end
@@ -57,6 +58,7 @@ class Ability
     can :manage, Book, :user_id => @user.id
     can :manage, User, :id => @user.id
     can :index, Trade
+    can :create, Trade
     can :create, Grade
     can [:create, :read], ForumThread
     can :manage, ForumThread, :user_id => @user.id
