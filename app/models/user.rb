@@ -51,6 +51,7 @@ class User < ActiveRecord::Base
   has_many :graded_trades, :through => :grades, :class_name => "Trade", :source => :trade
       
   scope :admins, where(:role => ROLES[0])
+  scope :esquina_trueque, where(:role => ROLES[2])
 
 
   alias :received_books :accepted_books
