@@ -64,6 +64,9 @@ GEM
       aws-s3 (~> 0.6.2)
     highline (1.6.2)
     hirb (0.4.5)
+    hoptoad_notifier (2.4.9)
+      activesupport
+      builder
     i18n (0.5.0)
     jquery-rails (1.0.2)
       railties (~> 3.0)
@@ -169,6 +172,7 @@ DEPENDENCIES
   client_side_validations
   heroku-s3-backup-zinergia
   hirb
+  hoptoad_notifier
   jquery-rails
   kaminari
   meta_search
