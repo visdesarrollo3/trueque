@@ -31,10 +31,3 @@
 
   <%= render :partial => "comments/small_create", :locals => {:commentable => @forum_thread} %>
 </div>
-
-
-<p>
-  <%= link_to "Edit", edit_forum_thread_path(@forum_thread) %> |
-  <%= link_to "Destroy", @forum_thread, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", @forum_thread.category %>
-</p>
