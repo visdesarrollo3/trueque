@@ -25,6 +25,7 @@ gem 'client_side_validations'
 gem 'paperclip', '~> 2.3.10'
 gem 'acts_as_markup'
 gem 'hoptoad_notifier'
+gem 'heroku-autoscale'
 
 group :development, :test do
   gem "rspec-rails", ">= 2.0.0.beta.22"
