@@ -40,9 +40,9 @@ class Book < ActiveRecord::Base
   
   make_permalink :title
   
-  def to_param
-    permalink
-  end
+  # def to_param
+  #     permalink
+  #   end
   
   def cover
     photo
