@@ -4,12 +4,15 @@ class BooksController < ApplicationController
   respond_to :html, :xml, :json, :modal
   
   def index
-    @user = User.find params[:user_id] if params[:user_id]
+    @user = User.find params[:user_id] if params[:user_id].present?
     if @user.nil?
-      @books = Book.available.newest_first.page(params[:page]).per(20)
+      @search = Book.available.search(params[:search])
+      # @books = Book.available.newest_first
     else
-      @books = @user.books.available.newest_first.page(params[:page]).per(20)
+      @search = @user.books.available.search(params[:search])
+      # @books = .available.newest_first.page(params[:page]).per(20)
     end
+    @books = @search.page(params[:page]).per(20)
     respond_with @books  
   end
   

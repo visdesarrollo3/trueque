@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.7'
+gem 'rails', '3.0.9'
 gem 'RedCloth', '4.2.7'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'capistrano'
@@ -9,7 +9,7 @@ gem 'nifty-generators'
 gem 'acts_as_commentable'
 gem 'acts-as-taggable-on'
 gem 'authlogic'
-gem 'rd_searchlogic', '3.0.0.rc4' # gem install rd_searchlogic -v 3.0.0.rc3 --pre
+gem 'rd_searchlogic', '~> 3.0.1' # gem install rd_searchlogic -v 3.0.0.rc3 --pre
 gem 'rails3-jquery-autocomplete'
 gem 'pacecar' # Great but not as much as searchlogic!
 gem "simple-navigation"

@@ -10,6 +10,37 @@
   </div>
 <% end %>
 
+
+<div class="search">
+<%= form_for @search do |f| %>
+
+  <table width="95%">
+    <tr>
+      <td colspan="2">
+        <%= f.label :title_contains, "Título:" %>
+        <%= f.text_field :title_contains, :size => 100 %>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <%= f.label :authors_name_contains, "Autor:" %>
+        <%= f.text_field :authors_name_contains, :size => 40 %>
+      </td>
+      <td>
+        <%= f.label :editorial_contains, "Editorial:" %>
+        <%= f.text_field :editorial_contains, :size => 40 %>
+      </td>
+    </tr>
+    
+    <tr>
+      <td colspan="2" align="center"><%= f.submit "Buscar Libros" %></td>
+    </tr>
+  </table>  
+  
+<% end %>
+</div>
+
 <%= paginate @books %>
 
 <div id="all-books">

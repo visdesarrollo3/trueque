@@ -112,7 +112,7 @@ h3 { font-weight: bold; margin-bottom: 0px; }
 
 
 
-/* ##################################################################### HEADER*/
+/* ######################################################################################################################## HEADER*/
 #header{
   width: 960px;
   height: 80px;
@@ -179,7 +179,7 @@ h3 { font-weight: bold; margin-bottom: 0px; }
   font-size: 13px;
 }
 
-/* ######################################## NEW BOOK FORM */
+/* ######################################################################################################## NEW BOOK FORM */
 
 .new-book{
 	
@@ -202,7 +202,7 @@ float: left;
 width: 50%; 
 float: left;	
 }
-/* ######################################## INDEX STYLES */
+/* ######################################################################################################## INDEX STYLES */
 
 #login_form_home label{
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
@@ -257,7 +257,7 @@ label{
 
 .small {font-size: 10px;}
 
-/* ###################################s#################### LAYOUT STYLES */
+/* ######################################################################################################################## LAYOUT STYLES */
 
 #main-content {padding-left: 9px; float: left; width: 719px;}
 
@@ -292,7 +292,7 @@ label{
 
 .actions  { background: #F2F2F2; width: 80%; border: 1px solid #CCC; margin: 0 auto 30px; padding: 15px; text-align: center;}
 
-/* ######################################## INDEX STYLES */
+/* ######################################################################################################################################## INDEX STYLES */
 #sub-header {margin-bottom: 3px;}
 #perfil {margin: 0 auto;}
 #login{width: 280px; float: right; background: #C7B472 url(/images/layout/backlogin.jpg) bottom left no-repeat; height: 270px;}
@@ -302,7 +302,7 @@ label{
 #login #login-dashboard{padding: 0px 10px; margin-top: -10px;}
 
 
-/* ######################################## BOOk SHOW STYLES */
+/* ######################################################################################################################################## BOOk SHOW STYLES */
 
 .book-section         { margin-bottom: 20px; }
 
@@ -331,7 +331,7 @@ label{
 }
 
 
-/* ################################################# OVERLAY STYLES */
+/* ################################################################################################################################################# OVERLAY STYLES */
 #overlay {
   height:405px;
   width: 640px;
@@ -371,7 +371,7 @@ label{
 .book-modal .left img {margin-bottom: 8px;}
 
 
-/* ######################################## YOUTUBE PLAYER STYLES */
+/* ######################################################################################################################################## YOUTUBE PLAYER STYLES */
 .video-player { margin: 20px; width: 640px; }
 .video-controls { 
   background: #dedede; 
@@ -409,12 +409,12 @@ label{
   text-transform: uppercase;
 }
 
-/* ######################################## BIG BOOK LIST */
+/* ######################################################################################################################################## BIG BOOK LIST */
 
 .book-big {border-bottom: 1px solid #CCC; padding-bottom: 8px; margin-bottom: 12px;}
 .desc {margin-bottom: 30px;}
 
-/* ######################################## SMALL BOOK LIST */
+/* ######################################################################################################################################## SMALL BOOK LIST */
 .cover {
   width: 135px; margin: 0 auto;
 }
@@ -442,7 +442,7 @@ a.view-more {
 
 .truequear {cursor: pointer;}
 
-/* ######################################## PAGINATION */
+/* ######################################################################################################################################## PAGINATION */
 .pagination {text-align: center;}
 .pagination .first   {margin-right: 20px;}
 .pagination .last    {margin-left:  20px;}
@@ -450,11 +450,11 @@ a.view-more {
 .pagination .current {font-weight: bold;}
 
 
-/* ######################################## ADMIN MENU */
+/* ######################################################################################################################################## ADMIN MENU */
 #admin-menu {margin: 0 auto; width: 960px;}
 #admin-menu li {float: left; padding: 10px 15px; font-size: 1.0em;}
 
-/* ######################################## VITAMINS HOME */
+/* ######################################################################################################################################## VITAMINS HOME */
 .vitamins {text-align: center; width: 630px; margin: 0 auto;}
 .youtube { float: left; margin: 5px; width: 200px; min-height: 180px; text-align: center;}
 .youtube h3 {margin: 5px auto; text-align: center;}
@@ -474,22 +474,22 @@ a.view-more {
   padding-bottom: 5px; border-bottom: 1px solid #999; margin-bottom: 8px;
 }
 
-/* ######################################## USER LIST Users#index STYLES */
+/* ######################################################################################################################################## USER LIST Users#index STYLES */
 .user {float: left; margin-right: 25px; width: 40%; margin-bottom: 20px;}
 
-/* ######################################## BIG PROFILE Users#Show STYLES */
+/* ######################################################################################################################################## BIG PROFILE Users#Show STYLES */
 #profile .rleft {min-height: 200px;}
 #profile .rleft h2 {margin: 0;}
 #profile .rleft h1 {margin-top: 0;}
 #profile .profile-section {margin-top: 25px;}
 
-/* ######################################## COMMENTS LIST AND FORM STYLES */
+/* ######################################################################################################################################## COMMENTS LIST AND FORM STYLES */
 #create-comment {margin-top: 20px;}
 .comment {margin-bottom: 15px; border-bottom: 1px solid #DDD; padding-bottom: 15px;}
 .comment-body {width: 500px; float: left; margin-left: 5px;}
 .comment-info {width: 60px;  min-height: 50px; text-align: center; margin: 0 auto;}
 
-/* ######################################## TRADES SHOW */
+/* ######################################################################################################################################## TRADES SHOW */
 #trade-info {padding-bottom: 15px; margin-bottom: 25px; border-bottom: 1px solid #DDD;}
 #trade-info h2 {margin: 0; padding: 0;}
 
@@ -501,7 +501,7 @@ a.view-more {
 
 
 
-/* ######################################## CLUB DE LECTORES (FORUMS) */
+/* ######################################################################################################################################## CLUB DE LECTORES (FORUMS) */
 .foro-cat {margin-bottom: 25px;}
 .foro-title {background: #666; color: #FFF; padding: 5px;}
 .foro-title a {color: #FFF; font-weight: normal; border-bottom: 1px dotted white;}
@@ -536,4 +536,5 @@ dd input{
 
 .field_with_errors label.message {margin-left: 10px; }
 
-
+.search {margin-bottom: 30px;}
+.search input {margin-bottom: 10px;}
