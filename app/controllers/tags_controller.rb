@@ -1,5 +1,5 @@
 class TagsController < ApplicationController
-  load_and_authorize_resource
+  skip_authorization_check
   respond_to :html, :xml, :json
   
   def list
