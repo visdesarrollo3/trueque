@@ -1,6 +1,6 @@
 # coding: utf-8
 class Book < ActiveRecord::Base
-  default_scope order('"books"."created_at" DESC')
+  default_scope order('books.created_at DESC')
   include Pacecar
   
   attr_accessible :title, :available, :synopsis, :published_date, :editorial, :isbn, :user_id, :health_status, :health_description,
