@@ -1,0 +1,140 @@
+# Log de instalación Trueque Literario
+# Nicolás Hock Isaza
+
+//////////////////////////////////////////////////////////////////////////////
+//////// Es necesario Ruby, Git, G++ (entre otras) para instalar esto ////////
+//////////////////////////////////////////////////////////////////////////////
+
+
+1. Instalar la gema de RVM
+    gem install rvm
+    
+2. Instalar RVM
+    bash < <(curl -s -B https://rvm.beginrescueend.com/install/rvm)
+
+3. Seguir las instrucciones del instalador (agregar RVM al path y esto en el .bashrc)
+  # En este caso, RVM quedó en: /usr/local/rvm/
+  
+  # Pegar esto en .bashrc
+  # Load RVM into a shell session *as a function*
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+4. Instalar Ruby 1.9.2 con RVM
+    rvm instlaall 1.9.2
+
+5. Copiar la aplicación del trueque. La aplicación se ha copiado en /var/www/html/trueque
+    # En este caso se copió desde un repositorio Git, 
+    git clone https://github.com/Zinergia/trueque.git
+
+6. Entrar a la carpeta de la aplicación
+    cd /var/www/html/trueque/
+
+7. Utilizar la versión 1.9.2 de ruby (desde RVM)
+    rvm 1.9.2
+    
+8. Instalar las gemas rake y bundler
+    gem install rake bundler --no-ri --no-rdoc
+
+9. Instalar las dependencias de la aplicación
+    bundle install --deployment --without development test
+
+10. Editar el archivo config/database.yml para configurar la base de datos
+    nano config/database.yml
+    
+    # Un ejemplo de una configuración MySQL
+    # production:
+    #   adapter: mysql2
+    #   encoding: utf8
+    #   database: database_name
+    #   pool: 5
+    #   username: database_user
+    #   password: database_password
+    #   host: localhost
+
+11. Correr las migraciones de la base de datos                                                                                                                            M-D DOS Format            M-A Append  M-B Backup FileC CancelM-M Mac Format           M-P Prepend         [ Wrote 25 lines ]^O WriteOut^R Read File^Y Prev Page^K Cut Text^C Cur PosX Exit  ^J Justify^W Where Is^V Next Page^U UnCut Text^T To Spell
+    bundle exec rake db:migrate RAILS_EMNV=production
+    
+12. Crear el archivo tmp/restart.txt
+    touch tmp/restart.txt
+
+13. Instalar la gema "Passenger"
+    gem install passenger
+
+14. Instalar los módulos de passenger para apache Y SEGUIR LAS INSTRUCCIONES!
+    passenger-apainstall-apache2-module 
+
+    # Las instrucciones incluyen pegar esto en la configuración de Apache
+    # OJO: Estos módulos SOLO se ponen UNA VEZ. No es por cada aplicación!
+   LoadModule passenger_module /usr/local/rvm/gems/ruby-1.9.2-p290/gems/passenger-3.0.7/ext/apache2/mod_passenger.so
+   PassengerRoot /usr/local/rvm/gems/ruby-1.9.2-p290/gems/passenger-3.0.7
+   PassengerRuby /usr/local/rvm/wrappers/ruby-1.9.2-p290/ruby
+
+15. Agregar un virtual host para la aplicación. En este despliegue se creó el archivo /etc/httpd/conf.d/trueque.conf
+    A continuación se muestra un ejemplo del virtual host SIN REVERSE PROXY (la aplicación corre con la versión por defecto de Ruby)
+
+   <VirtualHost *:80>
+      ServerName www.yourhost.com
+      DocumentRoot /somewhere/public    # <-- TIENE QUE APUNTAR A 'public'!
+      <Directory /somewhere/public>
+         AllowOverride all              # <-- relax Apache security settings
+         Options -MultiViews            # <-- MultiViews must be turned off
+      </Directory>
+   </VirtualHost>
+
+Si la aplicación va a correr con la versión por defecto de ruby que se tiene en el servidor, ya se terminó la instalación
+
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+Estos pasos son para correr un servidor interno para tener varias aplicaciones
+CON DIFERENTES versiones de RUBY (gracias RVM)
+
+POR FAVOR, LEER ESTO: 
+http://blog.phusion.nl/2010/09/21/phusion-passenger-running-multiple-ruby-versions/
+
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
+16. Para correr el servidor de passenger STANDALONE, correr en la carpeta de la aplicación
+    # -p es el puerto, -e el ambiente, -d para que corra en background
+    passenger start -a localhost -p 3001 -e production -d
+    
+    # Debe salir un letrero como el siguiente
+
+=============== Phusion Passenger Standalone web server started ===============
+PID file: /var/www/html/trueque/tmp/pids/passenger.3001.pid
+Log file: /var/www/html/trueque/log/passenger.3001.log
+Environment: production
+Accessible via: http://localhost:3001/
+
+You can stop Phusion Passenger Standalone by pressing Ctrl-C.
+===============================================================================
+
+
+Adicionalmente se puede probar que el servidor sí está corriendo
+ping localhost -p 3001
+
+
+17. Se debe configurar un Reverse Proxy para que las peticiones que reciba apache sean enviadas al nuevo servidor.
+    Esto se hace en el VirtualHost de la aplicación:
+    
+    <VirtualHost *:80>
+        ServerName nombre_servidor
+        DocumentRoot /var/www/html/trueque/public  # <--- Apuntar a PUBLIC
+        PassengerEnabled off
+        ProxyPass / http://localhost:3001/ # <--- El puerto debe ser el mismo que se puso en passenger!
+        ProxyPassReverse / http://localhost:3001/ # <--- El puerto debe ser el mismo que se puso en passenger!
+
+        <Directory /var/www/html/trueque/public> # <--- Apuntar a PUBLIC
+          AllowOverride all
+          Options -MultiViews
+          Order allow,deny
+          Allow from all
+        </Directory>
+
+    </VirtualHost>
+
+/// Para parar el servidor standalone
+passenger stop -p 3001
