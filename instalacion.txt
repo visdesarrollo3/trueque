@@ -23,7 +23,7 @@
     rvm instlaall 1.9.2
 
 5. Copiar la aplicación del trueque. La aplicación se ha copiado en /var/www/html/trueque
-    # En este caso se copió desde un repositorio Git, 
+    # En este caso se copió desde un repositorio Git
     git clone https://github.com/Zinergia/trueque.git
 
 6. Entrar a la carpeta de la aplicación
