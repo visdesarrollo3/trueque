@@ -14,10 +14,13 @@ class User < ActiveRecord::Base
   
   make_permalink :login
 
-  extend StoreAttachmentOnS3 if Rails.env.production?
+  # extend StoreAttachmentOnS3 if Rails.env.production?
 
   has_attached_file :avatar, :styles => { :small => "100x100#", :mini => "35x35#", :big => "200x200#", :comment => "50x50#" },
-    :default_style => :small
+    :default_style => :small,
+    :path => ":rails_root/public/uploads/:class-:attachment/:id/:style-:filename",
+    :url => "/uploads/:class-:attachment/:id/:style-:filename"
+    
     
   validates_presence_of :name
 

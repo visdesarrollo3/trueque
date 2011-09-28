@@ -4,7 +4,7 @@ class Banner < ActiveRecord::Base
   
   POSITIONS = %w(main vertical)
   
-  extend StoreAttachmentOnS3 if Rails.env.production?
+  # extend StoreAttachmentOnS3 if Rails.env.production?
   
   has_attached_file :photo,
     :styles => {
@@ -12,6 +12,8 @@ class Banner < ActiveRecord::Base
       :thumb => "100x100#",
       :vertical => "225x270#"
     },
-    :default_style => "gallery"
+    :default_style => "gallery",
+    :path => ":rails_root/public/uploads/:class-:attachment/:id/:style-:filename",
+    :url => "/uploads/:class-:attachment/:id/:style-:filename"
   
 end

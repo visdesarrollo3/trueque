@@ -9,11 +9,14 @@ class Book < ActiveRecord::Base
   acts_as_taggable_on :tags
   acts_as_commentable
   
-  extend StoreAttachmentOnS3 if Rails.env.production?
+  # extend StoreAttachmentOnS3 if Rails.env.production?
   
   has_attached_file :photo,
               :styles => { :thumb => "125x145#", :big => "230x300#" },
-              :default_style => "thumb"
+              :default_style => "thumb",
+              :path => ":rails_root/public/uploads/:class-:attachment/:id/:style-:filename",
+              :url => "/uploads/:class-:attachment/:id/:style-:filename"
+              
 
   validates_presence_of :title, :synopsis, :published_date, :editorial, :isbn, :health_status, :health_description, :photo
 
